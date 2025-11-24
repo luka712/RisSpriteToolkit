@@ -1,0 +1,282 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F57AD7DE-BA75-4A7D-936A-A61131950CE0}|Ris.SpriteToolkit.CLI\\Ris.SpriteToolkit.CLI.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\ris.spritetoolkit.cli\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F57AD7DE-BA75-4A7D-936A-A61131950CE0}|Ris.SpriteToolkit.CLI\\Ris.SpriteToolkit.CLI.csproj|solutionrelative:ris.spritetoolkit.cli\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F57AD7DE-BA75-4A7D-936A-A61131950CE0}|Ris.SpriteToolkit.CLI\\Ris.SpriteToolkit.CLI.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\ris.spritetoolkit.cli\\arghelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F57AD7DE-BA75-4A7D-936A-A61131950CE0}|Ris.SpriteToolkit.CLI\\Ris.SpriteToolkit.CLI.csproj|solutionrelative:ris.spritetoolkit.cli\\arghelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F57AD7DE-BA75-4A7D-936A-A61131950CE0}|Ris.SpriteToolkit.CLI\\Ris.SpriteToolkit.CLI.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\ris.spritetoolkit.cli\\help.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F57AD7DE-BA75-4A7D-936A-A61131950CE0}|Ris.SpriteToolkit.CLI\\Ris.SpriteToolkit.CLI.csproj|solutionrelative:ris.spritetoolkit.cli\\help.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A365F12-3F03-44FE-B59C-FE5508850D5F}|Ris.SpriteToolkit.Tests\\Ris.SpriteToolkit.Tests.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\ris.spritetoolkit.tests\\spritesheettests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A365F12-3F03-44FE-B59C-FE5508850D5F}|Ris.SpriteToolkit.Tests\\Ris.SpriteToolkit.Tests.csproj|solutionrelative:ris.spritetoolkit.tests\\spritesheettests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|Ris.SpriteToolkit\\Ris.SpriteToolkit.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\ris.spritetoolkit\\mapper\\spritetoolkitprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|Ris.SpriteToolkit\\Ris.SpriteToolkit.csproj|solutionrelative:ris.spritetoolkit\\mapper\\spritetoolkitprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|Ris.SpriteToolkit\\Ris.SpriteToolkit.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\ris.spritetoolkit\\sprite\\skyline\\builderskylinenode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|Ris.SpriteToolkit\\Ris.SpriteToolkit.csproj|solutionrelative:ris.spritetoolkit\\sprite\\skyline\\builderskylinenode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|Ris.SpriteToolkit\\Ris.SpriteToolkit.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\ris.spritetoolkit\\dto\\spritetoolkitbundle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|Ris.SpriteToolkit\\Ris.SpriteToolkit.csproj|solutionrelative:ris.spritetoolkit\\dto\\spritetoolkitbundle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|Ris.SpriteToolkit\\Ris.SpriteToolkit.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\ris.spritetoolkit\\dto\\sprite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|Ris.SpriteToolkit\\Ris.SpriteToolkit.csproj|solutionrelative:ris.spritetoolkit\\dto\\sprite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|Ris.SpriteToolkit\\Ris.SpriteToolkit.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\ris.spritetoolkit\\dto\\sourcerect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|Ris.SpriteToolkit\\Ris.SpriteToolkit.csproj|solutionrelative:ris.spritetoolkit\\dto\\sourcerect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|Ris.SpriteToolkit\\Ris.SpriteToolkit.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\ris.spritetoolkit\\dto\\spritesheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|Ris.SpriteToolkit\\Ris.SpriteToolkit.csproj|solutionrelative:ris.spritetoolkit\\dto\\spritesheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|Ris.SpriteToolkit\\Ris.SpriteToolkit.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\ris.spritetoolkit\\sprite\\skyline\\builderskylinespritesheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|Ris.SpriteToolkit\\Ris.SpriteToolkit.csproj|solutionrelative:ris.spritetoolkit\\sprite\\skyline\\builderskylinespritesheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A365F12-3F03-44FE-B59C-FE5508850D5F}|Ris.SpriteToolkit.Tests\\Ris.SpriteToolkit.Tests.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\ris.spritetoolkit.tests\\mappingtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A365F12-3F03-44FE-B59C-FE5508850D5F}|Ris.SpriteToolkit.Tests\\Ris.SpriteToolkit.Tests.csproj|solutionrelative:ris.spritetoolkit.tests\\mappingtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|Ris.SpriteToolkit\\Ris.SpriteToolkit.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\ris.spritetoolkit\\sprite\\ibuilderspritesheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|Ris.SpriteToolkit\\Ris.SpriteToolkit.csproj|solutionrelative:ris.spritetoolkit\\sprite\\ibuilderspritesheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|Ris.SpriteToolkit\\Ris.SpriteToolkit.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\ris.spritetoolkit\\sprite\\base\\abasebuilderspritesheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|Ris.SpriteToolkit\\Ris.SpriteToolkit.csproj|solutionrelative:ris.spritetoolkit\\sprite\\base\\abasebuilderspritesheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|Ris.SpriteToolkit\\Ris.SpriteToolkit.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\ris.spritetoolkit\\sprite\\spritesheetbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|Ris.SpriteToolkit\\Ris.SpriteToolkit.csproj|solutionrelative:ris.spritetoolkit\\sprite\\spritesheetbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A365F12-3F03-44FE-B59C-FE5508850D5F}|Ris.SpriteToolkit.Tests\\Ris.SpriteToolkit.Tests.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\ris.spritetoolkit.tests\\spritesheetbuildertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A365F12-3F03-44FE-B59C-FE5508850D5F}|Ris.SpriteToolkit.Tests\\Ris.SpriteToolkit.Tests.csproj|solutionrelative:ris.spritetoolkit.tests\\spritesheetbuildertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Help.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.SpriteToolkit.CLI\\Help.cs",
+              "RelativeDocumentMoniker": "Ris.SpriteToolkit.CLI\\Help.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.SpriteToolkit.CLI\\Help.cs",
+              "RelativeToolTip": "Ris.SpriteToolkit.CLI\\Help.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAACYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T09:18:37.284Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.SpriteToolkit.CLI\\Program.cs",
+              "RelativeDocumentMoniker": "Ris.SpriteToolkit.CLI\\Program.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.SpriteToolkit.CLI\\Program.cs",
+              "RelativeToolTip": "Ris.SpriteToolkit.CLI\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T09:18:36.54Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ArgHelper.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.SpriteToolkit.CLI\\ArgHelper.cs",
+              "RelativeDocumentMoniker": "Ris.SpriteToolkit.CLI\\ArgHelper.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.SpriteToolkit.CLI\\ArgHelper.cs",
+              "RelativeToolTip": "Ris.SpriteToolkit.CLI\\ArgHelper.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAQwBoAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T09:18:22.099Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SpriteToolkitProfile.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.SpriteToolkit\\Mapper\\SpriteToolkitProfile.cs",
+              "RelativeDocumentMoniker": "Ris.SpriteToolkit\\Mapper\\SpriteToolkitProfile.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.SpriteToolkit\\Mapper\\SpriteToolkitProfile.cs",
+              "RelativeToolTip": "Ris.SpriteToolkit\\Mapper\\SpriteToolkitProfile.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAcwA8AAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T20:27:07.322Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BuilderSkylineNode.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.SpriteToolkit\\Sprite\\Skyline\\BuilderSkylineNode.cs",
+              "RelativeDocumentMoniker": "Ris.SpriteToolkit\\Sprite\\Skyline\\BuilderSkylineNode.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.SpriteToolkit\\Sprite\\Skyline\\BuilderSkylineNode.cs",
+              "RelativeToolTip": "Ris.SpriteToolkit\\Sprite\\Skyline\\BuilderSkylineNode.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T20:25:31.512Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SpriteToolkitBundle.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.SpriteToolkit\\Dto\\SpriteToolkitBundle.cs",
+              "RelativeDocumentMoniker": "Ris.SpriteToolkit\\Dto\\SpriteToolkitBundle.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.SpriteToolkit\\Dto\\SpriteToolkitBundle.cs",
+              "RelativeToolTip": "Ris.SpriteToolkit\\Dto\\SpriteToolkitBundle.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T20:17:10.378Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Sprite.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.SpriteToolkit\\Dto\\Sprite.cs",
+              "RelativeDocumentMoniker": "Ris.SpriteToolkit\\Dto\\Sprite.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.SpriteToolkit\\Dto\\Sprite.cs",
+              "RelativeToolTip": "Ris.SpriteToolkit\\Dto\\Sprite.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T20:17:07.536Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SourceRect.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.SpriteToolkit\\Dto\\SourceRect.cs",
+              "RelativeDocumentMoniker": "Ris.SpriteToolkit\\Dto\\SourceRect.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.SpriteToolkit\\Dto\\SourceRect.cs",
+              "RelativeToolTip": "Ris.SpriteToolkit\\Dto\\SourceRect.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T20:17:04.942Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "SpriteSheet.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.SpriteToolkit\\Dto\\SpriteSheet.cs",
+              "RelativeDocumentMoniker": "Ris.SpriteToolkit\\Dto\\SpriteSheet.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.SpriteToolkit\\Dto\\SpriteSheet.cs",
+              "RelativeToolTip": "Ris.SpriteToolkit\\Dto\\SpriteSheet.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwB4AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T20:16:58.838Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SpriteSheetTests.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.SpriteToolkit.Tests\\SpriteSheetTests.cs",
+              "RelativeDocumentMoniker": "Ris.SpriteToolkit.Tests\\SpriteSheetTests.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.SpriteToolkit.Tests\\SpriteSheetTests.cs",
+              "RelativeToolTip": "Ris.SpriteToolkit.Tests\\SpriteSheetTests.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAvwEwAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T20:16:08.208Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "BuilderSkylineSpriteSheet.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.SpriteToolkit\\Sprite\\Skyline\\BuilderSkylineSpriteSheet.cs",
+              "RelativeDocumentMoniker": "Ris.SpriteToolkit\\Sprite\\Skyline\\BuilderSkylineSpriteSheet.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.SpriteToolkit\\Sprite\\Skyline\\BuilderSkylineSpriteSheet.cs",
+              "RelativeToolTip": "Ris.SpriteToolkit\\Sprite\\Skyline\\BuilderSkylineSpriteSheet.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAkAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T20:14:58.752Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "MappingTests.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.SpriteToolkit.Tests\\MappingTests.cs",
+              "RelativeDocumentMoniker": "Ris.SpriteToolkit.Tests\\MappingTests.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.SpriteToolkit.Tests\\MappingTests.cs",
+              "RelativeToolTip": "Ris.SpriteToolkit.Tests\\MappingTests.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAwwCEAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T20:14:54.432Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IBuilderSpriteSheet.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.SpriteToolkit\\Sprite\\IBuilderSpriteSheet.cs",
+              "RelativeDocumentMoniker": "Ris.SpriteToolkit\\Sprite\\IBuilderSpriteSheet.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.SpriteToolkit\\Sprite\\IBuilderSpriteSheet.cs",
+              "RelativeToolTip": "Ris.SpriteToolkit\\Sprite\\IBuilderSpriteSheet.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAowBwAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T20:14:49.909Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ABaseBuilderSpriteSheet.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.SpriteToolkit\\Sprite\\Base\\ABaseBuilderSpriteSheet.cs",
+              "RelativeDocumentMoniker": "Ris.SpriteToolkit\\Sprite\\Base\\ABaseBuilderSpriteSheet.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.SpriteToolkit\\Sprite\\Base\\ABaseBuilderSpriteSheet.cs",
+              "RelativeToolTip": "Ris.SpriteToolkit\\Sprite\\Base\\ABaseBuilderSpriteSheet.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T20:14:24.088Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "SpriteSheetBuilder.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.SpriteToolkit\\Sprite\\SpriteSheetBuilder.cs",
+              "RelativeDocumentMoniker": "Ris.SpriteToolkit\\Sprite\\SpriteSheetBuilder.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.SpriteToolkit\\Sprite\\SpriteSheetBuilder.cs",
+              "RelativeToolTip": "Ris.SpriteToolkit\\Sprite\\SpriteSheetBuilder.cs",
+              "ViewState": "AgIAAOAAAAAAAAAAAAAAAO4AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T20:12:38.027Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "SpriteSheetBuilderTests.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.SpriteToolkit.Tests\\SpriteSheetBuilderTests.cs",
+              "RelativeDocumentMoniker": "Ris.SpriteToolkit.Tests\\SpriteSheetBuilderTests.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.SpriteToolkit.Tests\\SpriteSheetBuilderTests.cs",
+              "RelativeToolTip": "Ris.SpriteToolkit.Tests\\SpriteSheetBuilderTests.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAvwCcAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-09T10:28:38.892Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

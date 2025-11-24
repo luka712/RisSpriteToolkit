@@ -1,0 +1,29 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Ris.AssetToolkit.UIClient.App"
+             xmlns:semi="clr-namespace:Semi.Avalonia;assembly=Semi.Avalonia"
+             RequestedThemeVariant="Default">
+
+  <!-- RESOURCES -->
+  <Application.Resources>
+    <SolidColorBrush x:Key="BackgroundColor">#202020</SolidColorBrush>
+    <SolidColorBrush x:Key="ControlBackgroundColor">#202020</SolidColorBrush>
+  </Application.Resources>
+
+  <Application.Styles>
+    <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+    <FluentTheme>
+      <!-- THEME STYLE OVERRIDES -->
+    </FluentTheme>
+
+    <!-- THIRD PARTY -->
+    <StyleInclude Source="avares://Notification.Avalonia/Themes/Generic.xaml" />
+    <StyleInclude Source="avares://IconPacks.Avalonia/Icons.axaml" />
+
+    <!-- LOCAL -->
+    <StyleInclude Source="avares://Ris.AssetToolkit.UIClient/Controls/ImageListItem.axaml" />
+    <StyleInclude Source="avares://Ris.AssetToolkit.UIClient/Controls/ImageList.axaml" />
+    <StyleInclude Source="avares://Ris.AssetToolkit.UIClient/Controls/FolderListItem.axaml" />
+    <StyleInclude Source="avares://Ris.AssetToolkit.UIClient/Controls/FolderList.axaml" />
+  </Application.Styles>
+</Application>

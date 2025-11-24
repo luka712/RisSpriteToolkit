@@ -1,0 +1,36 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:Ris.AssetToolkit.UIClient.Controls"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Ris.AssetToolkit.UIClient.UserControls.BuildSpriteSheet"
+             Background="{DynamicResource ControlBackgroundColor}"
+             >
+  <StackPanel Orientation="Vertical"
+              Margin="10"
+              >
+    <StackPanel Orientation="Horizontal"
+                HorizontalAlignment="Left"
+                >
+      <Button Click="SelectFolder_Click">
+        Select Folder
+      </Button>
+      <TextBox Name="outputFileNameTextBox"
+         TextChanged="OutputFileName_TextChanged"
+         Text="SpriteSheet"
+         HorizontalAlignment="Left"
+         FontSize="14"
+         Margin="10"
+         Width="200"/>
+    </StackPanel>
+
+    <!-- List of items -->
+    <!-- For now here, but it probably does not belong here -->
+    <controls:FolderList x:Name="folderData" />
+    
+    <Button HorizontalAlignment="Left"
+            Click="BuildButton_Click"
+            >Build</Button>
+  </StackPanel>
+</UserControl>

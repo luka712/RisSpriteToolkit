@@ -1,0 +1,642 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F57AD7DE-BA75-4A7D-936A-A61131950CE0}|AssetToolkit.CLI\\Ris.AssetToolkit.CLI.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkit.cli\\ris.assettoolkit.cli.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{F57AD7DE-BA75-4A7D-936A-A61131950CE0}|AssetToolkit.CLI\\Ris.AssetToolkit.CLI.csproj|solutionrelative:assettoolkit.cli\\ris.assettoolkit.cli.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9C96A9A-9200-41DB-B625-D1EB545EE3A8}|AssetToolkitSharp.UIClient\\Ris.AssetToolkit.UIClient.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkitsharp.uiclient\\controls\\folderlist.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9C96A9A-9200-41DB-B625-D1EB545EE3A8}|AssetToolkitSharp.UIClient\\Ris.AssetToolkit.UIClient.csproj|solutionrelative:assettoolkitsharp.uiclient\\controls\\folderlist.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9C96A9A-9200-41DB-B625-D1EB545EE3A8}|AssetToolkitSharp.UIClient\\Ris.AssetToolkit.UIClient.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkitsharp.uiclient\\controls\\folderlist.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{D9C96A9A-9200-41DB-B625-D1EB545EE3A8}|AssetToolkitSharp.UIClient\\Ris.AssetToolkit.UIClient.csproj|solutionrelative:assettoolkitsharp.uiclient\\controls\\folderlist.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9C96A9A-9200-41DB-B625-D1EB545EE3A8}|AssetToolkitSharp.UIClient\\Ris.AssetToolkit.UIClient.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkitsharp.uiclient\\app.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{D9C96A9A-9200-41DB-B625-D1EB545EE3A8}|AssetToolkitSharp.UIClient\\Ris.AssetToolkit.UIClient.csproj|solutionrelative:assettoolkitsharp.uiclient\\app.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9C96A9A-9200-41DB-B625-D1EB545EE3A8}|AssetToolkitSharp.UIClient\\Ris.AssetToolkit.UIClient.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkitsharp.uiclient\\views\\mainview.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9C96A9A-9200-41DB-B625-D1EB545EE3A8}|AssetToolkitSharp.UIClient\\Ris.AssetToolkit.UIClient.csproj|solutionrelative:assettoolkitsharp.uiclient\\views\\mainview.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9C96A9A-9200-41DB-B625-D1EB545EE3A8}|AssetToolkitSharp.UIClient\\Ris.AssetToolkit.UIClient.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkitsharp.uiclient\\usercontrols\\buildspritesheet.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9C96A9A-9200-41DB-B625-D1EB545EE3A8}|AssetToolkitSharp.UIClient\\Ris.AssetToolkit.UIClient.csproj|solutionrelative:assettoolkitsharp.uiclient\\usercontrols\\buildspritesheet.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9C96A9A-9200-41DB-B625-D1EB545EE3A8}|AssetToolkitSharp.UIClient\\Ris.AssetToolkit.UIClient.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkitsharp.uiclient\\app.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9C96A9A-9200-41DB-B625-D1EB545EE3A8}|AssetToolkitSharp.UIClient\\Ris.AssetToolkit.UIClient.csproj|solutionrelative:assettoolkitsharp.uiclient\\app.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9C96A9A-9200-41DB-B625-D1EB545EE3A8}|AssetToolkitSharp.UIClient\\Ris.AssetToolkit.UIClient.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkitsharp.uiclient\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9C96A9A-9200-41DB-B625-D1EB545EE3A8}|AssetToolkitSharp.UIClient\\Ris.AssetToolkit.UIClient.csproj|solutionrelative:assettoolkitsharp.uiclient\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9C96A9A-9200-41DB-B625-D1EB545EE3A8}|AssetToolkitSharp.UIClient\\Ris.AssetToolkit.UIClient.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkitsharp.uiclient\\usercontrols\\buildspritesheet.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{D9C96A9A-9200-41DB-B625-D1EB545EE3A8}|AssetToolkitSharp.UIClient\\Ris.AssetToolkit.UIClient.csproj|solutionrelative:assettoolkitsharp.uiclient\\usercontrols\\buildspritesheet.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9C96A9A-9200-41DB-B625-D1EB545EE3A8}|AssetToolkitSharp.UIClient\\Ris.AssetToolkit.UIClient.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkitsharp.uiclient\\container.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9C96A9A-9200-41DB-B625-D1EB545EE3A8}|AssetToolkitSharp.UIClient\\Ris.AssetToolkit.UIClient.csproj|solutionrelative:assettoolkitsharp.uiclient\\container.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9C96A9A-9200-41DB-B625-D1EB545EE3A8}|AssetToolkitSharp.UIClient\\Ris.AssetToolkit.UIClient.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkitsharp.uiclient\\data\\imagedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9C96A9A-9200-41DB-B625-D1EB545EE3A8}|AssetToolkitSharp.UIClient\\Ris.AssetToolkit.UIClient.csproj|solutionrelative:assettoolkitsharp.uiclient\\data\\imagedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9C96A9A-9200-41DB-B625-D1EB545EE3A8}|AssetToolkitSharp.UIClient\\Ris.AssetToolkit.UIClient.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkitsharp.uiclient\\services\\imageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9C96A9A-9200-41DB-B625-D1EB545EE3A8}|AssetToolkitSharp.UIClient\\Ris.AssetToolkit.UIClient.csproj|solutionrelative:assettoolkitsharp.uiclient\\services\\imageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9C96A9A-9200-41DB-B625-D1EB545EE3A8}|AssetToolkitSharp.UIClient\\Ris.AssetToolkit.UIClient.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkitsharp.uiclient\\controls\\imagelist.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9C96A9A-9200-41DB-B625-D1EB545EE3A8}|AssetToolkitSharp.UIClient\\Ris.AssetToolkit.UIClient.csproj|solutionrelative:assettoolkitsharp.uiclient\\controls\\imagelist.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9C96A9A-9200-41DB-B625-D1EB545EE3A8}|AssetToolkitSharp.UIClient\\Ris.AssetToolkit.UIClient.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkitsharp.uiclient\\controls\\imagelistitem.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9C96A9A-9200-41DB-B625-D1EB545EE3A8}|AssetToolkitSharp.UIClient\\Ris.AssetToolkit.UIClient.csproj|solutionrelative:assettoolkitsharp.uiclient\\controls\\imagelistitem.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F57AD7DE-BA75-4A7D-936A-A61131950CE0}|AssetToolkit.CLI\\Ris.AssetToolkit.CLI.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkit.cli\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F57AD7DE-BA75-4A7D-936A-A61131950CE0}|AssetToolkit.CLI\\Ris.AssetToolkit.CLI.csproj|solutionrelative:assettoolkit.cli\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|AssetToolkitSharp\\Ris.AssetToolkit.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkitsharp\\sprite\\skyline\\skylinenode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|AssetToolkitSharp\\Ris.AssetToolkit.csproj|solutionrelative:assettoolkitsharp\\sprite\\skyline\\skylinenode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|AssetToolkitSharp\\Ris.AssetToolkit.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkitsharp\\data\\imageformats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|AssetToolkitSharp\\Ris.AssetToolkit.csproj|solutionrelative:assettoolkitsharp\\data\\imageformats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74A0952B-A3F6-45FF-B491-6CDAD4D2ABDB}|AssetToolkit.Interface\\Ris.AssetToolkit.Interface.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkit.interface\\ris.assettoolkit.interface.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{74A0952B-A3F6-45FF-B491-6CDAD4D2ABDB}|AssetToolkit.Interface\\Ris.AssetToolkit.Interface.csproj|solutionrelative:assettoolkit.interface\\ris.assettoolkit.interface.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A365F12-3F03-44FE-B59C-FE5508850D5F}|AssetToolkitSharp.Tests\\Ris.AssetToolkit.Tests.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkitsharp.tests\\ris.assettoolkit.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{5A365F12-3F03-44FE-B59C-FE5508850D5F}|AssetToolkitSharp.Tests\\Ris.AssetToolkit.Tests.csproj|solutionrelative:assettoolkitsharp.tests\\ris.assettoolkit.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|AssetToolkitSharp\\Ris.AssetToolkit.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkitsharp\\ris.assettoolkit.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|AssetToolkitSharp\\Ris.AssetToolkit.csproj|solutionrelative:assettoolkitsharp\\ris.assettoolkit.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\lukaa\\AppData\\Local\\SourceServer\\b54bbae5d328ffba4ba8c5ea6a60b46260dfc829005c5d99c7a100a7e23a818d\\Rectangle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|AssetToolkitSharp\\Ris.AssetToolkit.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkitsharp\\sprite\\spritesheetbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|AssetToolkitSharp\\Ris.AssetToolkit.csproj|solutionrelative:assettoolkitsharp\\sprite\\spritesheetbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A365F12-3F03-44FE-B59C-FE5508850D5F}|AssetToolkitSharp.Tests\\Ris.AssetToolkit.Tests.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkitsharp.tests\\imageloadertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A365F12-3F03-44FE-B59C-FE5508850D5F}|AssetToolkitSharp.Tests\\Ris.AssetToolkit.Tests.csproj|solutionrelative:assettoolkitsharp.tests\\imageloadertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A365F12-3F03-44FE-B59C-FE5508850D5F}|AssetToolkitSharp.Tests\\Ris.AssetToolkit.Tests.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkitsharp.tests\\assetbuildertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A365F12-3F03-44FE-B59C-FE5508850D5F}|AssetToolkitSharp.Tests\\Ris.AssetToolkit.Tests.csproj|solutionrelative:assettoolkitsharp.tests\\assetbuildertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A365F12-3F03-44FE-B59C-FE5508850D5F}|AssetToolkitSharp.Tests\\Ris.AssetToolkit.Tests.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkitsharp.tests\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A365F12-3F03-44FE-B59C-FE5508850D5F}|AssetToolkitSharp.Tests\\Ris.AssetToolkit.Tests.csproj|solutionrelative:assettoolkitsharp.tests\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A365F12-3F03-44FE-B59C-FE5508850D5F}|AssetToolkitSharp.Tests\\Ris.AssetToolkit.Tests.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkitsharp.tests\\spritesheetbuildertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A365F12-3F03-44FE-B59C-FE5508850D5F}|AssetToolkitSharp.Tests\\Ris.AssetToolkit.Tests.csproj|solutionrelative:assettoolkitsharp.tests\\spritesheetbuildertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A365F12-3F03-44FE-B59C-FE5508850D5F}|AssetToolkitSharp.Tests\\Ris.AssetToolkit.Tests.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkitsharp.tests\\spritesheettests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A365F12-3F03-44FE-B59C-FE5508850D5F}|AssetToolkitSharp.Tests\\Ris.AssetToolkit.Tests.csproj|solutionrelative:assettoolkitsharp.tests\\spritesheettests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|AssetToolkitSharp\\Ris.AssetToolkit.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkitsharp\\sprite\\spritesheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|AssetToolkitSharp\\Ris.AssetToolkit.csproj|solutionrelative:assettoolkitsharp\\sprite\\spritesheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F57AD7DE-BA75-4A7D-936A-A61131950CE0}|AssetToolkit.CLI\\Ris.AssetToolkit.CLI.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkit.cli\\help.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F57AD7DE-BA75-4A7D-936A-A61131950CE0}|AssetToolkit.CLI\\Ris.AssetToolkit.CLI.csproj|solutionrelative:assettoolkit.cli\\help.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74A0952B-A3F6-45FF-B491-6CDAD4D2ABDB}|AssetToolkit.Interface\\Ris.AssetToolkit.Interface.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkit.interface\\data\\spritedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74A0952B-A3F6-45FF-B491-6CDAD4D2ABDB}|AssetToolkit.Interface\\Ris.AssetToolkit.Interface.csproj|solutionrelative:assettoolkit.interface\\data\\spritedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|AssetToolkitSharp\\Ris.AssetToolkit.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkitsharp\\sprite\\skyline\\skylinespritesheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|AssetToolkitSharp\\Ris.AssetToolkit.csproj|solutionrelative:assettoolkitsharp\\sprite\\skyline\\skylinespritesheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|AssetToolkitSharp\\Ris.AssetToolkit.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkitsharp\\loaders\\imageloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|AssetToolkitSharp\\Ris.AssetToolkit.csproj|solutionrelative:assettoolkitsharp\\loaders\\imageloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74A0952B-A3F6-45FF-B491-6CDAD4D2ABDB}|AssetToolkit.Interface\\Ris.AssetToolkit.Interface.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkit.interface\\data\\rawimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74A0952B-A3F6-45FF-B491-6CDAD4D2ABDB}|AssetToolkit.Interface\\Ris.AssetToolkit.Interface.csproj|solutionrelative:assettoolkit.interface\\data\\rawimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74A0952B-A3F6-45FF-B491-6CDAD4D2ABDB}|AssetToolkit.Interface\\Ris.AssetToolkit.Interface.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkit.interface\\math\\rect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74A0952B-A3F6-45FF-B491-6CDAD4D2ABDB}|AssetToolkit.Interface\\Ris.AssetToolkit.Interface.csproj|solutionrelative:assettoolkit.interface\\math\\rect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74A0952B-A3F6-45FF-B491-6CDAD4D2ABDB}|AssetToolkit.Interface\\Ris.AssetToolkit.Interface.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkit.interface\\sprite\\ispritesheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74A0952B-A3F6-45FF-B491-6CDAD4D2ABDB}|AssetToolkit.Interface\\Ris.AssetToolkit.Interface.csproj|solutionrelative:assettoolkit.interface\\sprite\\ispritesheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|AssetToolkitSharp\\Ris.AssetToolkit.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkitsharp\\extensions\\opencvmatextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|AssetToolkitSharp\\Ris.AssetToolkit.csproj|solutionrelative:assettoolkitsharp\\extensions\\opencvmatextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|AssetToolkitSharp\\Ris.AssetToolkit.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkitsharp\\data\\rawimageopencv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|AssetToolkitSharp\\Ris.AssetToolkit.csproj|solutionrelative:assettoolkitsharp\\data\\rawimageopencv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|AssetToolkitSharp\\Ris.AssetToolkit.csproj|d:\\projects\\assettoolkitsharp\\assettoolkitsharp\\assettoolkitsharp\\assetbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D5A4A03-E55E-4C2C-ADD2-B72448553CAB}|AssetToolkitSharp\\Ris.AssetToolkit.csproj|solutionrelative:assettoolkitsharp\\assetbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FolderList.axaml.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.UIClient\\Controls\\FolderList.axaml.cs",
+              "RelativeDocumentMoniker": "AssetToolkitSharp.UIClient\\Controls\\FolderList.axaml.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.UIClient\\Controls\\FolderList.axaml.cs",
+              "RelativeToolTip": "AssetToolkitSharp.UIClient\\Controls\\FolderList.axaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T17:15:19.036Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FolderList.axaml",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.UIClient\\Controls\\FolderList.axaml",
+              "RelativeDocumentMoniker": "AssetToolkitSharp.UIClient\\Controls\\FolderList.axaml",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.UIClient\\Controls\\FolderList.axaml",
+              "RelativeToolTip": "AssetToolkitSharp.UIClient\\Controls\\FolderList.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-04T17:15:09.803Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "App.axaml",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.UIClient\\App.axaml",
+              "RelativeDocumentMoniker": "AssetToolkitSharp.UIClient\\App.axaml",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.UIClient\\App.axaml",
+              "RelativeToolTip": "AssetToolkitSharp.UIClient\\App.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-04T17:14:53.098Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainView.axaml.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.UIClient\\Views\\MainView.axaml.cs",
+              "RelativeDocumentMoniker": "AssetToolkitSharp.UIClient\\Views\\MainView.axaml.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.UIClient\\Views\\MainView.axaml.cs",
+              "RelativeToolTip": "AssetToolkitSharp.UIClient\\Views\\MainView.axaml.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAgwCMAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T17:14:37.737Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "App.axaml.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.UIClient\\App.axaml.cs",
+              "RelativeDocumentMoniker": "AssetToolkitSharp.UIClient\\App.axaml.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.UIClient\\App.axaml.cs",
+              "RelativeToolTip": "AssetToolkitSharp.UIClient\\App.axaml.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAA6wBsAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T17:14:09.788Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "BuildSpriteSheet.axaml",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.UIClient\\UserControls\\BuildSpriteSheet.axaml",
+              "RelativeDocumentMoniker": "AssetToolkitSharp.UIClient\\UserControls\\BuildSpriteSheet.axaml",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.UIClient\\UserControls\\BuildSpriteSheet.axaml",
+              "RelativeToolTip": "AssetToolkitSharp.UIClient\\UserControls\\BuildSpriteSheet.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-04T17:12:35.987Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BuildSpriteSheet.axaml.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.UIClient\\UserControls\\BuildSpriteSheet.axaml.cs",
+              "RelativeDocumentMoniker": "AssetToolkitSharp.UIClient\\UserControls\\BuildSpriteSheet.axaml.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.UIClient\\UserControls\\BuildSpriteSheet.axaml.cs",
+              "RelativeToolTip": "AssetToolkitSharp.UIClient\\UserControls\\BuildSpriteSheet.axaml.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAqwDgAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T17:12:16.256Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Ris.AssetToolkit.CLI.csproj",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkit.CLI\\Ris.AssetToolkit.CLI.csproj",
+              "RelativeDocumentMoniker": "AssetToolkit.CLI\\Ris.AssetToolkit.CLI.csproj",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkit.CLI\\Ris.AssetToolkit.CLI.csproj",
+              "RelativeToolTip": "AssetToolkit.CLI\\Ris.AssetToolkit.CLI.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-04T16:58:26.858Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Container.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.UIClient\\Container.cs",
+              "RelativeDocumentMoniker": "AssetToolkitSharp.UIClient\\Container.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.UIClient\\Container.cs",
+              "RelativeToolTip": "AssetToolkitSharp.UIClient\\Container.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T17:12:00.908Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ImageData.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.UIClient\\Data\\ImageData.cs",
+              "RelativeDocumentMoniker": "AssetToolkitSharp.UIClient\\Data\\ImageData.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.UIClient\\Data\\ImageData.cs",
+              "RelativeToolTip": "AssetToolkitSharp.UIClient\\Data\\ImageData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAASwA8AAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T17:11:51.018Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ImageService.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.UIClient\\Services\\ImageService.cs",
+              "RelativeDocumentMoniker": "AssetToolkitSharp.UIClient\\Services\\ImageService.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.UIClient\\Services\\ImageService.cs",
+              "RelativeToolTip": "AssetToolkitSharp.UIClient\\Services\\ImageService.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAwwDQAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T17:11:19.545Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MainViewModel.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.UIClient\\ViewModels\\MainViewModel.cs",
+              "RelativeDocumentMoniker": "AssetToolkitSharp.UIClient\\ViewModels\\MainViewModel.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.UIClient\\ViewModels\\MainViewModel.cs",
+              "RelativeToolTip": "AssetToolkitSharp.UIClient\\ViewModels\\MainViewModel.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACgAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T17:11:05.396Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ImageList.axaml.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.UIClient\\Controls\\ImageList.axaml.cs",
+              "RelativeDocumentMoniker": "AssetToolkitSharp.UIClient\\Controls\\ImageList.axaml.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.UIClient\\Controls\\ImageList.axaml.cs",
+              "RelativeToolTip": "AssetToolkitSharp.UIClient\\Controls\\ImageList.axaml.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAQwBgAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T17:10:51.717Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ImageListItem.axaml.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.UIClient\\Controls\\ImageListItem.axaml.cs",
+              "RelativeDocumentMoniker": "AssetToolkitSharp.UIClient\\Controls\\ImageListItem.axaml.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.UIClient\\Controls\\ImageListItem.axaml.cs",
+              "RelativeToolTip": "AssetToolkitSharp.UIClient\\Controls\\ImageListItem.axaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T17:10:30.676Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "SpriteSheetBuilder.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp\\Sprite\\SpriteSheetBuilder.cs",
+              "RelativeDocumentMoniker": "AssetToolkitSharp\\Sprite\\SpriteSheetBuilder.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp\\Sprite\\SpriteSheetBuilder.cs",
+              "RelativeToolTip": "AssetToolkitSharp\\Sprite\\SpriteSheetBuilder.cs",
+              "ViewState": "AgIAAJoAAAAAAAAAAAAqwKgAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-11T05:06:11.705Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ImageLoaderTests.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.Tests\\ImageLoaderTests.cs",
+              "RelativeDocumentMoniker": "AssetToolkitSharp.Tests\\ImageLoaderTests.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.Tests\\ImageLoaderTests.cs",
+              "RelativeToolTip": "AssetToolkitSharp.Tests\\ImageLoaderTests.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAgwAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T12:33:39.101Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "AssetBuilderTests.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.Tests\\AssetBuilderTests.cs",
+              "RelativeDocumentMoniker": "AssetToolkitSharp.Tests\\AssetBuilderTests.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.Tests\\AssetBuilderTests.cs",
+              "RelativeToolTip": "AssetToolkitSharp.Tests\\AssetBuilderTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T12:34:24.974Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "GlobalUsings.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.Tests\\GlobalUsings.cs",
+              "RelativeDocumentMoniker": "AssetToolkitSharp.Tests\\GlobalUsings.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.Tests\\GlobalUsings.cs",
+              "RelativeToolTip": "AssetToolkitSharp.Tests\\GlobalUsings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T12:34:07.85Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "SpriteSheetBuilderTests.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.Tests\\SpriteSheetBuilderTests.cs",
+              "RelativeDocumentMoniker": "AssetToolkitSharp.Tests\\SpriteSheetBuilderTests.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.Tests\\SpriteSheetBuilderTests.cs",
+              "RelativeToolTip": "AssetToolkitSharp.Tests\\SpriteSheetBuilderTests.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T12:34:36.486Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "SpriteSheetTests.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.Tests\\SpriteSheetTests.cs",
+              "RelativeDocumentMoniker": "AssetToolkitSharp.Tests\\SpriteSheetTests.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.Tests\\SpriteSheetTests.cs",
+              "RelativeToolTip": "AssetToolkitSharp.Tests\\SpriteSheetTests.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T12:34:44.301Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "SpriteSheet.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp\\Sprite\\SpriteSheet.cs",
+              "RelativeDocumentMoniker": "AssetToolkitSharp\\Sprite\\SpriteSheet.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp\\Sprite\\SpriteSheet.cs",
+              "RelativeToolTip": "AssetToolkitSharp\\Sprite\\SpriteSheet.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAArwBYAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T12:39:19.703Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkit.CLI\\Program.cs",
+              "RelativeDocumentMoniker": "AssetToolkit.CLI\\Program.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkit.CLI\\Program.cs",
+              "RelativeToolTip": "AssetToolkit.CLI\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T12:48:03.013Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Help.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkit.CLI\\Help.cs",
+              "RelativeDocumentMoniker": "AssetToolkit.CLI\\Help.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkit.CLI\\Help.cs",
+              "RelativeToolTip": "AssetToolkit.CLI\\Help.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwAYAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T12:48:02.688Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "SpriteData.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkit.Interface\\Data\\SpriteData.cs",
+              "RelativeDocumentMoniker": "AssetToolkit.Interface\\Data\\SpriteData.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkit.Interface\\Data\\SpriteData.cs",
+              "RelativeToolTip": "AssetToolkit.Interface\\Data\\SpriteData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T12:32:01.097Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "SkylineSpriteSheet.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp\\Sprite\\Skyline\\SkylineSpriteSheet.cs",
+              "RelativeDocumentMoniker": "AssetToolkitSharp\\Sprite\\Skyline\\SkylineSpriteSheet.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp\\Sprite\\Skyline\\SkylineSpriteSheet.cs",
+              "RelativeToolTip": "AssetToolkitSharp\\Sprite\\Skyline\\SkylineSpriteSheet.cs",
+              "ViewState": "AgIAAHkAAAAAAAAAAAAAAG0AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T12:37:13.368Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "ImageLoader.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp\\Loaders\\ImageLoader.cs",
+              "RelativeDocumentMoniker": "AssetToolkitSharp\\Loaders\\ImageLoader.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp\\Loaders\\ImageLoader.cs",
+              "RelativeToolTip": "AssetToolkitSharp\\Loaders\\ImageLoader.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEcAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T12:32:31.977Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "RawImage.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkit.Interface\\Data\\RawImage.cs",
+              "RelativeDocumentMoniker": "AssetToolkit.Interface\\Data\\RawImage.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkit.Interface\\Data\\RawImage.cs",
+              "RelativeToolTip": "AssetToolkit.Interface\\Data\\RawImage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T15:45:28.428Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Rect.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkit.Interface\\Math\\Rect.cs",
+              "RelativeDocumentMoniker": "AssetToolkit.Interface\\Math\\Rect.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkit.Interface\\Math\\Rect.cs",
+              "RelativeToolTip": "AssetToolkit.Interface\\Math\\Rect.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-02T10:31:01.695Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "ISpriteSheet.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkit.Interface\\Sprite\\ISpriteSheet.cs",
+              "RelativeDocumentMoniker": "AssetToolkit.Interface\\Sprite\\ISpriteSheet.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkit.Interface\\Sprite\\ISpriteSheet.cs",
+              "RelativeToolTip": "AssetToolkit.Interface\\Sprite\\ISpriteSheet.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAA5wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T12:32:08.13Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "SkylineNode.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp\\Sprite\\Skyline\\SkylineNode.cs",
+              "RelativeDocumentMoniker": "AssetToolkitSharp\\Sprite\\Skyline\\SkylineNode.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp\\Sprite\\Skyline\\SkylineNode.cs",
+              "RelativeToolTip": "AssetToolkitSharp\\Sprite\\Skyline\\SkylineNode.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T17:03:34.432Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "OpenCVMatExtensions.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp\\Extensions\\OpenCVMatExtensions.cs",
+              "RelativeDocumentMoniker": "AssetToolkitSharp\\Extensions\\OpenCVMatExtensions.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp\\Extensions\\OpenCVMatExtensions.cs",
+              "RelativeToolTip": "AssetToolkitSharp\\Extensions\\OpenCVMatExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T15:53:19.848Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "RawImageOpenCV.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp\\Data\\RawImageOpenCV.cs",
+              "RelativeDocumentMoniker": "AssetToolkitSharp\\Data\\RawImageOpenCV.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp\\Data\\RawImageOpenCV.cs",
+              "RelativeToolTip": "AssetToolkitSharp\\Data\\RawImageOpenCV.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T15:45:47.901Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ImageFormats.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp\\Data\\ImageFormats.cs",
+              "RelativeDocumentMoniker": "AssetToolkitSharp\\Data\\ImageFormats.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp\\Data\\ImageFormats.cs",
+              "RelativeToolTip": "AssetToolkitSharp\\Data\\ImageFormats.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T17:00:44.697Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "AssetBuilder.cs",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp\\AssetBuilder.cs",
+              "RelativeDocumentMoniker": "AssetToolkitSharp\\AssetBuilder.cs",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp\\AssetBuilder.cs",
+              "RelativeToolTip": "AssetToolkitSharp\\AssetBuilder.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T12:32:18.533Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Ris.AssetToolkit.Interface.csproj",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkit.Interface\\Ris.AssetToolkit.Interface.csproj",
+              "RelativeDocumentMoniker": "AssetToolkit.Interface\\Ris.AssetToolkit.Interface.csproj",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkit.Interface\\Ris.AssetToolkit.Interface.csproj",
+              "RelativeToolTip": "AssetToolkit.Interface\\Ris.AssetToolkit.Interface.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-02T10:26:35.401Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Ris.AssetToolkit.csproj",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.AssetToolkit.csproj",
+              "RelativeDocumentMoniker": "AssetToolkitSharp\\Ris.AssetToolkit.csproj",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp\\Ris.AssetToolkit.csproj",
+              "RelativeToolTip": "AssetToolkitSharp\\Ris.AssetToolkit.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-04T16:57:26.865Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Ris.AssetToolkit.Tests.csproj",
+              "DocumentMoniker": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.Tests\\Ris.AssetToolkit.Tests.csproj",
+              "RelativeDocumentMoniker": "AssetToolkitSharp.Tests\\Ris.AssetToolkit.Tests.csproj",
+              "ToolTip": "D:\\Projects\\AssetToolkitSharp\\AssetToolkitSharp\\AssetToolkitSharp.Tests\\Ris.AssetToolkit.Tests.csproj",
+              "RelativeToolTip": "AssetToolkitSharp.Tests\\Ris.AssetToolkit.Tests.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-01T12:33:52.291Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Rectangle.cs",
+              "DocumentMoniker": "C:\\Users\\lukaa\\AppData\\Local\\SourceServer\\b54bbae5d328ffba4ba8c5ea6a60b46260dfc829005c5d99c7a100a7e23a818d\\Rectangle.cs",
+              "ToolTip": "C:\\Users\\lukaa\\AppData\\Local\\SourceServer\\b54bbae5d328ffba4ba8c5ea6a60b46260dfc829005c5d99c7a100a7e23a818d\\Rectangle.cs",
+              "ViewState": "AgIAAH0AAAAAAAAAAIBJwJgAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-02T10:30:23.372Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

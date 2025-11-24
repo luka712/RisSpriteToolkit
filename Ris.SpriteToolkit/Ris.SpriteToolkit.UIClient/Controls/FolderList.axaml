@@ -1,0 +1,38 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:data="clr-namespace:Ris.AssetToolkit.UIClient.Data"
+        xmlns:controls="using:Ris.AssetToolkit.UIClient.Controls">
+  <Design.PreviewWith>
+    <controls:FolderList />
+  </Design.PreviewWith>
+
+  <Style Selector="controls|FolderList">
+    <!-- Set Defaults -->
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ScrollViewer
+              HorizontalScrollBarVisibility="Auto"
+              VerticalScrollBarVisibility="Auto">
+          <ItemsControl ItemsSource="{TemplateBinding Source}">
+            <ItemsControl.ItemTemplate>
+              <DataTemplate x:DataType="data:FolderData">
+                <Border Margin="0,0,0,0"
+                        CornerRadius="5"
+                        BorderBrush="Gray" BorderThickness="0.5"
+                        Padding="2">
+
+                  <controls:FolderListItem 
+                    FolderName="{Binding FolderPath}"
+                    SubFolders="{Binding FolderItems}"
+                    HasSubFolders="{Binding HasSubFolders}"
+                    />
+                </Border>
+              </DataTemplate>
+            </ItemsControl.ItemTemplate>
+          </ItemsControl>
+
+        </ScrollViewer>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+</Styles>

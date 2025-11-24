@@ -1,0 +1,94 @@
+name: Publish NuGet Package
+
+permissions:
+  contents: write  # needed to push tags and commits
+
+on:
+  push:
+    branches:
+      - main  # run on merge to main
+
+jobs:
+  build_and_publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout repository
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # fetch full history for tags
+
+      # Setup Git for committing and tagging
+      - name: Set up Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+
+      # Setup .NET
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      # Bump preview version
+      - name: Bump preview version
+        run: |
+          CSPROJ="./Ris.SpriteToolkit/Ris.SpriteToolkit/Ris.SpriteToolkit.csproj"
+
+          # Extract current version
+          CURRENT_VERSION=$(grep -oP '(?<=<Version>).*?(?=</Version>)' "$CSPROJ")
+          echo "Current version: $CURRENT_VERSION"
+
+          # Increment preview number
+          PREVIEW_NUMBER=$(echo "$CURRENT_VERSION" | grep -oP '(?<=-preview\.)\d+')
+          NEW_PREVIEW_NUMBER=$((PREVIEW_NUMBER + 1))
+          NEW_VERSION=$(echo "$CURRENT_VERSION" | sed -E "s/(.*-preview\.)[0-9]+/\1$NEW_PREVIEW_NUMBER/")
+
+          echo "New version: $NEW_VERSION"
+
+          # Update csproj
+          sed -i "s#<Version>.*</Version>#<Version>$NEW_VERSION</Version>#g" "$CSPROJ"
+
+          # Commit and push
+          git add "$CSPROJ"
+          git commit -m "Bump preview version to $NEW_VERSION" || echo "No changes to commit"
+          git push origin main
+
+          # Set environment variable for later steps
+          echo "VERSION=$NEW_VERSION" >> $GITHUB_ENV
+
+      # Build
+      - name: Build
+        run: dotnet build ./Ris.SpriteToolkit/Ris.SpriteToolkit.sln --configuration Release
+
+      # Pack
+      - name: Pack
+        run: dotnet pack ./Ris.SpriteToolkit/Ris.SpriteToolkit.sln --configuration Release --no-build
+
+      # Find NuGet package
+      - name: Find NuGet package
+        id: find_pkg
+        run: |
+          PACKAGE=$(find ./Ris.SpriteToolkit -name "*.nupkg" ! -name "*symbols*.nupkg" | head -n 1)
+          echo "PACKAGE=$PACKAGE" >> $GITHUB_ENV
+
+      # Publish to NuGet
+      - name: Publish to NuGet
+        run: dotnet nuget push "$PACKAGE" --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+
+      # Create Git tag for preview version
+      - name: Tag preview version
+        run: |
+          git tag "v$VERSION"
+          git push origin "v$VERSION"
+
+      # Create GitHub Release
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        env:
+          VERSION: $VERSION
+          PACKAGE: $PACKAGE
+        with:
+          tag_name: v$VERSION
+          files: $PACKAGE

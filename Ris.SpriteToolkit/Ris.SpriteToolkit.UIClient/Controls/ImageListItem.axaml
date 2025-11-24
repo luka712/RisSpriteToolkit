@@ -1,0 +1,30 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:Ris.AssetToolkit.UIClient.Controls"
+        xmlns:iconPacks="https://github.com/MahApps/IconPacks.Avalonia"
+        >
+  <Design.PreviewWith>
+    <controls:ImageListItem />
+  </Design.PreviewWith>
+
+  <Style Selector="controls|ImageListItem">
+    <!-- Set Defaults -->
+    <Setter Property="Template">
+      <ControlTemplate>
+            <StackPanel Orientation="Horizontal">
+              <Border BorderBrush="Gray" BorderThickness="1" Margin="5">
+                <Image Source="{TemplateBinding Source}" Width="20" Height="20"/>
+              </Border>
+              <TextBlock Text="{TemplateBinding ImageName}" VerticalAlignment="Center" HorizontalAlignment="Left" />
+              <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Button Command="{TemplateBinding RemoveImageCommand}" 
+                        CommandParameter="{TemplateBinding RemoveImageCommandParameter}">
+                  <iconPacks:PackIconFontAwesome Kind="TrashCanSolid" />
+                </Button>
+              </StackPanel>
+             
+            </StackPanel>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+</Styles>

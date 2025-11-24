@@ -1,0 +1,50 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:Ris.AssetToolkit.UIClient.Controls"
+        xmlns:iconPacks="https://github.com/MahApps/IconPacks.Avalonia"
+        xmlns:SvgImage="clr-namespace:Svg.Controls.Skia.Avalonia"
+        >
+  <Design.PreviewWith>
+    <controls:FolderListItem />
+  </Design.PreviewWith>
+
+  <Style Selector="controls|FolderListItem">
+    <!-- Set Defaults -->
+    <Setter Property="Template">
+      <ControlTemplate>
+        <StackPanel Orientation="Vertical">
+          <StackPanel Orientation="Horizontal">
+            <Border BorderThickness="0" Margin="5">
+              <!--<Image Source="{TemplateBinding Source}" Width="20" Height="20"/>-->
+              <Image
+                Source="{SvgImage /Assets/Folder2.svg}"
+                Width="20"
+                Classes.SubFolders="{TemplateBinding HasSubFolders}"
+                >
+                <Image.Styles>
+                  <Style Selector="Image.SubFolders">
+                    <Style.Setters>
+                      <Setter Property="Source" Value="{SvgImage /Assets/Folder.svg}"/>
+                    </Style.Setters>
+                  </Style>
+                </Image.Styles>
+              </Image>
+            </Border>
+            <TextBlock Text="{TemplateBinding FolderName}"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left" />
+
+          </StackPanel>
+
+          <StackPanel Margin="5">
+            <controls:FolderList
+                  Source="{Binding FolderItems}"
+            />
+          </StackPanel>
+
+        </StackPanel>
+
+      </ControlTemplate>
+    </Setter>
+  </Style>
+</Styles>

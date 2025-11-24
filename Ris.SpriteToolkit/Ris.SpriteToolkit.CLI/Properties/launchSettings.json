@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Ris.SpriteToolkit.CLI": {
+      "commandName": "Project",
+      "commandLineArgs": "-d D:/Projects/bones_csharp/DinoRunner/Content/tiled/ -o D:/Projects/bones_csharp/DinoRunner/Content/tile/ -m level1assets"
+    }
+  }
+}

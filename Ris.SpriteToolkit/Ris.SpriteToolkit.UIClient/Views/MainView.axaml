@@ -1,0 +1,60 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Ris.AssetToolkit.UIClient.ViewModels"
+             xmlns:uc="clr-namespace:Ris.AssetToolkit.UIClient.UserControls"
+             xmlns:controls="clr-namespace:Ris.AssetToolkit.UIClient.Controls"
+             xmlns:notification="clr-namespace:Avalonia.Notification.Controls;assembly=Notification.Avalonia"
+             xmlns:userControls="clr-namespace:Ris.AssetToolkit.UIClient.UserControls"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Ris.AssetToolkit.UIClient.Views.MainView"
+             x:DataType="vm:MainViewModel">
+  <Design.DataContext>
+    <!-- This only sets the DataContext for the previewer in an IDE,
+         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+    <vm:MainViewModel />
+  </Design.DataContext>
+  <DockPanel>
+    <Menu DockPanel.Dock="Top">
+      <MenuItem Header="_File">
+        <MenuItem  Header="_Open..." Command="{Binding AddImagesFolderCommand}"/>
+        <Separator/>
+        <MenuItem Header="_Exit"/>
+      </MenuItem>
+      <MenuItem Header="_Edit">
+        <MenuItem Header="Copy"/>
+        <MenuItem Header="Paste"/>
+      </MenuItem>
+    </Menu>
+    <DockPanel>
+      <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+        <Border Grid.Column="1">
+          <notification:NotificationMessageContainer Manager="{Binding Manager}" />
+        </Border>
+      </StackPanel>
+      <StackPanel DockPanel.Dock="Left"
+                  Orientation="Vertical"
+                  Width="250">
+        <controls:ImageList Source="{Binding Images}"
+                            Height="250"
+                            RemoveImageCommand="{Binding RemoveImageCommand}"
+                            TestCommand="{Binding TestCommand}"
+                          />
+      </StackPanel>
+
+      <StackPanel Width="800">
+        <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+      </StackPanel>
+
+      <StackPanel DockPanel.Dock="Right" Orientation="Vertical">
+        <Button
+          Click="BuildButton_Click"
+          >Build</Button>
+
+        <userControls:BuildSpriteSheet/>
+      </StackPanel>
+
+    </DockPanel>
+  </DockPanel>
+</UserControl>

@@ -1,0 +1,39 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:data="clr-namespace:Ris.AssetToolkit.UIClient.Data"
+        xmlns:controls="using:Ris.AssetToolkit.UIClient.Controls">
+  <Design.PreviewWith>
+    <controls:ImageList />
+  </Design.PreviewWith>
+
+  <Style Selector="controls|ImageList">
+    <!-- Set Defaults -->
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ScrollViewer 
+              HorizontalScrollBarVisibility="Auto"
+              VerticalScrollBarVisibility="Auto">   
+            <ItemsControl ItemsSource="{TemplateBinding Source}">
+            <ItemsControl.ItemTemplate>
+              <DataTemplate x:DataType="data:ImageData">
+                <Border Margin="0,0,0,0"
+                        CornerRadius="5"
+                        BorderBrush="Gray" BorderThickness="1"
+                        Padding="2">
+
+                  <controls:ImageListItem
+                    ImageName="{Binding Name}"
+                    Source="{Binding Bitmap}"
+                    RemoveImageCommand="{Binding DataContext.RemoveImageCommand, RelativeSource={RelativeSource AncestorType=controls:ImageList}}"
+                    RemoveImageCommandParameter="{Binding}"
+                    />
+                </Border>
+              </DataTemplate>
+            </ItemsControl.ItemTemplate>
+          </ItemsControl>
+          
+        </ScrollViewer>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+</Styles>
