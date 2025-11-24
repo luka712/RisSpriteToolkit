@@ -7,7 +7,6 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <RootNamespace>Ris.SpriteToolkit</RootNamespace>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-
     <!-- NUGET -->
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>Ris.SpriteToolkit</PackageId>
@@ -17,11 +16,7 @@
     <PackageTags>Ris</PackageTags>
     <RepositoryUrl>https://github.com/luka712/Ris.SpriteToolkit</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    
   </PropertyGroup>
-
-
-
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="15.1.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="10.0.0" />
