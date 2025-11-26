@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Microsoft.Extensions.Logging;
 
 namespace Ris.SpriteToolkit.Tests;
 
