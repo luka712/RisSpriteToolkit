@@ -10,7 +10,7 @@
     <!-- NUGET -->
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>Ris.SpriteToolkit</PackageId>
-    <Version>1.0.0-preview.4</Version>
+    <Version>1.0.0-preview.5</Version>
     <Authors>Erkapic Luka</Authors>
     <Description>Sprite sheets loading utilities for Ris.GameFramework.</Description>
     <PackageTags>Ris</PackageTags>
