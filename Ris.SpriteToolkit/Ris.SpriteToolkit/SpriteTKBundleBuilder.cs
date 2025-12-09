@@ -10,6 +10,7 @@ public class SpriteTKBundleBuilder
 {
     private readonly IMapper _mapper;
     private readonly ILogger? _logger;
+
     /// <summary>
     /// The PNG sprite sheet builder.
     /// </summary>

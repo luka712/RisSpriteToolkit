@@ -1,6 +1,4 @@
 ﻿using Microsoft.Extensions.Logging;
-using System.IO.Pipes;
-using System.Reflection.Metadata;
 using System.Text.Json;
 
 namespace Ris.SpriteToolkit;
@@ -65,7 +63,6 @@ public class SpriteTKBundleLoader(ILogger? logger = null)
         {
             bundle = cachedDto;
         }
-
         return bundle is not null;
     }
 
