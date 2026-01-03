@@ -5,11 +5,13 @@
 /// </summary>
 public class SpriteTKBundleLoader : ASpriteTKBundleLoader
 {
+    private readonly HttpClient _httpClient = new();
+
     /// <inheritdoc/>
     protected override Task<string> ReadFileAsync(string filePath)
-        => File.ReadAllTextAsync(filePath);
+        => _httpClient.GetStringAsync(filePath);
 
     /// <inheritdoc/>
     protected override string ReadFile(string filePath)
-        => File.ReadAllText(filePath);
+        => _httpClient.GetStringAsync(filePath).GetAwaiter().GetResult();
 }
