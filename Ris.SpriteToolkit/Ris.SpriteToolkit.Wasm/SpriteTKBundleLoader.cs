@@ -13,5 +13,5 @@ public class SpriteTKBundleLoader : ASpriteTKBundleLoader
 
     /// <inheritdoc/>
     protected override string ReadFile(string filePath)
-        => _httpClient.GetStringAsync(filePath).GetAwaiter().GetResult();
+        => throw new NotSupportedException("Synchronous file reading is not supported in webassembly implementation.");
 }
