@@ -10,7 +10,7 @@
     <PackageId>RisGameFramework.SpriteToolkit.Wasm</PackageId>
     <Version>1.0.0-preview.5</Version>
     <Authors>Erkapic Luka</Authors>
-    <Description>The sprite sheets loading utilities for RisGameFramework.</Description>
+    <Description>The sprite sheets loading utilities for webassembly build of RisGameFramework.</Description>
     <PackageTags>RisGameFramework</PackageTags>
     <RepositoryUrl>https://github.com/luka712/Ris.SpriteToolkit</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
