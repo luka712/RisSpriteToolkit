@@ -37,7 +37,7 @@ jobs:
           CSPROJ=(
           "./Ris.SpriteToolkit/Ris.SpriteToolkit/Ris.SpriteToolkit.csproj"
           "./Ris.SpriteToolkit/Ris.SpriteToolkit.Common/Ris.SpriteToolkit.Common.csproj"
-          "./Ris.SpriteToolkit/Ris.Wasm.SpriteToolkit/Ris.Wasm.SpriteToolkit.csproj
+          "./Ris.SpriteToolkit/Ris.Wasm.SpriteToolkit/Ris.Wasm.SpriteToolkit.csproj"
           )
           for CSPROJ in "${CSPROJS[@]}"; do
               echo "Processing $CSPROJ"
