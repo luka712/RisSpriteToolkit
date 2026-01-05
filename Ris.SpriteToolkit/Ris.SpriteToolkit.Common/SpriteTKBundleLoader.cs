@@ -1,6 +1,4 @@
 ﻿using Microsoft.Extensions.Logging;
-using System.IO.Pipes;
-using System.Reflection.Metadata;
 using System.Text.Json;
 
 namespace Ris.SpriteToolkit;
@@ -11,18 +9,14 @@ namespace Ris.SpriteToolkit;
 /// <param name="logger">
 /// The optional <see cref="ILogger"/>.
 /// </param>
-public class SpriteTKBundleLoader(ILogger? logger = null)
+public class SpriteTKBundleLoader(ILogger? logger = null) : ISpriteTKBundleLoader
 {
-    private readonly Dictionary<string, SpriteToolkitBundle> loadedBundles = new();
+    private readonly Dictionary<string, SpriteToolkitBundle> _loadedBundles = new();
 
-    /// <summary>
-    /// Is raised when a bundle is loaded.
-    /// </summary>
+    /// <inheritdoc />
     public event Action<SpriteToolkitBundle>? OnBundleLoaded;
 
-    /// <summary>
-    /// If <c>true</c> loaded bundles will be cached.
-    /// </summary>
+    /// <inheritdoc />
     public bool UseCache { get; set; } = true;
 
     private void ValidateFilePath(string filePath)
@@ -50,18 +44,11 @@ public class SpriteTKBundleLoader(ILogger? logger = null)
         }
     }
 
-    /// <summary>
-    /// Tries to get the bundle from cache.
-    /// </summary>
-    /// <param name="filePath">The file path of a bundle.</param>
-    /// <param name="bundle">The <see cref="SpriteToolkitBundle"/> if found; otherwise <c>null</c>.</param>
-    /// <returns>
-    /// <c>true</c> if found in cache; otherwise, <c>false</c>.
-    /// </returns>
+    /// <inheritdoc />
     public bool TryGetFromCache(string filePath, out SpriteToolkitBundle? bundle)
     {
         bundle = null;
-        if (UseCache && loadedBundles.TryGetValue(filePath, out SpriteToolkitBundle? cachedDto))
+        if (UseCache && _loadedBundles.TryGetValue(filePath, out SpriteToolkitBundle? cachedDto))
         {
             bundle = cachedDto;
         }
@@ -69,19 +56,7 @@ public class SpriteTKBundleLoader(ILogger? logger = null)
         return bundle is not null;
     }
 
-    /// <summary>
-    /// Loads and imports the sprite toolkit file.
-    /// </summary>
-    /// <param name="filePath">The file path.</param>
-    /// <returns>
-    /// The <see cref="SpriteToolkitBundle"/>.
-    /// </returns>
-    /// <exception cref="FileNotFoundException">
-    /// In case if there is no file under <paramref name="filePath"/>.
-    /// </exception>
-    /// <exception cref="InvalidDataException">
-    /// If loaded JSON is not valid.
-    /// </exception>
+    /// <inheritdoc />
     public async Task<SpriteToolkitBundle> LoadAsync(string filePath)
     {
         if (TryGetFromCache(filePath, out SpriteToolkitBundle? cachedDto))
@@ -96,7 +71,7 @@ public class SpriteTKBundleLoader(ILogger? logger = null)
 
         if (UseCache)
         {
-            loadedBundles[filePath] = bundle;
+            _loadedBundles[filePath] = bundle;
         }
 
         OnBundleLoaded?.Invoke(bundle);
@@ -104,19 +79,7 @@ public class SpriteTKBundleLoader(ILogger? logger = null)
         return bundle;
     }
 
-    /// <summary>
-    /// Loads and imports the sprite toolkit file.
-    /// </summary>
-    /// <param name="filePath">The file path.</param>
-    /// <returns>
-    /// The <see cref="SpriteToolkitBundle"/>.
-    /// </returns>
-    /// <exception cref="FileNotFoundException">
-    /// In case if there is no file under <paramref name="filePath"/>.
-    /// </exception>
-    /// <exception cref="InvalidDataException">
-    /// If loaded JSON is not valid.
-    /// </exception>
+    /// <inheritdoc />
     public SpriteToolkitBundle Load(string filePath)
     {
         if (TryGetFromCache(filePath, out SpriteToolkitBundle? cachedDto))
@@ -131,7 +94,7 @@ public class SpriteTKBundleLoader(ILogger? logger = null)
 
         if (UseCache)
         {
-            loadedBundles[filePath] = bundle;
+            _loadedBundles[filePath] = bundle;
         }
 
         OnBundleLoaded?.Invoke(bundle);
