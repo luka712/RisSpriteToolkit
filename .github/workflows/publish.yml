@@ -34,29 +34,28 @@ jobs:
       # Bump preview version
       - name: Bump preview version
         run: |
-          CSPROJ="./Ris.SpriteToolkit/Ris.SpriteToolkit/Ris.SpriteToolkit.csproj"
+          CSPROJ=(
+          "./Ris.SpriteToolkit/Ris.SpriteToolkit/Ris.SpriteToolkit.csproj"
+          "./Ris.SpriteToolkit/Ris.SpriteToolkit.Common/Ris.SpriteToolkit.Common.csproj"
+          "./Ris.SpriteToolkit/Ris.Wasm.SpriteToolkit/Ris.Wasm.SpriteToolkit.csproj"
+          )
+          for CSPROJ in "${CSPROJS[@]}"; do
+              echo "Processing $CSPROJ"
 
-          # Extract current version
-          CURRENT_VERSION=$(grep -oP '(?<=<Version>).*?(?=</Version>)' "$CSPROJ")
-          echo "Current version: $CURRENT_VERSION"
+              CURRENT_VERSION=$(grep -oP '(?<=<Version>).*?(?=</Version>)' "$CSPROJ")
+              PREVIEW_NUMBER=$(echo "$CURRENT_VERSION" | grep -oP '(?<=-preview\.)\d+')
+              NEW_PREVIEW_NUMBER=$((PREVIEW_NUMBER + 1))
+              NEW_VERSION=$(echo "$CURRENT_VERSION" | sed -E "s/(.*-preview\.)[0-9]+/\1$NEW_PREVIEW_NUMBER/")
 
-          # Increment preview number
-          PREVIEW_NUMBER=$(echo "$CURRENT_VERSION" | grep -oP '(?<=-preview\.)\d+')
-          NEW_PREVIEW_NUMBER=$((PREVIEW_NUMBER + 1))
-          NEW_VERSION=$(echo "$CURRENT_VERSION" | sed -E "s/(.*-preview\.)[0-9]+/\1$NEW_PREVIEW_NUMBER/")
+              # Update
+              sed -i "s#<Version>.*</Version>#<Version>$NEW_VERSION</Version>#g" "$CSPROJ"
+              git add "$CSPROJ"
+          done
 
-          echo "New version: $NEW_VERSION"
-
-          # Update csproj
-          sed -i "s#<Version>.*</Version>#<Version>$NEW_VERSION</Version>#g" "$CSPROJ"
-
-          # Commit and push
-          git add "$CSPROJ"
-          git commit -m "Bump preview version to $NEW_VERSION" || echo "No changes to commit"
+          git commit -m "Bump preview version to $NEW_VERSION" || echo "No changes"
           git push origin main
 
-          # Set environment variable for later steps
-          echo "VERSION=$NEW_VERSION" >> $GITHUB_ENV
+          echo "VERSION=$NEW_VERSION" >> "$GITHUB_ENV"
 
       # Build
       - name: Build
@@ -67,28 +66,34 @@ jobs:
         run: dotnet pack ./Ris.SpriteToolkit/Ris.SpriteToolkit.sln --configuration Release --no-build
 
       # Find NuGet package
-      - name: Find NuGet package
-        id: find_pkg
+      - name: Find NuGet packages
+        id: find_pkgs
         run: |
-          PACKAGE=$(find ./Ris.SpriteToolkit -name "*.nupkg" ! -name "*symbols*.nupkg" | head -n 1)
-          echo "PACKAGE=$PACKAGE" >> $GITHUB_ENV
+          PKGS=$(find ./Ris.SpriteToolkit -name "*.nupkg" ! -name "*symbols*.nupkg")
+          echo "PACKAGES<<EOF" >> $GITHUB_ENV
+          echo "$PKGS" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
 
       # Publish to NuGet
-      - name: Publish to NuGet
-        run: dotnet nuget push "$PACKAGE" --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+      - name: Publish all NuGet packages
+        run: |
+          for PKG in $PACKAGES; do
+            echo "Publishing $PKG"
+            dotnet nuget push "$PKG" --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+          done
 
       # Create Git tag for preview version
-      - name: Tag preview version
-        run: |
-          git tag "v$VERSION"
-          git push origin "v$VERSION"
+      #- name: Tag preview version
+      #  run: |
+      #    git tag "v$VERSION"
+      #    git push origin "v$VERSION"
 
       # Create GitHub Release
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         env:
           VERSION: $VERSION
-          PACKAGE: $PACKAGE
         with:
           tag_name: v$VERSION
-          files: $PACKAGE
+          files: |
+            $PACKAGES
