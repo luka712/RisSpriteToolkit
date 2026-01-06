@@ -23,7 +23,7 @@ public record SpriteSheet
     /// The file path of the sprite sheet image.
     /// </summary>
     [JsonPropertyName("file_path")]
-    public required string FilePath { get; set; }
+    public string? FilePath { get; set; }
 
     /// <summary>
     /// The padding (in pixels) between sprites in the sprite sheet and the edges.
