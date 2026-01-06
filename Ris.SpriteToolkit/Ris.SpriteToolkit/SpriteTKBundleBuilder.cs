@@ -103,7 +103,7 @@ public class SpriteTKBundleBuilder
         {
             throw new ArgumentException("JSON name cannot be null or whitespace.", nameof(bundleName));
         }
-        PngSpriteSheetBuilder.Save(directoryPath);
+        PngSpriteSheetBuilder.Save(directoryPath, out List<string> sheetsFilePaths, out List<string> sheetsFileNames);
         string jsonFilePath = Path.Combine(directoryPath, $"{bundleName}.json");
 
         bool fileExists = File.Exists(jsonFilePath);
@@ -118,15 +118,21 @@ public class SpriteTKBundleBuilder
             throw new InvalidOperationException(msg);
         }
 
-        File.WriteAllText(jsonFilePath, CreateJson());
+        File.WriteAllText(jsonFilePath, CreateJson(sheetsFilePaths));
     }
 
-    private string CreateJson()
+    private string CreateJson(IReadOnlyList<string> sheetsFilePaths)
     {
         SpriteToolkitBundle spriteToolkitDto = new()
         {
             SpriteSheets = _mapper.Map<IReadOnlyList<SpriteSheet>>(PngSpriteSheetBuilder.SpriteSheets)
         };
+
+        // Add file paths.
+        for(int i = 0; i < sheetsFilePaths.Count; i++)
+        {
+            spriteToolkitDto.SpriteSheets[i].FilePath = sheetsFilePaths[i];
+        }    
 
         return System.Text.Json.JsonSerializer.Serialize(spriteToolkitDto, new System.Text.Json.JsonSerializerOptions
         {

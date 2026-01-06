@@ -185,7 +185,7 @@ public class SpriteSheetBuilder
         IBuilderSpriteSheet newSheet = new BuilderSkylineSpriteSheet(size: Size)
         {
             Padding = Padding,
-            Name = DefaultSheetName
+            Name = DefaultSheetName,
         };
 
         Logger.LogInformation("Created new sprite sheet {SheetName} for sprite {SpriteName}", newSheet.Name, rawImage.ImageName);
@@ -228,8 +228,13 @@ public class SpriteSheetBuilder
     /// <summary>
     /// Saves all sprite sheets to the specified directory.
     /// </summary>
-    public void Save(string directoryPath)
+    /// <param name="sheetsFilePaths">List of saved file paths per sheet.</param>
+    /// <param name="sheetsFileNames">List of file names per sheet.</param>
+    public void Save(string directoryPath, out List<string> sheetsFilePaths, out List<string> sheetsFileNames)
     {
+        sheetsFilePaths = new List<string>();
+        sheetsFileNames = new List<string>();
+
         if (!Directory.Exists(directoryPath))
         {
             Directory.CreateDirectory(directoryPath);
@@ -239,7 +244,9 @@ public class SpriteSheetBuilder
         foreach (ABaseBuilderSpriteSheet sheet in spriteSheets)
         {
             string fileName = $"{sheet.Name}_{sheetIndex}";
-            string filePath = Path.Combine(directoryPath, $"{fileName}.{ImageFormat.ToString().ToLower()}");
+            sheetsFileNames.Add(fileName);
+            string filePath = Path.Combine(directoryPath, $"{fileName}.{ImageFormat.ToString().ToLower()}").Replace("\\", "/");
+            sheetsFilePaths.Add(filePath);
 
             bool fileExists = File.Exists(filePath);
             if (AllowReplace && fileExists)

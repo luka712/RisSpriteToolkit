@@ -39,7 +39,7 @@ public class SpriteSheetBuilderTests
 
         BuilderSprite sprite = builder.AddImage("Data/test.png");
 
-        builder.Save("Output");
+        builder.Save("Output", out _, out _);
 
         Assert.That(sprite.SourceRect.Width, Is.EqualTo(510));
         Assert.That(sprite.SourceRect.Height, Is.EqualTo(510));
@@ -63,7 +63,7 @@ public class SpriteSheetBuilderTests
         BuilderSprite sprite = builder.AddImage("Data/test.png");
         BuilderSprite sprite2 = builder.AddImage("Data/test.png");
 
-        builder.Save("Output");
+        builder.Save("Output", out _, out _);
 
         Assert.That(sprite.SourceRect.Width, Is.EqualTo(510));
         Assert.That(sprite.SourceRect.Height, Is.EqualTo(510));
@@ -94,7 +94,7 @@ public class SpriteSheetBuilderTests
         BuilderSprite sprite2 = builder.AddImage("Data/test.png");
         BuilderSprite sprite3 = builder.AddImage("Data/test.png");
 
-        builder.Save("Output");
+        builder.Save("Output", out _, out _);
 
         Assert.That(sprite.SourceRect.Width, Is.EqualTo(510));
         Assert.That(sprite.SourceRect.Height, Is.EqualTo(510));
@@ -131,7 +131,7 @@ public class SpriteSheetBuilderTests
         BuilderSprite sprite3 = builder.AddImage("Data/test.png");
         BuilderSprite sprite4 = builder.AddImage("Data/test.png");
 
-        builder.Save("Output");
+        builder.Save("Output", out _, out _);
 
         Assert.That(sprite.SourceRect.Width, Is.EqualTo(510));
         Assert.That(sprite.SourceRect.Height, Is.EqualTo(510));
