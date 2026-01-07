@@ -245,7 +245,7 @@ public class SpriteSheetBuilder
         {
             string fileName = $"{sheet.Name}_{sheetIndex}";
             sheetsFileNames.Add(fileName);
-            string filePath = Path.Combine(directoryPath, $"{fileName}.{ImageFormat.ToString().ToLower()}").Replace("\\", "/");
+            string filePath = $"{fileName}.{ImageFormat.ToString().ToLower()}";
             sheetsFilePaths.Add(filePath);
 
             bool fileExists = File.Exists(filePath);

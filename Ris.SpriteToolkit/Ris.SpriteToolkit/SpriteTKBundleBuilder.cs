@@ -118,10 +118,10 @@ public class SpriteTKBundleBuilder
             throw new InvalidOperationException(msg);
         }
 
-        File.WriteAllText(jsonFilePath, CreateJson(sheetsFilePaths));
+        File.WriteAllText(jsonFilePath, CreateJson(sheetsFilePaths, sheetsFileNames));
     }
 
-    private string CreateJson(IReadOnlyList<string> sheetsFilePaths)
+    private string CreateJson(IReadOnlyList<string> sheetsFilePaths, IReadOnlyList<string> sheetsFileNames)
     {
         SpriteToolkitBundle spriteToolkitDto = new()
         {
@@ -132,6 +132,7 @@ public class SpriteTKBundleBuilder
         for(int i = 0; i < sheetsFilePaths.Count; i++)
         {
             spriteToolkitDto.SpriteSheets[i].FilePath = sheetsFilePaths[i];
+            spriteToolkitDto.SpriteSheets[i].FileName = sheetsFileNames[i];
         }    
 
         return System.Text.Json.JsonSerializer.Serialize(spriteToolkitDto, new System.Text.Json.JsonSerializerOptions
