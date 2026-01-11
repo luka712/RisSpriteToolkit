@@ -69,10 +69,16 @@ jobs:
       - name: Find NuGet packages
         id: find_pkgs
         run: |
-          PKGS=$(find ./Ris.SpriteToolkit -name "*.nupkg" ! -name "*symbols*.nupkg")
-          echo "PACKAGES<<EOF" >> $GITHUB_ENV
-          echo "$PKGS" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
+          mapfile -t packages < <(find ./Ris.SpriteToolkit -name "*.nupkg" ! -name "*symbols*.nupkg")
+          if [ ${#packages[@]} -eq 0 ]; then
+            echo "Error: No .nupkg files found!"
+            exit 1
+          fi
+          {
+            echo "packages<<EOF"
+            printf '%s\n' "${packages[@]}"
+            echo "EOF"
+          } >> $GITHUB_OUTPUT
 
       # Publish to NuGet
       - name: Publish all NuGet packages
@@ -82,18 +88,20 @@ jobs:
             dotnet nuget push "$PKG" --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
           done
 
-      # Create Git tag for preview version
-      #- name: Tag preview version
-      #  run: |
-      #    git tag "v$VERSION"
-      #    git push origin "v$VERSION"
+      - name: Create and push git tag
+        run: |
+          git tag "v${{ env.VERSION }}"
+          git push origin "v${{ env.VERSION }}"
 
       # Create GitHub Release
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
-        env:
-          VERSION: $VERSION
         with:
-          tag_name: v$VERSION
+          tag_name: v${{ env.VERSION }}
+          name: Preview ${{ env.VERSION }}
+          draft: false
+          prerelease: true
+          generate_release_notes: true
           files: |
-            $PACKAGES
+            ${{ steps.find_pkgs.outputs.packages }}
+          overwrite: true  # equivalent to overwrite_files: true in newer versions
