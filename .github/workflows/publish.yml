@@ -83,10 +83,14 @@ jobs:
       # Publish to NuGet
       - name: Publish all NuGet packages
         run: |
-          for PKG in $PACKAGES; do
-            echo "Publishing $PKG"
-            dotnet nuget push "$PKG" --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
-          done
+          while IFS= read -r pkg; do
+            [[ -z "$pkg" ]] && continue
+            echo "Publishing $pkg"
+            dotnet nuget push "$pkg" \
+              --api-key ${{ secrets.NUGET_API_KEY }} \
+              --source https://api.nuget.org/v3/index.json \
+              --skip-duplicate
+          done <<< "${{ steps.find_pkgs.outputs.packages }}"
 
       - name: Create and push git tag
         run: |
