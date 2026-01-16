@@ -1,4 +1,4 @@
-namespace Ris.SpriteToolkit.Tests;
+namespace RisGameFramework.SpriteToolkit.Tests;
 
 public class Tests
 {

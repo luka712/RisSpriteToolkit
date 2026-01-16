@@ -1,5 +1,5 @@
 ﻿
-namespace Ris.SpriteToolkit;
+namespace RisGameFramework.SpriteToolkit;
 
 /// <summary>
 /// The sprite toolkit bundle loader interface.

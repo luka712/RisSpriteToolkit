@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Xml.XPath;
 
-namespace Ris.SpriteToolkit;
+namespace RisGameFramework.SpriteToolkit;
 
 /// <summary>
 /// The sprite sheet which uses the Skyline packing algorithm.

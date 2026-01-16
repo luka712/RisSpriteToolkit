@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Logging;
 
-namespace Ris.SpriteToolkit.Mapper;
+namespace RisGameFramework.SpriteToolkit.Mapper;
 
 /// <summary>
 /// The singleton factory for <see cref="IMapper"/>.

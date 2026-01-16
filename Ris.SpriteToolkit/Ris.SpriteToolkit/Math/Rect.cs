@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System.Text.Json.Serialization;
 
-namespace Ris.SpriteToolkit.Math;
+namespace RisGameFramework.SpriteToolkit.Math;
 
 /// <summary>
 /// The rectangle structure.

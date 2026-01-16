@@ -1,9 +1,9 @@
 ﻿using System.Drawing;
 using System.Text.Json.Serialization;
-using SpriteToolkit.Loaders;
+using RisGameFramework.SpriteToolkit.Loaders;
 using SkiaSharp;
 
-namespace Ris.SpriteToolkit;
+namespace RisGameFramework.SpriteToolkit;
 
 /// <summary>
 /// The sprite sheet.

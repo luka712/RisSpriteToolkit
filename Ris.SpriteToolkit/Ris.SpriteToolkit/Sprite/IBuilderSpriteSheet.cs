@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace Ris.SpriteToolkit;
+namespace RisGameFramework.SpriteToolkit;
 
 /// <summary>
 /// The sprite sheet interface.

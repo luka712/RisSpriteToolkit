@@ -1,8 +1,8 @@
-﻿using Ris.SpriteToolkit.Math;
+﻿using RisGameFramework.SpriteToolkit.Math;
 using System.Drawing;
 using System.Text.Json.Serialization;
 
-namespace Ris.SpriteToolkit;
+namespace RisGameFramework.SpriteToolkit;
 
 /// <summary>
 /// The sprite class.

@@ -1,7 +1,7 @@
 ﻿using OpenCvSharp;
 using System.Runtime.InteropServices;
 
-namespace Ris.SpriteToolkit;
+namespace RisGameFramework.SpriteToolkit;
 
 /// <summary>
 /// The raw image class for OpenCV images.

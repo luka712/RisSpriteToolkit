@@ -1,4 +1,4 @@
-﻿namespace Ris.SpriteToolkit;
+﻿namespace RisGameFramework.SpriteToolkit;
 
 /// <summary>
 /// The implementation of <see cref="ISpriteTKBundleLoader"/>.
