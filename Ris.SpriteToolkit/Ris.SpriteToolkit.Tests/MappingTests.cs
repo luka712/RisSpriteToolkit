@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace Ris.SpriteToolkit.Tests;
+namespace RisGameFramework.SpriteToolkit.Tests;
 
 /// <summary>
 /// Tests for the mapping between JSON DTOs and data models.
@@ -15,7 +15,7 @@ internal class MappingTests
     public void Test_Rect_To_SourceRectJson_Mapping()
     {
         var mapper = Mapper.MapperFactory.CreateMapper();
-        var rect = new Ris.SpriteToolkit.Math.Rect(25, 25, 50, 50);
+        var rect = new SpriteToolkit.Math.Rect(25, 25, 50, 50);
         var sourceRectJson = mapper.Map<SourceRect>(rect);
         Assert.That(sourceRectJson.X, Is.EqualTo(25));
         Assert.That(sourceRectJson.Y, Is.EqualTo(25));

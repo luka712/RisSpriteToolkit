@@ -1,4 +1,4 @@
-﻿namespace Ris.SpriteToolkit;
+﻿namespace RisGameFramework.SpriteToolkit;
 
 /// <summary>
 /// The raw image data class.

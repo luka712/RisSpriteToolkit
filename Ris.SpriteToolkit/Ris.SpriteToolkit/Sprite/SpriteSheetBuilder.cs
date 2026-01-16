@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Text.Json.Serialization;
 
-namespace Ris.SpriteToolkit;
+namespace RisGameFramework.SpriteToolkit;
 
 /// <summary>
 /// The class responsible for creating sprite sheets.

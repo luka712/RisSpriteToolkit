@@ -1,4 +1,6 @@
-namespace Ris.SpriteToolkit.Tests;
+using RisGameFramework.SpriteToolkit;
+
+namespace RisGameFramework.SpriteToolkit.Tests;
 
 public class SpriteSheetBuilderTests
 {

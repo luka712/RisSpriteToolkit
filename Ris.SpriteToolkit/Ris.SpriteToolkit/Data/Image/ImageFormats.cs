@@ -1,5 +1,5 @@
 ﻿// ReSharper disable All
-namespace Ris.SpriteToolkit
+namespace RisGameFramework.SpriteToolkit
 {
     /// <summary>
     /// The supported image formats.

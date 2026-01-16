@@ -1,6 +1,6 @@
 ﻿using OpenCvSharp;
 
-namespace Ris.SpriteToolkit;
+namespace RisGameFramework.SpriteToolkit;
 
 /// <summary>
 /// Extensions for OpenCV Mat.
