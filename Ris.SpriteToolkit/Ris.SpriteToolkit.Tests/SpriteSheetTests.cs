@@ -1,10 +1,11 @@
-﻿using Ris.SpriteToolkit.Math;
+﻿using RisGameFramework.SpriteToolkit;
+using RisGameFramework.SpriteToolkit.Math;
 using System.Drawing;
 
-namespace Ris.SpriteToolkit.Tests;
+namespace SpriteToolkit.Tests;
 
 /// <summary>
-/// Tests for the <see cref="Ris.SpriteToolkit.Image.SpriteSheet"/> class.
+/// Tests for the <see cref="SpriteToolkit.Image.SpriteSheet"/> class.
 /// </summary>
 [TestFixture]
 internal class SpriteSheetTests

@@ -1,4 +1,4 @@
-namespace SpriteToolkit.Loaders;
+namespace RisGameFramework.SpriteToolkit.Loaders;
 
 /// <summary>
 /// The backend used to load images.

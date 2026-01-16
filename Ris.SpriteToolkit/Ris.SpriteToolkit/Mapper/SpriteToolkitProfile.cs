@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using Ris.SpriteToolkit.Math;
+using RisGameFramework.SpriteToolkit.Math;
 
-namespace Ris.SpriteToolkit.Mapper;
+namespace RisGameFramework.SpriteToolkit.Mapper;
 
 /// <summary>
 /// The AutoMapper profile for SpriteToolkit.

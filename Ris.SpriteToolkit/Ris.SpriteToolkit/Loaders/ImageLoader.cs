@@ -1,8 +1,8 @@
-﻿using SpriteToolkit.Loaders;
-using OpenCvSharp;
+﻿using OpenCvSharp;
+using RisGameFramework.SpriteToolkit.Loaders;
 using SkiaSharp;
 
-namespace Ris.SpriteToolkit;
+namespace RisGameFramework.SpriteToolkit;
 
 /// <summary>
 /// The image loader class responsible for loading images from file paths.
