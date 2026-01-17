@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Microsoft.Extensions.Logging;
 
 namespace RisGameFramework.SpriteToolkit;
@@ -6,13 +6,13 @@ namespace RisGameFramework.SpriteToolkit;
 /// <summary>
 /// The asset builder which is responsible for creating and managing sprite sheets.
 /// </summary>
-public class SpriteTKBundleBuilder
-{
+public class SpriteTKBundleBuilder {
     private readonly IMapper _mapper;
     private readonly ILogger? _logger;
 
     /// <summary>
     /// The PNG sprite sheet builder.
+    /// Builds a sprite sheets as PNG files.
     /// </summary>
     public SpriteSheetBuilder PngSpriteSheetBuilder { get; }
     
