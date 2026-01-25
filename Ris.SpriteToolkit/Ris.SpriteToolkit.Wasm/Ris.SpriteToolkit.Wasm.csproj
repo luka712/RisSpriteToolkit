@@ -8,7 +8,7 @@
     <!-- NUGET -->
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>RisGameFramework.SpriteToolkit.Wasm</PackageId>
-    <Version>1.0.0-preview.10</Version>
+    <Version>1.0.0-preview.11</Version>
     <Authors>Erkapic Luka</Authors>
     <Description>The sprite sheets loading utilities for webassembly build of RisGameFramework.</Description>
     <PackageTags>RisGameFramework</PackageTags>
