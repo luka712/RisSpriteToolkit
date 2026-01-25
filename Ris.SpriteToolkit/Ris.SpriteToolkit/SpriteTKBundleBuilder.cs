@@ -1,5 +1,6 @@
 using AutoMapper;
 using Microsoft.Extensions.Logging;
+using System.Drawing;
 
 namespace RisGameFramework.SpriteToolkit;
 
@@ -15,7 +16,16 @@ public class SpriteTKBundleBuilder {
     /// Builds a sprite sheets as PNG files.
     /// </summary>
     public SpriteSheetBuilder PngSpriteSheetBuilder { get; }
-    
+
+    /// <summary>
+    /// The size of the sprite sheets.
+    /// </summary>
+    public Size Size
+    {
+        get => PngSpriteSheetBuilder.Size;
+        set => PngSpriteSheetBuilder.Size = value;
+    }
+
     /// <summary>
     /// If set to <c>true</c>, allows replacing of existing assets with the same name.
     /// </summary>
@@ -129,11 +139,11 @@ public class SpriteTKBundleBuilder {
         };
 
         // Add file paths.
-        for(int i = 0; i < sheetsFilePaths.Count; i++)
+        for (int i = 0; i < sheetsFilePaths.Count; i++)
         {
             spriteToolkitDto.SpriteSheets[i].FilePath = sheetsFilePaths[i];
             spriteToolkitDto.SpriteSheets[i].FileName = sheetsFileNames[i];
-        }    
+        }
 
         return System.Text.Json.JsonSerializer.Serialize(spriteToolkitDto, new System.Text.Json.JsonSerializerOptions
         {

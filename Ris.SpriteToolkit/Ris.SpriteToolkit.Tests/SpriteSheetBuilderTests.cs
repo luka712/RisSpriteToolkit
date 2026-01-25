@@ -157,4 +157,16 @@ public class SpriteSheetBuilderTests
 
         Assert.That(builder.SpriteSheets.Count, Is.EqualTo(1));
     }
+
+    /// <summary>
+    /// Test changing the Size property of the SpriteSheetBuilder.
+    /// </summary>
+    [Test]  
+    public void Test_Size()
+    {
+        SpriteSheetBuilder builder = new(new System.Drawing.Size(2048, 2048));
+        Assert.That(builder.Size, Is.EqualTo(new System.Drawing.Size(2048, 2048)));
+        builder.Size = new System.Drawing.Size(1024, 1024);
+        Assert.That(builder.Size, Is.EqualTo(new System.Drawing.Size(1024, 1024)));
+    }
 }

@@ -9,7 +9,10 @@ namespace RisGameFramework.SpriteToolkit;
 /// </summary>
 public class SpriteSheetBuilder
 {
-    private readonly List<IBuilderSpriteSheet> spriteSheets = new();
+    private readonly List<IBuilderSpriteSheet> _spriteSheets = new();
+    private readonly List<RawImage> _rawImages = new();
+
+    private Size _size = new Size(2048, 2048);
 
     /// <summary>
     /// The constructor for <see cref="SpriteSheetBuilder"/>.
@@ -53,13 +56,24 @@ public class SpriteSheetBuilder
     /// <summary>
     /// The sprite sheets created by this builder.
     /// </summary>
-    public IList<IBuilderSpriteSheet> SpriteSheets => spriteSheets;
+    public IList<IBuilderSpriteSheet> SpriteSheets => _spriteSheets;
 
     /// <summary>
-    /// The desired size of each sprite sheet. Default is (2048, 2048).
+    /// The desired size of each sprite sheet. Default is <c>(2048, 2048)</c>.
     /// </summary>
     [JsonIgnore]
-    public Size Size { get; } = new Size(2048, 2048);
+    public Size Size
+    {
+        get => _size;
+        set
+        {
+            if (_size != value)
+            {
+                _size = value;
+                OnSizeChanged();
+            }
+        }
+    }
 
     /// <summary>
     /// The padding (in pixels) between sprites in the sprite sheets. Default is <c>1</c>.
@@ -73,7 +87,22 @@ public class SpriteSheetBuilder
     /// </summary>
     [JsonIgnore]
     public string DefaultSheetName { get; set; } = "sprite_sheet";
-    
+
+    private void OnSizeChanged()
+    {
+        _spriteSheets.Clear();
+
+        // We need to copy the list to avoid modifying the collection while iterating.
+        List<RawImage> rawImagesCopy = _rawImages.ToList();
+
+        // Re-add all images to the new sprite sheets.
+        _rawImages.Clear();
+        foreach (RawImage rawImage in rawImagesCopy)
+        {
+            AddSprite(rawImage);
+        }
+    }
+
     /// <summary>
     /// Adds all images from a directory to the sprite sheets.
     /// </summary>
@@ -113,7 +142,6 @@ public class SpriteSheetBuilder
             ImageFormats.PNG,
             searchOption: recursive ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly)
             .OrderBy(img => img.ImageName); // Sort images by name for consistent ordering
-
 
         // In case if we are allowing replace, we are not adding any sprites that 
         // have the pattern name that will exists in the sheets.
@@ -165,15 +193,17 @@ public class SpriteSheetBuilder
     /// </exception>
     public BuilderSprite AddSprite(RawImage rawImage)
     {
+        _rawImages.Add(rawImage);
+
         BuilderSprite? sprite = null;
-        foreach (var sheet in spriteSheets)
+        foreach (var sheet in _spriteSheets)
         {
             if (sheet.TryAddSprite(rawImage, out sprite))
             {
                 Logger.LogInformation("Added sprite {SpriteName} to existing sheet {SheetName}", rawImage.ImageName, sheet.Name);
 
                 // Successfully added to an existing sheet, so we can exit function.
-                return sprite!; 
+                return sprite!;
             }
             else
             {
@@ -195,7 +225,7 @@ public class SpriteSheetBuilder
 
         Logger.LogInformation("Added sprite {SpriteName} to new sheet {SheetName}", rawImage.ImageName, newSheet.Name);
 
-        spriteSheets.Add(newSheet);
+        _spriteSheets.Add(newSheet);
 
         return sprite;
     }
@@ -209,7 +239,7 @@ public class SpriteSheetBuilder
     /// </returns>
     public bool RemoveSprite(BuilderSprite sprite)
     {
-        foreach (IBuilderSpriteSheet sheet in spriteSheets)
+        foreach (IBuilderSpriteSheet sheet in _spriteSheets)
         {
             if (sheet.Sprites.Contains(sprite))
             {
@@ -222,6 +252,7 @@ public class SpriteSheetBuilder
             }
         }
         Logger.LogWarning("Sprite {SpriteName} not found in any sheet", sprite.FileName);
+        _rawImages.Remove(sprite.RawImage);
         return false;
     }
 
@@ -241,7 +272,7 @@ public class SpriteSheetBuilder
         }
 
         int sheetIndex = 0;
-        foreach (ABaseBuilderSpriteSheet sheet in spriteSheets)
+        foreach (ABaseBuilderSpriteSheet sheet in _spriteSheets)
         {
             string fileName = $"{sheet.Name}_{sheetIndex}";
             sheetsFileNames.Add(fileName);
