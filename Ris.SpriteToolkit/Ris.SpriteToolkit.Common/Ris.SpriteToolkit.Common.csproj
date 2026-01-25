@@ -8,7 +8,7 @@
     <!-- NUGET -->
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>RisGameFramework.SpriteToolkit.Common</PackageId>
-    <Version>1.0.0-preview.8</Version>
+    <Version>1.0.0-preview.9</Version>
     <Authors>Erkapic Luka</Authors>
     <Description>The common sprite sheets loading utilities for RisGameFramework.</Description>
     <PackageTags>RisGameFramework</PackageTags>
