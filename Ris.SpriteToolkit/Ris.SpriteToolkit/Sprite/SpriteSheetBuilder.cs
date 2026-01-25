@@ -15,6 +15,11 @@ public class SpriteSheetBuilder
     private Size _size = new Size(2048, 2048);
 
     /// <summary>
+    /// Event which is invoked when the <see cref="Size"/> property changes.
+    /// </summary>
+    public event EventHandler? SizeChanged;
+
+    /// <summary>
     /// The constructor for <see cref="SpriteSheetBuilder"/>.
     /// </summary>
     /// <param name="size">
@@ -101,6 +106,8 @@ public class SpriteSheetBuilder
         {
             AddSprite(rawImage);
         }
+
+        SizeChanged?.Invoke(this, EventArgs.Empty);
     }
 
     /// <summary>
