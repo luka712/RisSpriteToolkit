@@ -1,5 +1,6 @@
 using AutoMapper;
 using Microsoft.Extensions.Logging;
+using RisGameFramework.SpriteToolkit.Exceptions;
 using System.Drawing;
 
 namespace RisGameFramework.SpriteToolkit;
@@ -103,6 +104,12 @@ public class SpriteTKBundleBuilder {
     /// The directory path where to save the assets.
     /// </param>
     /// <param name="bundleName">The name of bundle which is saved as JSON file.</param>
+    /// <exception cref="ArgumentException">
+    /// Thrown if <paramref name="directoryPath"/> or <paramref name="bundleName"/> is null, empty, or whitespace.
+    /// </exception>
+    /// <exception cref="FileAlreadyExistsException">
+    /// Thrown if the file already exists and <see cref="AllowReplace"/> is <c>false</c>.
+    /// </exception>
     public void SaveBundle(string directoryPath, string bundleName)
     {
         if (string.IsNullOrWhiteSpace(directoryPath))
@@ -123,9 +130,8 @@ public class SpriteTKBundleBuilder {
         }
         else if (fileExists)
         {
-            string msg = $"Cannot save asset file. File already exists: {jsonFilePath}";
-            _logger?.LogError(msg);
-            throw new InvalidOperationException(msg);
+            _logger?.LogError($"Cannot save asset file. File already exists: {jsonFilePath}");
+            throw new FileAlreadyExistsException(jsonFilePath);
         }
 
         File.WriteAllText(jsonFilePath, CreateJson(sheetsFilePaths, sheetsFileNames));
