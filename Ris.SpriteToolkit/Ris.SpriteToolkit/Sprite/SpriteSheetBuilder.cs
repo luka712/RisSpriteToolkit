@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using RisGameFramework.SpriteToolkit.Exceptions;
 using System.Drawing;
 using System.Text.Json.Serialization;
 
@@ -218,11 +219,14 @@ public class SpriteSheetBuilder
             }
         }
 
+        // The index of a sprite sheet.
+        int index = _spriteSheets.Count;
+        
         // Create a new sprite sheet
         IBuilderSpriteSheet newSheet = new BuilderSkylineSpriteSheet(size: Size)
         {
             Padding = Padding,
-            Name = DefaultSheetName,
+            Name = $"{DefaultSheetName}_{index}",
         };
 
         Logger.LogInformation("Created new sprite sheet {SheetName} for sprite {SpriteName}", newSheet.Name, rawImage.ImageName);
@@ -268,6 +272,9 @@ public class SpriteSheetBuilder
     /// </summary>
     /// <param name="sheetsFilePaths">List of saved file paths per sheet.</param>
     /// <param name="sheetsFileNames">List of file names per sheet.</param>
+    /// <exception cref="FileAlreadyExistsException">
+    /// Thrown if a file already exists and <see cref="AllowReplace"/> is <c>false</c>.
+    /// </exception>
     public void Save(string directoryPath, out List<string> sheetsFilePaths, out List<string> sheetsFileNames)
     {
         sheetsFilePaths = new List<string>();
@@ -295,7 +302,7 @@ public class SpriteSheetBuilder
             {
                 string msg = $"Cannot save sprite sheet file. File already exists: {filePath}";
                 Logger.LogError(msg);
-                throw new InvalidOperationException(msg);
+                throw new FileAlreadyExistsException(filePath);
             }
 
             sheet.Save(filePath);

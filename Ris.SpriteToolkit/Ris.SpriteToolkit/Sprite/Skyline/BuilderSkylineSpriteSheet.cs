@@ -1,6 +1,5 @@
-﻿using OpenCvSharp.ImgHash;
+﻿using RisGameFramework.SpriteToolkit.Exceptions;
 using System.Drawing;
-using System.Xml.XPath;
 
 namespace RisGameFramework.SpriteToolkit;
 
@@ -65,7 +64,7 @@ internal class BuilderSkylineSpriteSheet : ABaseBuilderSpriteSheet
             return sprite;
         }
 
-        throw new InvalidOperationException("No space available to add the sprite.");
+        throw new SpriteSheetFullException(Size, new Size(image.Width, image.Height));
     }
 
     /// <inheritdoc/>
