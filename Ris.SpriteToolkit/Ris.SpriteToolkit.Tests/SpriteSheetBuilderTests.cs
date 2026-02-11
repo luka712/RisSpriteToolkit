@@ -169,4 +169,33 @@ public class SpriteSheetBuilderTests
         builder.Size = new System.Drawing.Size(1024, 1024);
         Assert.That(builder.Size, Is.EqualTo(new System.Drawing.Size(1024, 1024)));
     }
+    
+    
+    /// <summary>
+    /// Try to add a batch of images to the <see cref="SpriteSheetBuilder"/> which will result
+    /// in 2 spritesheets. Confirm that both names are indexed.
+    /// </summary>
+    [Test]
+    public void Test_AddBatchToBuilder_ConfirmNameIndexed()
+    {
+        SpriteSheetBuilder builder = new(new System.Drawing.Size(1024,1024));
+        builder.Padding = 0; // No padding for this test
+
+        List<RawImage> images = new();
+        for (int i = 0; i < 6; i++)
+        {
+            images.Add(new RawImage($"Test{i}.png", 512, 512, new byte[512 * 512 * 4], 4));
+        }
+
+        foreach (var image in images)
+        {
+            builder.AddSprite(image);
+        }
+
+        // Builder is set to 1024x1024, so it should fit 4 images of 512x512 in one sheet.
+        Assert.That(builder.SpriteSheets.Count, Is.EqualTo(2));
+        Assert.That(builder.SpriteSheets[0].Name, Is.EqualTo($"{builder.DefaultSheetName}_0"));
+        Assert.That(builder.SpriteSheets[1].Name, Is.EqualTo($"{builder.DefaultSheetName}_1"));
+
+    }
 }

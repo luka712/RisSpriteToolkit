@@ -219,11 +219,14 @@ public class SpriteSheetBuilder
             }
         }
 
+        // The index of a sprite sheet.
+        int index = _spriteSheets.Count;
+        
         // Create a new sprite sheet
         IBuilderSpriteSheet newSheet = new BuilderSkylineSpriteSheet(size: Size)
         {
             Padding = Padding,
-            Name = DefaultSheetName,
+            Name = $"{DefaultSheetName}_{index}",
         };
 
         Logger.LogInformation("Created new sprite sheet {SheetName} for sprite {SpriteName}", newSheet.Name, rawImage.ImageName);
