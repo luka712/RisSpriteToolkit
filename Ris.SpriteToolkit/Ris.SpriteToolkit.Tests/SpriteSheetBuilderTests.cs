@@ -1,4 +1,5 @@
 using RisGameFramework.SpriteToolkit;
+using RisSpriteToolkit;
 
 namespace RisGameFramework.SpriteToolkit.Tests;
 
@@ -196,6 +197,24 @@ public class SpriteSheetBuilderTests
         Assert.That(builder.SpriteSheets.Count, Is.EqualTo(2));
         Assert.That(builder.SpriteSheets[0].Name, Is.EqualTo($"{builder.DefaultSheetName}_0"));
         Assert.That(builder.SpriteSheets[1].Name, Is.EqualTo($"{builder.DefaultSheetName}_1"));
+    }
+    
+    /// <summary>
+    /// Test if JSON and sprite sheet are saved in the same directory.
+    /// </summary>
+    [Test]
+    public void TestSavedInSameDirectory()
+    {
+        SpriteTKBundleBuilder builder = new();
+        builder.PngSpriteSheetBuilder.DefaultSheetName = "Test";
+        builder.PngSpriteSheetBuilder.AllowReplace = true;
+        builder.AllowReplace = true;
+        builder.AddRawImage(new RawImage($"Test.png", 512, 512, new byte[512 * 512 * 4], 4));
 
+        builder.SaveBundle("Test/Output", "Test");
+        
+        Assert.That(Directory.Exists("Test/Output"));
+        Assert.That(File.Exists("Test/Output/Test_0.png"));
+        Assert.That(File.Exists("Test/Output/Test.json"));
     }
 }
