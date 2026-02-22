@@ -2,6 +2,7 @@ using AutoMapper;
 using Microsoft.Extensions.Logging;
 using RisGameFramework.SpriteToolkit.Exceptions;
 using System.Drawing;
+using RisSpriteToolkit;
 
 namespace RisGameFramework.SpriteToolkit;
 
@@ -139,6 +140,7 @@ public class SpriteTKBundleBuilder {
 
     private string CreateJson(IReadOnlyList<string> sheetsFilePaths, IReadOnlyList<string> sheetsFileNames)
     {
+        
         SpriteToolkitBundle spriteToolkitDto = new()
         {
             SpriteSheets = _mapper.Map<IReadOnlyList<SpriteSheet>>(PngSpriteSheetBuilder.SpriteSheets)

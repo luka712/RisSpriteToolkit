@@ -2,8 +2,9 @@
 using RisGameFramework.SpriteToolkit.Exceptions;
 using System.Drawing;
 using System.Text.Json.Serialization;
+using RisGameFramework.SpriteToolkit;
 
-namespace RisGameFramework.SpriteToolkit;
+namespace RisSpriteToolkit;
 
 /// <summary>
 /// The class responsible for creating sprite sheets.
@@ -270,6 +271,7 @@ public class SpriteSheetBuilder
     /// <summary>
     /// Saves all sprite sheets to the specified directory.
     /// </summary>
+    /// <param name="directoryPath">The directory path where to save the sprite sheets.</param>
     /// <param name="sheetsFilePaths">List of saved file paths per sheet.</param>
     /// <param name="sheetsFileNames">List of file names per sheet.</param>
     /// <exception cref="FileAlreadyExistsException">
@@ -277,36 +279,35 @@ public class SpriteSheetBuilder
     /// </exception>
     public void Save(string directoryPath, out List<string> sheetsFilePaths, out List<string> sheetsFileNames)
     {
-        sheetsFilePaths = new List<string>();
-        sheetsFileNames = new List<string>();
+        sheetsFilePaths = [];
+        sheetsFileNames = [];
 
         if (!Directory.Exists(directoryPath))
         {
             Directory.CreateDirectory(directoryPath);
         }
 
-        int sheetIndex = 0;
-        foreach (ABaseBuilderSpriteSheet sheet in _spriteSheets)
+        foreach (var builderSpriteSheet in _spriteSheets)
         {
-            string fileName = $"{sheet.Name}_{sheetIndex}";
+            var sheet = (ABaseBuilderSpriteSheet)builderSpriteSheet;
+            var fileName = $"{sheet.Name}";
             sheetsFileNames.Add(fileName);
-            string filePath = $"{fileName}.{ImageFormat.ToString().ToLower()}";
+            var filePath = $"{fileName}.{ImageFormat.ToString().ToLower()}";
             sheetsFilePaths.Add(filePath);
 
-            bool fileExists = File.Exists(filePath);
+            var fileExists = File.Exists(filePath);
             if (AllowReplace && fileExists)
             {
                 File.Delete(filePath);
             }
             else if (File.Exists(filePath))
             {
-                string msg = $"Cannot save sprite sheet file. File already exists: {filePath}";
+                var msg = $"Cannot save sprite sheet file. File already exists: {filePath}";
                 Logger.LogError(msg);
                 throw new FileAlreadyExistsException(filePath);
             }
 
-            sheet.Save(filePath);
-            sheetIndex++;
+            sheet.Save(Path.Join(directoryPath, filePath));
         }
     }
 }

@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <RootNamespace>RisGameFramework.SpriteToolkit</RootNamespace>
+    <RootNamespace>RisSpriteToolkit</RootNamespace>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <!-- NUGET -->
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
