@@ -35,9 +35,9 @@ jobs:
       - name: Bump preview version
         run: |
           CSPROJS=(
-            "./Ris.SpriteToolkit/Ris.SpriteToolkit/Ris.SpriteToolkit.csproj"
-            "./Ris.SpriteToolkit/Ris.SpriteToolkit.Common/Ris.SpriteToolkit.Common.csproj"
-            "./Ris.SpriteToolkit/Ris.SpriteToolkit.Wasm/Ris.SpriteToolkit.Wasm.csproj"
+            "./RisSpriteToolkit/RisSpriteToolkit/RisSpriteToolkit.csproj"
+            "./RisSpriteToolkit/RisSpriteToolkit.Common/RisSpriteToolkit.Common.csproj"
+            "./RisSpriteToolkit/RisSpriteToolkit.Wasm/RisSpriteToolkit.Wasm.csproj"
           )
           for csproj in "${CSPROJS[@]}"; do
             echo "Processing $csproj"
@@ -62,17 +62,17 @@ jobs:
 
       # Build
       - name: Build
-        run: dotnet build ./Ris.SpriteToolkit/Ris.SpriteToolkit.sln --configuration Release
+        run: dotnet build ./RisSpriteToolkit/RisSpriteToolkit.sln --configuration Release
 
       # Pack
       - name: Pack
-        run: dotnet pack ./Ris.SpriteToolkit/Ris.SpriteToolkit.sln --configuration Release --no-build
+        run: dotnet pack ./RisSpriteToolkit/RisSpriteToolkit.sln --configuration Release --no-build
 
       # Find NuGet package
       - name: Find NuGet packages
         id: find_pkgs
         run: |
-          mapfile -t packages < <(find ./Ris.SpriteToolkit -name "*.nupkg" ! -name "*symbols*.nupkg")
+          mapfile -t packages < <(find ./RisSpriteToolkit -name "*.nupkg" ! -name "*symbols*.nupkg")
           if [ ${#packages[@]} -eq 0 ]; then
             echo "Error: No .nupkg files found!"
             exit 1
