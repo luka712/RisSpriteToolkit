@@ -1,11 +1,13 @@
-using RisGameFramework.SpriteToolkit;
 using RisSpriteToolkit;
 using RisSpriteToolkit.Data.Image;
 using RisSpriteToolkit.Sprite;
 
 namespace RisGameFramework.SpriteToolkit.Tests
 {
-    public class SpriteSheetBuilderTests
+    /// <summary>
+    /// The <see cref="SpriteSheetBuilder"/> tests.
+    /// </summary>
+    internal class SpriteSheetBuilderTests
     {
         /// <summary>
         /// Try to add a batch of images to the <see cref="SpriteSheetBuilder"/>.
