@@ -1,6 +1,7 @@
 ﻿using System.Text.Json.Serialization;
+using RisGameFramework.SpriteToolkit;
 
-namespace RisGameFramework.SpriteToolkit
+namespace RisSpriteToolkit.Dto
 {
     /// <summary>
     /// The sprite JSON DTO.

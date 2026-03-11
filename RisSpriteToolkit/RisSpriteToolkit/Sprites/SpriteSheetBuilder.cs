@@ -1,15 +1,14 @@
-﻿using Microsoft.Extensions.Logging;
-using RisGameFramework.SpriteToolkit.Exceptions;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Text.Json.Serialization;
+using Microsoft.Extensions.Logging;
 using RisGameFramework.SpriteToolkit;
+using RisGameFramework.SpriteToolkit.Exceptions;
 using RisSpriteToolkit.Data.Image;
 using RisSpriteToolkit.Loaders;
-using RisSpriteToolkit.Sprite;
-using RisSpriteToolkit.Sprite.Base;
-using RisSpriteToolkit.Sprite.Skyline;
+using RisSpriteToolkit.Sprites.Base;
+using RisSpriteToolkit.Sprites.Skyline;
 
-namespace RisSpriteToolkit
+namespace RisSpriteToolkit.Sprites
 {
     /// <summary>
     /// The class responsible for creating sprite sheets.

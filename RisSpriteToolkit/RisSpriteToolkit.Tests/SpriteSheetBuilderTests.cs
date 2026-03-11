@@ -1,6 +1,6 @@
 using RisSpriteToolkit;
 using RisSpriteToolkit.Data.Image;
-using RisSpriteToolkit.Sprite;
+using RisSpriteToolkit.Sprites;
 
 namespace RisGameFramework.SpriteToolkit.Tests
 {

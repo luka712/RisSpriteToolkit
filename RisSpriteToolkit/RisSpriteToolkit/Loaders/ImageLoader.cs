@@ -1,5 +1,4 @@
-﻿using OpenCvSharp;
-using RisGameFramework.SpriteToolkit;
+﻿using RisGameFramework.SpriteToolkit;
 using RisGameFramework.SpriteToolkit.Loaders;
 using RisSpriteToolkit.Data.Image;
 using SkiaSharp;
@@ -46,11 +45,6 @@ namespace RisSpriteToolkit.Loaders
             {
                 throw new NotSupportedException($"Unsupported file format: {filePath}");
             }
-
-            if (Backend == ImageBackend.OpenCV)
-            {
-                return LoadImageOpenCV(filePath);
-            }
         
             // Skia is default backend.
             return LoadImageSkia(filePath);
@@ -61,21 +55,7 @@ namespace RisSpriteToolkit.Loaders
             SKBitmap bitmap = SKBitmap.Decode(filePath);
             return new RawImageSkia(filePath, bitmap);
         }
-
-        private RawImageOpenCV LoadImageOpenCV(string filePath)
-        {
-            // Load an image from file
-            Mat img = Cv2.ImRead(filePath);
-            img.ToRGBA();
-
-            if (img.Empty())
-            {
-                throw new InvalidOperationException($"Failed to load image from path: {filePath}");
-            }
-
-            return new RawImageOpenCV(filePath, img);
-        }
-
+        
         /// <summary>
         /// Loads all images from a folder and returns a list of <see cref="RawImage"/>.
         /// </summary>
@@ -128,32 +108,7 @@ namespace RisSpriteToolkit.Loaders
             // Parallel load images
         
             // OpenCV
-            if (Backend == ImageBackend.OpenCV)
-            {
-                Parallel.ForEach(imageFiles, file =>
-                {
-                    Mat img = Cv2.ImRead(file, ImreadModes.Unchanged);
-                    img.ToRGBA();
-
-                    // If image is invalid, add to invalid list
-                    if (img.Empty())
-                    {
-                        lock (invalidImageFiles) // protect shared list
-                        {
-                            invalidImageFiles.Add(file);
-                        }
-                    }
-                    // If image is valid, add to images list
-                    else
-                    {
-                        lock (images) // protect shared dictionary
-                        {
-                            images.Add(new RawImageOpenCV(file, img));
-                        }
-                    }
-                });
-            }
-            else
+            if (Backend == ImageBackend.Skia)
             {
                 // SKIA
                 Parallel.ForEach(imageFiles, file =>
@@ -177,6 +132,10 @@ namespace RisSpriteToolkit.Loaders
                         }
                     }
                 });
+            }
+            else
+            {
+                throw new NotSupportedException("Unsupported image backend.");
             }
 
             if (invalidImageFiles.Count > 0)
