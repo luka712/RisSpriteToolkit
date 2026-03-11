@@ -111,4 +111,4 @@ jobs:
           generate_release_notes: true
           files: |
             ${{ steps.find_pkgs.outputs.packages }}
-          overwrite: true  # equivalent to overwrite_files: true in newer versions
+          overwrite_files: true  # equivalent to overwrite_files: true in newer versions
