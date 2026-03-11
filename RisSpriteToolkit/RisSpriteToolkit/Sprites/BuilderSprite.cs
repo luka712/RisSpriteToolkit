@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 using RisGameFramework.SpriteToolkit.Math;
 using RisSpriteToolkit.Data.Image;
 
-namespace RisSpriteToolkit.Sprite
+namespace RisSpriteToolkit.Sprites
 {
     /// <summary>
     /// The sprite class.

@@ -1,15 +1,14 @@
 ﻿using System.Drawing;
-using RisGameFramework.SpriteToolkit;
 using RisGameFramework.SpriteToolkit.Exceptions;
 using RisSpriteToolkit.Data.Image;
-using RisSpriteToolkit.Sprite.Base;
+using RisSpriteToolkit.Sprites.Base;
 
-namespace RisSpriteToolkit.Sprite.Skyline
+namespace RisSpriteToolkit.Sprites.Skyline
 {
     /// <summary>
     /// The sprite sheet which uses the Skyline packing algorithm.
     /// </summary>
-    internal class BuilderSkylineSpriteSheet : ABaseBuilderSpriteSheet
+    public class BuilderSkylineSpriteSheet : ABaseBuilderSpriteSheet
     {
         private readonly List<BuilderSkylineNode> _skyline = new();
 
@@ -62,7 +61,7 @@ namespace RisSpriteToolkit.Sprite.Skyline
                 y += Padding;
 
                 BuilderSprite sprite = new BuilderSprite(image, new Point(x, y), this);
-                sprites.Add(sprite);
+                _sprites.Add(sprite);
                 return sprite;
             }
 
@@ -81,7 +80,7 @@ namespace RisSpriteToolkit.Sprite.Skyline
 
                 // Create and add the sprite
                 sprite = new BuilderSprite(image, new Point(x + Padding, y + Padding), this);
-                sprites.Add(sprite);
+                _sprites.Add(sprite);
                 return true;
             }
             sprite = null;

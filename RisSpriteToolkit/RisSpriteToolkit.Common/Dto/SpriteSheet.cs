@@ -1,4 +1,5 @@
 ﻿using System.Text.Json.Serialization;
+using RisSpriteToolkit.Dto;
 
 namespace RisGameFramework.SpriteToolkit
 {
@@ -35,7 +36,7 @@ namespace RisGameFramework.SpriteToolkit
         /// The image format of the sprite sheet (e.g., "png", "jpg").
         /// </summary>
         [JsonPropertyName("format")]
-        public required string Format { get; set; }
+        public string Format { get; set; } = null!;
 
         /// <summary>
         /// The collection of sprites in the sprite sheet.

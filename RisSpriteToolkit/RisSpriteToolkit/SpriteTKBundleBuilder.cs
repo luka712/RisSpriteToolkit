@@ -1,23 +1,23 @@
-using AutoMapper;
-using Microsoft.Extensions.Logging;
-using RisGameFramework.SpriteToolkit.Exceptions;
 using System.Drawing;
-using RisSpriteToolkit;
+using Microsoft.Extensions.Logging;
+using RisGameFramework.SpriteToolkit;
+using RisGameFramework.SpriteToolkit.Exceptions;
 using RisSpriteToolkit.Data.Image;
-using RisSpriteToolkit.Sprite;
+using RisSpriteToolkit.Sprites;
 
-namespace RisGameFramework.SpriteToolkit
+namespace RisSpriteToolkit
 {
     /// <summary>
     /// The asset builder which is responsible for creating and managing sprite sheets.
     /// </summary>
-    public class SpriteTKBundleBuilder {
-        private readonly IMapper _mapper;
+    public class SpriteTKBundleBuilder 
+    {
         private readonly ILogger? _logger;
+        private readonly MapperService _mapper = new();
 
         /// <summary>
         /// The PNG sprite sheet builder.
-        /// Builds a sprite sheets as PNG files.
+        /// Builds a sprite sheet as PNG files.
         /// </summary>
         public SpriteSheetBuilder PngSpriteSheetBuilder { get; }
 
@@ -42,7 +42,6 @@ namespace RisGameFramework.SpriteToolkit
         public SpriteTKBundleBuilder(ILogger? logger = null)
         {
             _logger = logger;
-            _mapper = Mapper.MapperFactory.CreateMapper();
             PngSpriteSheetBuilder = new SpriteSheetBuilder(logger: _logger);
         }
 
@@ -145,7 +144,7 @@ namespace RisGameFramework.SpriteToolkit
         
             SpriteToolkitBundle spriteToolkitDto = new()
             {
-                SpriteSheets = _mapper.Map<IReadOnlyList<SpriteSheet>>(PngSpriteSheetBuilder.SpriteSheets)
+                SpriteSheets = PngSpriteSheetBuilder.SpriteSheets.Select(x => _mapper.ToSpriteSheet(x)).ToList()
             };
 
             // Add file paths.

@@ -1,12 +1,13 @@
-name: Publish NuGet Package
+name: Publish Preview NuGet Package
 
 permissions:
   contents: write  # needed to push tags and commits
+  packages: write  # optional – good practice when publishing packages
 
 on:
   push:
     branches:
-      - main  # run on merge to main
+      - development  # run on merge to develop (if you have a develop branch)
 
 jobs:
   build_and_publish:
@@ -37,7 +38,6 @@ jobs:
           CSPROJS=(
             "./RisSpriteToolkit/RisSpriteToolkit/RisSpriteToolkit.csproj"
             "./RisSpriteToolkit/RisSpriteToolkit.Common/RisSpriteToolkit.Common.csproj"
-            "./RisSpriteToolkit/RisSpriteToolkit.Wasm/RisSpriteToolkit.Wasm.csproj"
           )
           for csproj in "${CSPROJS[@]}"; do
             echo "Processing $csproj"
