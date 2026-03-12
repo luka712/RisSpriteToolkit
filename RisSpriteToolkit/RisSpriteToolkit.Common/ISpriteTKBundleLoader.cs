@@ -1,4 +1,6 @@
 ﻿
+using RisSpriteToolkit.Dto;
+
 namespace RisGameFramework.SpriteToolkit
 {
     /// <summary>
@@ -28,7 +30,7 @@ namespace RisGameFramework.SpriteToolkit
         /// In case if there is no file under <paramref name="filePath"/>.
         /// </exception>
         /// <exception cref="InvalidDataException">
-        /// If loaded JSON is not valid.
+        /// If loaded, JSON is not valid.
         /// </exception>
         SpriteToolkitBundle Load(string filePath);
 
