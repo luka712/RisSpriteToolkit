@@ -4,7 +4,7 @@ using RisGameFramework.SpriteToolkit.Loaders;
 using RisSpriteToolkit.Data.Image;
 using SkiaSharp;
 
-namespace RisSpriteToolkit.Sprite.Base
+namespace RisSpriteToolkit.Sprites.Base
 {
     /// <summary>
     /// The sprite sheet.
@@ -14,13 +14,13 @@ namespace RisSpriteToolkit.Sprite.Base
         /// <summary>
         /// The list of sprites in the sprite sheet.
         /// </summary>
-        protected readonly List<BuilderSprite> sprites = new();
+        protected readonly List<BuilderSprite> _sprites = new();
 
         /// <summary>
         /// The constructor for <see cref="ABaseBuilderSpriteSheet"/>.
         /// </summary>
-        /// <param name="name">The name of sprite sheet. By default, it is "SpriteSheet".</param>
-        /// <param name="size">The size of sprite sheet. If <c>null</c> is passed, by default it is <c>(2048,2048)</c>.</param>
+        /// <param name="name">The name of a sprite sheet. By default, it is "SpriteSheet".</param>
+        /// <param name="size">The size of a sprite sheet. If <c>null</c> is passed, by default it is <c>(2048,2048)</c>.</param>
         /// <param name="imageBackend">The <see cref="ImageBackend"/>. By default, it is <see cref="ImageBackend.Skia"/>.</param>
         public ABaseBuilderSpriteSheet(string name = "SpriteSheet", Size? size = null,
             ImageBackend imageBackend = ImageBackend.Skia)
@@ -59,7 +59,7 @@ namespace RisSpriteToolkit.Sprite.Base
         public int Padding { get; set; } = 1;
 
         /// <inheritdoc/>
-        public IReadOnlyList<BuilderSprite> Sprites => sprites;
+        public IReadOnlyList<BuilderSprite> Sprites => _sprites;
 
         /// <inheritdoc/>
         public Size Size { get; } = new Size(2048, 2048);
@@ -75,33 +75,7 @@ namespace RisSpriteToolkit.Sprite.Base
 
         /// <inheritdoc/>
         public bool RemoveSprite(BuilderSprite sprite)
-            => sprites.Remove(sprite);
-
-        /// <summary>
-        /// Writes a sprite to the target image.
-        /// </summary>
-        /// <param name="targetImage">The <see cref="OpenCvSharp.Mat"/> which is target image.</param>
-        /// <param name="sprite">The <see cref="BuilderSprite"/> to write.</param>
-        private void WriteToTargetImage(OpenCvSharp.Mat targetImage, BuilderSprite sprite)
-        {
-            if (sprite.RawImage is RawImageOpenCV rawImage)
-            {
-                OpenCvSharp.Mat sourceMat = rawImage.OpenCVMat;
-
-                // Define the region of interest (ROI) in the target image
-                OpenCvSharp.Rect roi = new OpenCvSharp.Rect(sprite.Position.X, sprite.Position.Y, sprite.Size.Width,
-                    sprite.Size.Height);
-                OpenCvSharp.Mat targetROI = new OpenCvSharp.Mat(targetImage, roi);
-                // Copy the source image to the target ROI
-                sourceMat.CopyTo(targetROI);
-
-                return;
-            }
-
-            // TODO: write raw bytes to target image for other RawImage types
-
-            throw new NotSupportedException("Only RawImageOpenCV is supported.");
-        }
+            => _sprites.Remove(sprite);
 
         private void SaveSkiaSheet(string filePath)
         {
@@ -113,19 +87,7 @@ namespace RisSpriteToolkit.Sprite.Base
         /// <inheritdoc/>
         public void Save(string filePath)
         {
-            if (ImageBackend == ImageBackend.OpenCV)
-            {
-                // Create a blank image for the sprite sheet
-                OpenCvSharp.Mat targetImage = new OpenCvSharp.Mat(Size.Height, Size.Width, OpenCvSharp.MatType.CV_8UC4);
-                foreach (BuilderSprite sprite in sprites)
-                {
-                    WriteToTargetImage(targetImage, sprite);
-                }
-
-                // Save the sprite sheet image
-                targetImage.SaveImage(filePath);
-            }
-            else if (ImageBackend == ImageBackend.Skia)
+            if (ImageBackend == ImageBackend.Skia)
             {
                 SaveSkiaSheet(filePath);
             }
@@ -142,7 +104,7 @@ namespace RisSpriteToolkit.Sprite.Base
 
             using (var canvas = new SKCanvas(targetBitmap))
             {
-                foreach (BuilderSprite sprite in sprites)
+                foreach (BuilderSprite sprite in _sprites)
                 {
                     if (sprite.RawImage is RawImageSkia rawImageSkia)
                     {

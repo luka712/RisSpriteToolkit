@@ -1,7 +1,8 @@
-﻿using AutoMapper;
+﻿using RisSpriteToolkit;
 using RisSpriteToolkit.Data.Image;
-using RisSpriteToolkit.Sprite;
-using RisSpriteToolkit.Sprite.Skyline;
+using RisSpriteToolkit.Dto;
+using RisSpriteToolkit.Sprites;
+using RisSpriteToolkit.Sprites.Skyline;
 
 namespace RisGameFramework.SpriteToolkit.Tests
 {
@@ -17,9 +18,9 @@ namespace RisGameFramework.SpriteToolkit.Tests
         [Test]
         public void Test_Rect_To_SourceRectJson_Mapping()
         {
-            var mapper = Mapper.MapperFactory.CreateMapper();
+            var mapper = new MapperService();
             var rect = new SpriteToolkit.Math.Rect(25, 25, 50, 50);
-            var sourceRectJson = mapper.Map<SourceRect>(rect);
+            var sourceRectJson = mapper.ToSourceRect(rect);
             Assert.That(sourceRectJson.X, Is.EqualTo(25));
             Assert.That(sourceRectJson.Y, Is.EqualTo(25));
             Assert.That(sourceRectJson.Width, Is.EqualTo(50));
@@ -32,7 +33,7 @@ namespace RisGameFramework.SpriteToolkit.Tests
         [Test]
         public void Test_Sprite_To_SpriteJson_Mapping()
         {
-            IMapper mapper = Mapper.MapperFactory.CreateMapper();
+            var mapper = new MapperService();
             BuilderSkylineSpriteSheet spriteSheet = new()
             {
                 FilePath = "TestSheet.png",
@@ -42,7 +43,7 @@ namespace RisGameFramework.SpriteToolkit.Tests
 
             BuilderSprite sprite = new (rawImage, new System.Drawing.Point(100, 100), spriteSheet);
             sprite.Name = "TestSprite";
-            Sprite spriteDto = mapper.Map<Sprite>(sprite);
+            Sprite spriteDto = mapper.ToSprite(sprite);
             Assert.That(spriteDto.Name, Is.EqualTo("TestSprite"));
             Assert.That(spriteDto.FileName, Is.EqualTo("TestSprite.png"));
             Assert.That(spriteDto.SourceRect.X, Is.EqualTo(100));
@@ -61,7 +62,7 @@ namespace RisGameFramework.SpriteToolkit.Tests
         [Test]
         public void Test_SpriteSheet_To_SpriteSheetJson_Mapping()
         {
-            IMapper mapper = Mapper.MapperFactory.CreateMapper();
+            var mapper = new MapperService();
             BuilderSkylineSpriteSheet spriteSheet = new(size: new System.Drawing.Size(100, 100))
             {
                 Name = "TestSheet",
@@ -70,7 +71,7 @@ namespace RisGameFramework.SpriteToolkit.Tests
             };
             spriteSheet.AddSprite(new RawImage("TestSprite.png", 50, 50, new byte[50 * 50 * 4], 4));
 
-            SpriteSheet spriteSheetDto = mapper.Map<SpriteSheet>(spriteSheet);
+            SpriteSheet spriteSheetDto = mapper.ToSpriteSheet(spriteSheet);
 
             // Test sprite sheet properties
             Assert.That(spriteSheetDto.Name, Is.EqualTo("TestSheet"));

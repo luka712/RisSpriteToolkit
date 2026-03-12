@@ -1,3 +1,5 @@
+using RisSpriteToolkit;
+
 namespace RisGameFramework.SpriteToolkit.Tests
 {
     public class Tests

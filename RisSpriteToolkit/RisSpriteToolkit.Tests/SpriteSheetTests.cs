@@ -2,7 +2,7 @@
 using RisGameFramework.SpriteToolkit.Math;
 using System.Drawing;
 using RisSpriteToolkit.Data.Image;
-using RisSpriteToolkit.Sprite.Skyline;
+using RisSpriteToolkit.Sprites.Skyline;
 
 namespace SpriteToolkit.Tests
 {
