@@ -1,7 +1,9 @@
-﻿using Microsoft.Extensions.Logging;
-using System.Text.Json;
+﻿using System.Text.Json;
+using Microsoft.Extensions.Logging;
+using RisGameFramework.SpriteToolkit;
+using RisSpriteToolkit.Dto;
 
-namespace RisGameFramework.SpriteToolkit
+namespace RisSpriteToolkit
 {
     /// <summary>
     /// The implementation of <see cref="ISpriteTKBundleLoader"/>.

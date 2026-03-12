@@ -1,8 +1,8 @@
 using System.Drawing;
 using Microsoft.Extensions.Logging;
-using RisGameFramework.SpriteToolkit;
 using RisGameFramework.SpriteToolkit.Exceptions;
 using RisSpriteToolkit.Data.Image;
+using RisSpriteToolkit.Dto;
 using RisSpriteToolkit.Sprites;
 
 namespace RisSpriteToolkit
