@@ -10,7 +10,7 @@
     <!-- NUGET -->
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>RisGameFramework.SpriteToolkit</PackageId>
-    <Version>1.0.0-preview.17</Version>
+    <Version>0.1.1</Version>
     <Authors>Erkapic Luka</Authors>
     <Description>Sprite sheets loading utilities for RisGameFramework.</Description>
     <PackageTags>RisGameFramework</PackageTags>
@@ -19,6 +19,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Riok.Mapperly" Version="4.3.1" />
+    <PackageReference Include="RisGameFramework.SpriteToolkit.Common" Version="0.1.1" />
     <PackageReference Include="SkiaSharp" Version="2.88.9" />
     <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="2.88.9" />
     <PackageReference Include="SkiaSharp.NativeAssets.macOS" Version="2.88.9" />

@@ -1,7 +1,7 @@
 ﻿
 using RisSpriteToolkit.Dto;
 
-namespace RisGameFramework.SpriteToolkit
+namespace RisSpriteToolkit
 {
     /// <summary>
     /// The sprite toolkit bundle loader interface.
@@ -45,12 +45,12 @@ namespace RisGameFramework.SpriteToolkit
         /// In case if there is no file under <paramref name="filePath"/>.
         /// </exception>
         /// <exception cref="InvalidDataException">
-        /// If loaded JSON is not valid.
+        /// If loaded, JSON is not valid.
         /// </exception>
         Task<SpriteToolkitBundle> LoadAsync(string filePath);
 
         /// <summary>
-        /// Tries to get the bundle from cache.
+        /// Tries to get the bundle from the cache.
         /// </summary>
         /// <param name="filePath">The file path of a bundle.</param>
         /// <param name="bundle">The <see cref="SpriteToolkitBundle"/> if found; otherwise <c>null</c>.</param>
