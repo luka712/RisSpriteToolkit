@@ -37,7 +37,6 @@ jobs:
         run: |
           CSPROJS=(
             "./RisTextureToolkit/RisTextureToolkit/RisTextureToolkit.csproj"
-            "./RisTextureToolkit/RisTextureToolkit.Common/RisTextureToolkit.Common.csproj"
           )
           for csproj in "${CSPROJS[@]}"; do
             echo "Processing $csproj"

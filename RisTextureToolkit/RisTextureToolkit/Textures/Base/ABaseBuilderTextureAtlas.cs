@@ -2,7 +2,8 @@
 using System.Text.Json.Serialization;
 using RisGameFramework.SpriteToolkit.Loaders;
 using RisSpriteToolkit.Data.Image;
-using RisSpriteToolkit.Sprites;
+using RisTextureToolkit.Data.Image;
+using RisTextureToolkit.Textures;
 using SkiaSharp;
 
 namespace RisTextureToolkit.Sprites.Base

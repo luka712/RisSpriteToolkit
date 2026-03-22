@@ -5,9 +5,10 @@ using RisGameFramework.SpriteToolkit;
 using RisGameFramework.SpriteToolkit.Exceptions;
 using RisSpriteToolkit.Data.Image;
 using RisSpriteToolkit.Loaders;
-using RisSpriteToolkit.Sprites;
+using RisTextureToolkit.Data.Image;
 using RisTextureToolkit.Sprites.Base;
 using RisTextureToolkit.Sprites.Skyline;
+using RisTextureToolkit.Textures;
 
 namespace RisTextureToolkit.Sprites
 {

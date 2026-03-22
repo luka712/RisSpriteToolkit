@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using RisSpriteToolkit.Data.Image;
-using RisSpriteToolkit.Sprites;
+using RisTextureToolkit.Data.Image;
+using RisTextureToolkit.Textures;
 using SkiaSharp;
 
 namespace RisTextureToolkit.Sprites

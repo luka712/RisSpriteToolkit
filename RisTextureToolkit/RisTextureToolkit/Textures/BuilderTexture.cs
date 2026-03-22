@@ -1,10 +1,10 @@
 ﻿using System.Drawing;
 using System.Text.Json.Serialization;
-using RisGameFramework.SpriteToolkit.Math;
-using RisSpriteToolkit.Data.Image;
+using RisTextureToolkit.Data.Image;
+using RisTextureToolkit.Math;
 using RisTextureToolkit.Sprites;
 
-namespace RisSpriteToolkit.Sprites
+namespace RisTextureToolkit.Textures
 {
     /// <summary>
     /// The sprite class.

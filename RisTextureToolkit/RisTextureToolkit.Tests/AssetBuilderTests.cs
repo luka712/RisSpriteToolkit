@@ -1,3 +1,5 @@
+using RisTextureToolkit;
+
 namespace RisSpriteToolkit.Tests
 {
     public class Tests

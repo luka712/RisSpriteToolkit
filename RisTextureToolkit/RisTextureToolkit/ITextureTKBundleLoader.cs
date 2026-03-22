@@ -1,7 +1,7 @@
 ﻿
-using RisSpriteToolkit.Dto;
+using RisTextureToolkit.Dto;
 
-namespace RisSpriteToolkit
+namespace RisTextureToolkit
 {
     /// <summary>
     /// The sprite toolkit bundle loader interface.
