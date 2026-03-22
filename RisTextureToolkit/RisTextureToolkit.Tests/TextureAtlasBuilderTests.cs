@@ -1,7 +1,9 @@
 using RisSpriteToolkit;
 using RisSpriteToolkit.Data.Image;
-using RisSpriteToolkit.Sprites;
+using RisTextureToolkit;
+using RisTextureToolkit.Data.Image;
 using RisTextureToolkit.Sprites;
+using RisTextureToolkit.Textures;
 
 namespace RisGameFramework.SpriteToolkit.Tests
 {

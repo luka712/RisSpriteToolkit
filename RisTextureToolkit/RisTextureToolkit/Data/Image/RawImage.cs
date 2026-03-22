@@ -1,4 +1,4 @@
-﻿namespace RisSpriteToolkit.Data.Image
+﻿namespace RisTextureToolkit.Data.Image
 {
     /// <summary>
     /// The raw image data class.

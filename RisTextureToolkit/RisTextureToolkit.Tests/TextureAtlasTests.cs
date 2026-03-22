@@ -1,8 +1,9 @@
 ﻿using RisGameFramework.SpriteToolkit;
-using RisGameFramework.SpriteToolkit.Math;
 using System.Drawing;
 using RisSpriteToolkit.Data.Image;
+using RisTextureToolkit.Data.Image;
 using RisTextureToolkit.Dto;
+using RisTextureToolkit.Math;
 using RisTextureToolkit.Sprites.Skyline;
 
 namespace SpriteToolkit.Tests

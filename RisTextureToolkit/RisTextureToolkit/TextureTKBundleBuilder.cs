@@ -2,11 +2,12 @@ using System.Drawing;
 using Microsoft.Extensions.Logging;
 using RisGameFramework.SpriteToolkit.Exceptions;
 using RisSpriteToolkit.Data.Image;
-using RisSpriteToolkit.Dto;
-using RisSpriteToolkit.Sprites;
+using RisTextureToolkit.Data.Image;
+using RisTextureToolkit.Dto;
 using RisTextureToolkit.Sprites;
+using RisTextureToolkit.Textures;
 
-namespace RisSpriteToolkit
+namespace RisTextureToolkit
 {
     /// <summary>
     /// The asset builder which is responsible for creating and managing sprite sheets.

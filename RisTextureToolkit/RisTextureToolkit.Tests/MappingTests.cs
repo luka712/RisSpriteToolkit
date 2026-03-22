@@ -1,9 +1,10 @@
 ﻿using RisSpriteToolkit;
 using RisSpriteToolkit.Data.Image;
-using RisSpriteToolkit.Dto;
-using RisSpriteToolkit.Sprites;
+using RisTextureToolkit.Data.Image;
 using RisTextureToolkit.Dto;
+using RisTextureToolkit.Math;
 using RisTextureToolkit.Sprites.Skyline;
+using RisTextureToolkit.Textures;
 using MapperService = RisTextureToolkit.MapperService;
 
 namespace RisGameFramework.SpriteToolkit.Tests
@@ -21,7 +22,7 @@ namespace RisGameFramework.SpriteToolkit.Tests
         public void Test_Rect_To_SourceRectJson_Mapping()
         {
             var mapper = new MapperService();
-            var rect = new SpriteToolkit.Math.Rect(25, 25, 50, 50);
+            var rect = new Rect(25, 25, 50, 50);
             var sourceRectJson = mapper.ToSourceRect(rect);
             Assert.That(sourceRectJson.X, Is.EqualTo(25));
             Assert.That(sourceRectJson.Y, Is.EqualTo(25));

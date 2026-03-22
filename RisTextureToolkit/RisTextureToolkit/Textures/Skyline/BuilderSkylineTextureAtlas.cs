@@ -1,8 +1,9 @@
 ﻿using System.Drawing;
 using RisGameFramework.SpriteToolkit.Exceptions;
 using RisSpriteToolkit.Data.Image;
-using RisSpriteToolkit.Sprites;
+using RisTextureToolkit.Data.Image;
 using RisTextureToolkit.Sprites.Base;
+using RisTextureToolkit.Textures;
 
 namespace RisTextureToolkit.Sprites.Skyline
 {
