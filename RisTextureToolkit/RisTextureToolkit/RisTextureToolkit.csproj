@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RootNamespace>RisTextureToolkit</RootNamespace>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <!-- NUGET -->
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>RisGameFramework.SpriteToolkit</PackageId>
+    <Version>0.1.1</Version>
+    <Authors>Erkapic Luka</Authors>
+    <Description>Sprite sheets loading utilities for RisGameFramework.</Description>
+    <PackageTags>RisGameFramework</PackageTags>
+    <RepositoryUrl>https://github.com/luka712/Ris.SpriteToolkit</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Riok.Mapperly" Version="4.3.1" />
+    <PackageReference Include="RisGameFramework.SpriteToolkit.Common" Version="0.1.1" />
+    <PackageReference Include="SkiaSharp" Version="2.88.9" />
+    <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="2.88.9" />
+    <PackageReference Include="SkiaSharp.NativeAssets.macOS" Version="2.88.9" />
+    <PackageReference Include="SkiaSharp.NativeAssets.Win32" Version="2.88.9" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RisTextureToolkit.Common\RisTextureToolkit.Common.csproj" />
+  </ItemGroup>
+
+</Project>

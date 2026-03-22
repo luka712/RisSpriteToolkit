@@ -46,12 +46,12 @@ jobs:
 
       # Build
       - name: Build
-        run: dotnet build ./RisSpriteToolkit/RisSpriteToolkit.sln --configuration Release
+        run: dotnet build ./RisTextureToolkit/RisTextureToolkit.sln --configuration Release
 
       # Pack with version from CHANGELOG.md
       - name: Pack
         run: |
-          dotnet pack ./RisSpriteToolkit/RisSpriteToolkit.sln \
+          dotnet pack ./RisTextureToolkit/RisTextureToolkit.sln \
             --configuration Release \
             --no-build \
             /p:PackageVersion=${{ env.VERSION }}
@@ -60,7 +60,7 @@ jobs:
       - name: Find NuGet packages
         id: find_pkgs
         run: |
-          mapfile -t packages < <(find ./RisSpriteToolkit -name "*.nupkg" ! -name "*symbols*.nupkg")
+          mapfile -t packages < <(find ./RisTextureToolkit -name "*.nupkg" ! -name "*symbols*.nupkg")
 
           if [ ${#packages[@]} -eq 0 ]; then
             echo "❌ No .nupkg files found!"
