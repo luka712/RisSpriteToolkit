@@ -9,10 +9,10 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <!-- NUGET -->
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageId>RisGameFramework.SpriteToolkit</PackageId>
-    <Version>0.1.1</Version>
+    <PackageId>RisTextureToolkit</PackageId>
+    <Version>0.1.0</Version>
     <Authors>Erkapic Luka</Authors>
-    <Description>Sprite sheets loading utilities for RisGameFramework.</Description>
+    <Description>The texture toolkit which can be used to load or create texture atlases.</Description>
     <PackageTags>RisGameFramework</PackageTags>
     <RepositoryUrl>https://github.com/luka712/Ris.SpriteToolkit</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
