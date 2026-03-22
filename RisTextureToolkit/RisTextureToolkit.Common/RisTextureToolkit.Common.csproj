@@ -7,10 +7,10 @@
     <RootNamespace>RisTextureToolkit</RootNamespace>
     <!-- NUGET -->
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageId>RisGameFramework.SpriteToolkit.Common</PackageId>
-    <Version>0.1.1</Version>
+    <PackageId>RisTextureToolkit.Common</PackageId>
+    <Version>0.1.0</Version>
     <Authors>Erkapic Luka</Authors>
-    <Description>The common sprite sheets loading utilities for RisGameFramework.</Description>
+    <Description>The common classes and objects use by RisTextureToolkit</Description>
     <PackageTags>RisGameFramework</PackageTags>
     <RepositoryUrl>https://github.com/luka712/Ris.SpriteToolkit</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
