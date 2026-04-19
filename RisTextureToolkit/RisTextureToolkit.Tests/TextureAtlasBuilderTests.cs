@@ -1,5 +1,3 @@
-using RisSpriteToolkit;
-using RisSpriteToolkit.Data.Image;
 using RisTextureToolkit;
 using RisTextureToolkit.Data.Image;
 using RisTextureToolkit.Sprites;
@@ -12,6 +10,8 @@ namespace RisGameFramework.SpriteToolkit.Tests
     /// </summary>
     internal class TextureAtlasBuilderTests
     {
+        private const string TEST_PNG = "Data/test.png";
+
         /// <summary>
         /// Try to add a batch of images to the <see cref="TextureAtlasBuilder"/>.
         /// It should be 6 images that need to be added the <see cref="TextureAtlasBuilder"/>.
@@ -47,12 +47,12 @@ namespace RisGameFramework.SpriteToolkit.Tests
             builder.Padding = 1;
             builder.AllowReplaceTextureAtlas = true;
 
-            BuilderTexture texture = builder.AddImage("Data/test.png");
+            BuilderTexture texture = builder.AddImage(TEST_PNG);
 
             builder.Save("Output", out _, out _);
 
-            Assert.That(texture.SourceRect.Width, Is.EqualTo(510));
-            Assert.That(texture.SourceRect.Height, Is.EqualTo(510));
+            Assert.That(texture.SourceRect.Width, Is.EqualTo(248));
+            Assert.That(texture.SourceRect.Height, Is.EqualTo(248));
             Assert.That(texture.SourceRect.X, Is.EqualTo(1));
             Assert.That(texture.SourceRect.Y, Is.EqualTo(1));
             Assert.That(builder.SpriteSheets.Count, Is.EqualTo(1));
@@ -75,13 +75,13 @@ namespace RisGameFramework.SpriteToolkit.Tests
 
             builder.Save("Output", out _, out _);
 
-            Assert.That(texture.SourceRect.Width, Is.EqualTo(510));
-            Assert.That(texture.SourceRect.Height, Is.EqualTo(510));
+            Assert.That(texture.SourceRect.Width, Is.EqualTo(248));
+            Assert.That(texture.SourceRect.Height, Is.EqualTo(248));
             Assert.That(texture.SourceRect.X, Is.EqualTo(Padding));
             Assert.That(texture.SourceRect.Y, Is.EqualTo(Padding));
 
-            Assert.That(sprite2.SourceRect.Width, Is.EqualTo(510));
-            Assert.That(sprite2.SourceRect.Height, Is.EqualTo(510));
+            Assert.That(sprite2.SourceRect.Width, Is.EqualTo(248));
+            Assert.That(sprite2.SourceRect.Height, Is.EqualTo(248));
             Assert.That(sprite2.SourceRect.X, Is.EqualTo(Padding + texture.SourceRect.Width + Padding * 2));
             Assert.That(sprite2.SourceRect.Y, Is.EqualTo(Padding));
 
@@ -96,28 +96,28 @@ namespace RisGameFramework.SpriteToolkit.Tests
         {
             const int Padding = 1;
 
-            TextureAtlasBuilder builder = new(new System.Drawing.Size(1024, 1024));
+            TextureAtlasBuilder builder = new(new System.Drawing.Size(512, 512));
             builder.Padding = Padding;
             builder.AllowReplaceTextureAtlas = true;
 
-            BuilderTexture texture = builder.AddImage("Data/test.png");
-            BuilderTexture sprite2 = builder.AddImage("Data/test.png");
-            BuilderTexture sprite3 = builder.AddImage("Data/test.png");
+            BuilderTexture texture = builder.AddImage(TEST_PNG);
+            BuilderTexture sprite2 = builder.AddImage(TEST_PNG);
+            BuilderTexture sprite3 = builder.AddImage(TEST_PNG);
 
             builder.Save("Output", out _, out _);
 
-            Assert.That(texture.SourceRect.Width, Is.EqualTo(510));
-            Assert.That(texture.SourceRect.Height, Is.EqualTo(510));
+            Assert.That(texture.SourceRect.Width, Is.EqualTo(248));
+            Assert.That(texture.SourceRect.Height, Is.EqualTo(248));
             Assert.That(texture.SourceRect.X, Is.EqualTo(Padding));
             Assert.That(texture.SourceRect.Y, Is.EqualTo(Padding));
 
-            Assert.That(sprite2.SourceRect.Width, Is.EqualTo(510));
-            Assert.That(sprite2.SourceRect.Height, Is.EqualTo(510));
+            Assert.That(sprite2.SourceRect.Width, Is.EqualTo(248));
+            Assert.That(sprite2.SourceRect.Height, Is.EqualTo(248));
             Assert.That(sprite2.SourceRect.X, Is.EqualTo(Padding + texture.SourceRect.Width + Padding * 2)); 
             Assert.That(sprite2.SourceRect.Y, Is.EqualTo(Padding));
 
-            Assert.That(sprite3.SourceRect.Width, Is.EqualTo(510));
-            Assert.That(sprite3.SourceRect.Height, Is.EqualTo(510));
+            Assert.That(sprite3.SourceRect.Width, Is.EqualTo(248));
+            Assert.That(sprite3.SourceRect.Height, Is.EqualTo(248));
             Assert.That(sprite3.SourceRect.X, Is.EqualTo(Padding)); // New row
             Assert.That(sprite3.SourceRect.Y, Is.EqualTo(Padding + texture.SourceRect.Height + Padding * 2)); 
 
@@ -132,34 +132,34 @@ namespace RisGameFramework.SpriteToolkit.Tests
         {
             const int Padding = 1;
 
-            TextureAtlasBuilder builder = new(new System.Drawing.Size(1024, 1024));
+            TextureAtlasBuilder builder = new(new System.Drawing.Size(512, 512));
             builder.Padding = Padding;
             builder.AllowReplaceTextureAtlas = true;
 
-            BuilderTexture texture = builder.AddImage("Data/test.png");
-            BuilderTexture sprite2 = builder.AddImage("Data/test.png");
-            BuilderTexture sprite3 = builder.AddImage("Data/test.png");
-            BuilderTexture sprite4 = builder.AddImage("Data/test.png");
+            BuilderTexture texture = builder.AddImage(TEST_PNG);
+            BuilderTexture sprite2 = builder.AddImage(TEST_PNG);
+            BuilderTexture sprite3 = builder.AddImage(TEST_PNG);
+            BuilderTexture sprite4 = builder.AddImage(TEST_PNG);
 
             builder.Save("Output", out _, out _);
 
-            Assert.That(texture.SourceRect.Width, Is.EqualTo(510));
-            Assert.That(texture.SourceRect.Height, Is.EqualTo(510));
+            Assert.That(texture.SourceRect.Width, Is.EqualTo(248));
+            Assert.That(texture.SourceRect.Height, Is.EqualTo(248));
             Assert.That(texture.SourceRect.X, Is.EqualTo(Padding));
             Assert.That(texture.SourceRect.Y, Is.EqualTo(Padding));
 
-            Assert.That(sprite2.SourceRect.Width, Is.EqualTo(510));
-            Assert.That(sprite2.SourceRect.Height, Is.EqualTo(510));
+            Assert.That(sprite2.SourceRect.Width, Is.EqualTo(248));
+            Assert.That(sprite2.SourceRect.Height, Is.EqualTo(248));
             Assert.That(sprite2.SourceRect.X, Is.EqualTo(Padding + texture.SourceRect.Width + Padding * 2));
             Assert.That(sprite2.SourceRect.Y, Is.EqualTo(Padding));
 
-            Assert.That(sprite3.SourceRect.Width, Is.EqualTo(510));
-            Assert.That(sprite3.SourceRect.Height, Is.EqualTo(510));
+            Assert.That(sprite3.SourceRect.Width, Is.EqualTo(248));
+            Assert.That(sprite3.SourceRect.Height, Is.EqualTo(248));
             Assert.That(sprite3.SourceRect.X, Is.EqualTo(Padding)); // New row
             Assert.That(sprite3.SourceRect.Y, Is.EqualTo(Padding + texture.SourceRect.Height + Padding * 2)); 
 
-            Assert.That(sprite4.SourceRect.Width, Is.EqualTo(510));
-            Assert.That(sprite4.SourceRect.Height, Is.EqualTo(510));
+            Assert.That(sprite4.SourceRect.Width, Is.EqualTo(248));
+            Assert.That(sprite4.SourceRect.Height, Is.EqualTo(248));
             Assert.That(sprite4.SourceRect.X, Is.EqualTo(Padding + sprite3.SourceRect.Width + Padding * 2)); 
             Assert.That(sprite4.SourceRect.Y, Is.EqualTo(Padding + texture.SourceRect.Height + Padding * 2)); 
 
@@ -212,8 +212,8 @@ namespace RisGameFramework.SpriteToolkit.Tests
         public void TestSavedInSameDirectory()
         {
             TextureTKBundleBuilder builder = new();
-            builder.PngTextureAtlasBuilder.DefaultSheetName = "Test";
-            builder.PngTextureAtlasBuilder.AllowReplaceTextureAtlas = true;
+            builder.TextureAtlasBuilder.DefaultSheetName = "Test";
+            builder.TextureAtlasBuilder.AllowReplaceTextureAtlas = true;
             builder.AllowReplaceJsonBundle = true;
             builder.AddRawImage(new RawImage($"Test.png", 512, 512, new byte[512 * 512 * 4], 4));
 

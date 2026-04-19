@@ -1,4 +1,6 @@
-﻿namespace RisTextureToolkit.Data.Image
+﻿using RisTextureToolkit.Ktx;
+
+namespace RisTextureToolkit.Data.Image
 {
     /// <summary>
     /// The raw image data class.
@@ -21,6 +23,25 @@
             Width = width;
             Height = height;
             Channels = numChannels;
+        }
+
+        /// <summary>
+        /// The default constructor for <see cref="RawImage"/>.
+        /// </summary>
+        /// <param name="filePath">The file path.</param>
+        /// <param name="width">The width of the image.</param>
+        /// <param name="height">The height of the image.</param>
+        /// <param name="data">The raw data.</param>
+        /// <param name="textureFormatInfo">The <see cref="TextureFormatInfo"/>.</param>
+        public RawImage(string filePath, int width, int height, byte[] data, TextureFormatInfo textureFormatInfo)
+        {
+            FilePath = filePath;
+            ImageName = Path.GetFileName(filePath);
+            Data = data;
+            Width = width;
+            Height = height;
+            Channels = 0;
+            FormatInfo = textureFormatInfo;
         }
 
         /// <summary>
@@ -52,6 +73,11 @@
         /// The number of channels in the image.
         /// </summary>
         public byte Channels { get; set; }
+
+        /// <summary>
+        /// The optional texture format information for the image.
+        /// </summary>
+        public TextureFormatInfo? FormatInfo { get; set; }
 
         /// <inheritdoc/>
         public virtual void Dispose()

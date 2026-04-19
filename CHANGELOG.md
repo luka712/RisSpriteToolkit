@@ -5,5 +5,6 @@
 
 ### Added
 
-- `TextureTKBundleBuilder` which can be used to build a sprite sheet bundle.
-- `TextureTKBundleLoader` which can be used to load a sprite sheets bundle.
+- 'TextureTKBundleBuilder' which can be used to build a sprite sheet bundle.
+- 'TextureTKBundleLoader' which can be used to load a sprite sheets bundle.
+- 'Ktx2Loader' which can be used to load 'Ktx2' format textures.
