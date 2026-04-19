@@ -5,8 +5,24 @@
 #include "ktx.h"
 #include "macros.hpp"
 #include <cstdint>
+#include <vulkan/vulkan.h>
 
 extern "C" {
+
+	struct c_ktxTextureCreateInfo
+    {
+    	uint32_t baseWidth;
+        uint32_t baseHeight;
+		VkFormat vkFormat;
+    };
+
+	struct c_ktxBasisParams
+	{
+		bool uastc;
+	};
+
+	API_EXPORT
+		KTX_error_code ris_ktxTexture2_Create(const c_ktxTextureCreateInfo* createInfo, ktxTextureCreateStorageEnum storageAllocation, ktxTexture2** outTexture);
 
 	API_EXPORT
 		uint32_t ris_ktxTexture2_GetWidth(const ktxTexture2* tex);
@@ -19,14 +35,17 @@ extern "C" {
 
 	API_EXPORT
 		KTX_error_code ris_ktxTexture2_SetImageFromMemory(const ktxTexture2* tex,
-			ktx_uint32_t level,
-			ktx_uint32_t layer,
-			ktx_uint32_t faceSlice,
-			const ktx_uint8_t* src,
-			ktx_size_t srcSize);
+			uint32_t level,
+			uint32_t layer,
+			uint32_t faceSlice,
+			const uint8_t* src,
+			size_t srcSize);
 
 	API_EXPORT
 		KTX_error_code ris_ktxTexture_WriteToNamedFile(const ktxTexture2* tex, const char* const dstname);
+
+	API_EXPORT
+		KTX_error_code ris_ktxTexture2_CompressBasisEx(ktxTexture2* tex, const c_ktxBasisParams* params);
 
 	API_EXPORT
 		void ris_ktxTexture2_Destroy(const ktxTexture2* tex);

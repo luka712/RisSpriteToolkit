@@ -9,7 +9,7 @@
         /// <summary>
         /// Operation was successful.
         /// </summary>
-        KTX_SUCCESS = 0,        
+        KTX_SUCCESS = 0,
         KTX_FILE_DATA_ERROR,     /*!< The data in the file is inconsistent with the spec. */
         KTX_FILE_ISPIPE,         /*!< The file is a pipe or named pipe. */
         /// <summary>
@@ -25,7 +25,7 @@
         /// <summary>
         /// The operation is not allowed in the current state.
         /// </summary>
-        KTX_INVALID_OPERATION,  
+        KTX_INVALID_OPERATION,
         KTX_INVALID_VALUE,       /*!< A parameter value was not valid. */
         KTX_NOT_FOUND,           /*!< Requested metadata key or required dynamically loaded GPU function was not found. */
         KTX_OUT_OF_MEMORY,       /*!< Not enough memory to complete the operation. */
@@ -57,30 +57,55 @@
     }
 
     /// <summary>
-    /// Common Vulkan VkFormat values used when creating KTX2 textures.
-    /// Only the most frequently used ones are included here.
-    /// You can add more as needed.
+    /// The KtxTextureCreateFlags enumeration defines flags that can be used to control the behavior of texture creation when loading KTX files.
     /// </summary>
-    public enum VkFormat : uint
+    public enum KtxTextureCreateFlags : uint
     {
-        Undefined = 0,
+        /// <summary>
+        /// No special handling. The texture will be created with the default behavior, which includes loading image data and key-value data from the KTX source.
+        /// </summary>
+        NO_FLAGS = 0x00,
 
-        // 8-bit UNORM (linear) formats
-        R8G8B8A8_UNORM = 37,
+        /// <summary>
+        /// Load the image data from the KTX source.
+        /// If this flag is not set, the texture will be created without loading the image data, which can be useful for scenarios where
+        /// you only need to access metadata or key-value data without needing the actual texture data in memory.
+        /// </summary>
+        TEXTURE_CREATE_LOAD_IMAGE_DATA_BIT = 0x01,
 
-        // 8-bit SRGB formats (most common for color textures)
-        R8G8B8A8_SRGB = 43,
+        KTX_TEXTURE_CREATE_RAW_KVDATA_BIT = 0x02,
+        /*!< Load the raw key-value data instead of
+             creating a @c ktxHashList from it. */
+        KTX_TEXTURE_CREATE_SKIP_KVDATA_BIT = 0x04,
+        /*!< Skip any key-value data. This overrides
+             the RAW_KVDATA_BIT. */
+        KTX_TEXTURE_CREATE_CHECK_GLTF_BASISU_BIT = 0x08
+        /*!< Load texture compatible with the rules
+             of KHR_texture_basisu glTF extension */
+    }
 
-        // Other useful formats
-        R8Unorm = 9,
-        R8Srgb = 13,
-        R16G16B16A16Sfloat = 97,
-        R32G32B32A32Sfloat = 109,
+    /// <summary>
+    /// The KtxTranscodeFlags enumeration defines flags that can be used to control the transcoding process when converting BasisU/ETC1S or UASTC compressed textures to other formats. These flags can specify options such as how to handle non-power-of-two textures, whether to transcode alpha data for opaque formats, and whether to request higher quality transcoding for certain formats.
+    /// </summary>
+    public enum KtxTranscodeFlags : uint
+    {
+        /// <summary>
+        /// No special transcoding options.
+        NONE = 0,
 
-        // BC compressed formats (Block Compression)
-        BC7UnormBlock = 145,
-        BC7SrgbBlock = 146,
-
-        // ETC2 / ASTC etc. can be added here if needed
+        KTX_TF_PVRTC_DECODE_TO_NEXT_POW2 = 2,
+        /*!< PVRTC1: decode non-pow2 ETC1S texture level to the next larger
+             power of 2 (not implemented yet, but we're going to support it).
+             Ignored if the slice's dimensions are already a power of 2.
+         */
+        KTX_TF_TRANSCODE_ALPHA_DATA_TO_OPAQUE_FORMATS = 4,
+        /*!< When decoding to an opaque texture format, if the Basis data has
+             alpha, decode the alpha slice instead of the color slice to the
+             output texture format. Has no effect if there is no alpha data.
+         */
+        KTX_TF_HIGH_QUALITY = 32,
+        /*!< Request higher quality transcode of UASTC to BC1, BC3, ETC2_EAC_R11 and
+             ETC2_EAC_RG11. The flag is unused by other UASTC transcoders.
+         */
     }
 }

@@ -26,12 +26,6 @@ namespace RisTextureToolkit.Native
         internal static extern ulong ktxTexture_GetDataSize(IntPtr texture);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
-        internal static extern uint ktxTexture2_GetBaseWidth(IntPtr texture);
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
-        internal static extern uint ktxTexture2_GetBaseHeight(IntPtr texture);
-
-        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
-        internal static extern KtxErrorCode ktxTexture2_Create(in KtxTextureCreateInfo createInfo, uint storageAllocation, out IntPtr texture);
+        internal static extern bool ktxTexture2_NeedsTranscoding(IntPtr texture);
     }
 }

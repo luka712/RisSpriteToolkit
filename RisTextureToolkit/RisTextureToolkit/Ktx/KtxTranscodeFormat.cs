@@ -34,7 +34,7 @@ namespace RisTextureToolkit.Ktx
     /// Vulkan support sRGB variants of these.Doing sRGB decoding in the shader
     /// will not produce correct results if any texture filtering is being used.
     /// </remarks
-    public enum KtxTranscodeFormat : int
+    public enum KtxTranscodeFormat : uint
     {
         // Compressed formats
 

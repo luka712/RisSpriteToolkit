@@ -12,9 +12,6 @@ namespace RisTextureToolkit.Ktx
     /// </summary>
     public class KtxTexture2 : IDisposable
     {
-       
-       
-
         private static bool _firstLoad = true;
 
         /// <summary>
@@ -22,15 +19,13 @@ namespace RisTextureToolkit.Ktx
         /// If the loading process fails, it throws an exception with a descriptive error message.
         /// </summary>
         /// <param name="filePath">The file path to the .ktx or .ktx2 texture.</param>
-        /// <param name="transcodeFormat">The desired transcode format for the texture.</param>
         /// <param name="createFlags">The <see cref="KtxTextureCreateFlags"/>. By default, it is <c>TEXTURE_CREATE_LOAD_IMAGE_DATA_BIT</c>.</param>
         /// <param name="transcodeFlags">The <see cref="KtxTranscodeFlags"/>. By default, it is <c>0</c>.</param>
         /// <exception cref="Exception">
         /// If the texture fails to load from the specified file path, an exception is thrown with details about the failure.
         /// </exception>
-        public KtxTexture2(string filePath, KtxTranscodeFormat transcodeFormat,
-            KtxTextureCreateFlags createFlags = KtxTextureCreateFlags.TEXTURE_CREATE_LOAD_IMAGE_DATA_BIT,
-            KtxTranscodeFlags transcodeFlags = KtxTranscodeFlags.NONE)
+        public KtxTexture2(string filePath,
+            KtxTextureCreateFlags createFlags = KtxTextureCreateFlags.TEXTURE_CREATE_LOAD_IMAGE_DATA_BIT)
         {
             NativeResolver.Setup();
             filePath = Path.GetFullPath(filePath);
@@ -47,16 +42,6 @@ namespace RisTextureToolkit.Ktx
                 throw new Exception($"Failed to load KTX texture from '{filePath}'. Error code: {errorCode}");
             }
             TexturePtr = texture;
-
-            errorCode = ktxTexture2_TranscodeBasis(TexturePtr, (int)transcodeFormat, (uint)transcodeFlags);
-            if (errorCode == KtxErrorCode.KTX_INVALID_OPERATION)
-            {
-                throw new InvalidOperationException($"The specified transcode format '{transcodeFormat}' is not valid for transcoding the KTX texture.");
-            }
-            if (errorCode != KtxErrorCode.KTX_SUCCESS)
-            {
-                throw new Exception($"Failed to transcode KTX texture. Error code: {errorCode}");
-            }
         }
 
         /// <summary>
@@ -67,12 +52,14 @@ namespace RisTextureToolkit.Ktx
         /// <exception cref="Exception">
         /// Throws an exception if the texture creation fails, providing details about the error code returned by the native function.
         /// </exception>
-        public KtxTexture2(KtxTextureCreateInfo createInfo, KtxTextureCreateStorage storageAllocation = KtxTextureCreateStorage.KTX_TEXTURE_CREATE_ALLOC_STORAGE)
+        public KtxTexture2(
+            KtxTextureCreateInfo createInfo, 
+            KtxTextureCreateStorage storageAllocation = KtxTextureCreateStorage.KTX_TEXTURE_CREATE_ALLOC_STORAGE)
         {
             NativeResolver.Setup();
             TexturePtr = IntPtr.Zero;
             uint storageAllocValue = (uint)storageAllocation;
-            KtxErrorCode errorCode = ktxTexture2_Create(createInfo, storageAllocValue, out IntPtr texture);
+            KtxErrorCode errorCode = ris_ktxTexture2_Create(createInfo, storageAllocValue, out IntPtr texture);
             if (errorCode != KtxErrorCode.KTX_SUCCESS)
             {
                 throw new Exception($"Failed to create KTX texture. Error code: {errorCode}");
@@ -89,12 +76,37 @@ namespace RisTextureToolkit.Ktx
         /// <summary>
         /// Gets the width of the texture.
         /// </summary>
-        public uint Width => ktxTexture2_GetBaseWidth(TexturePtr);
+        public uint Width => ris_ktxTexture2_GetWidth(TexturePtr);
 
         /// <summary>
         /// Gets the height of the texture.
         /// </summary>
-        public uint Height => ktxTexture2_GetBaseHeight(TexturePtr);
+        public uint Height => ris_ktxTexture2_GetHeight(TexturePtr);
+
+        /// <summary>
+        /// Checks if the texture needs transcoding. 
+        /// This is typically true for textures that are compressed using BasisU/ETC1S or UASTC formats 
+        /// and have not yet been transcoded to a GPU-compatible format.
+        /// </summary>
+        public bool NeedsTranscoding => ktxTexture2_NeedsTranscoding(TexturePtr);
+
+        /// <summary>
+        /// Transcodes the basis texture to the specified transcode format.
+        /// </summary>
+        /// <param name="transcodeFormat">The <see cref="KtxTranscodeFormat"/>.</param>
+        /// <param name="transcodeFlags">The <see cref="KtxTranscodeFlags"/>.</param>
+        public void TranscodeBasis(KtxTranscodeFormat transcodeFormat, KtxTranscodeFlags transcodeFlags = KtxTranscodeFlags.NONE)
+        {
+            var errorCode = ktxTexture2_TranscodeBasis(TexturePtr, (int)transcodeFormat, (uint)transcodeFlags);
+            if (errorCode == KtxErrorCode.KTX_INVALID_OPERATION)
+            {
+                throw new InvalidOperationException($"The specified transcode format '{transcodeFormat}' is not valid for transcoding the KTX texture.");
+            }
+            if (errorCode != KtxErrorCode.KTX_SUCCESS)
+            {
+                throw new Exception($"Failed to transcode KTX texture. Error code: {errorCode}");
+            }
+        }
 
         /// <summary>
         /// Sets the image data for a specific level, layer, and face/slice of the texture from a byte array in memory.
@@ -122,9 +134,9 @@ namespace RisTextureToolkit.Ktx
             {
                 fixed (byte* srcPtr = src)
                 {
-                    KtxErrorCode errorCode = ris_ktxTexture2_SetImageFromMemory(TexturePtr, level, layer, faceSlice, (nint) srcPtr, srcSize);
+                    KtxErrorCode errorCode = ris_ktxTexture2_SetImageFromMemory(TexturePtr, level, layer, faceSlice, (nint)srcPtr, srcSize);
 
-                    if(errorCode == KtxErrorCode.KTX_INVALID_OPERATION)
+                    if (errorCode == KtxErrorCode.KTX_INVALID_OPERATION)
                     {
                         throw new InvalidOperationException($"No storage was allocated when the texture was created.");
                     }
@@ -163,6 +175,19 @@ namespace RisTextureToolkit.Ktx
             }
         }
 
+        /// <summary>
+        /// Compresses the texture using the specified basis parameters.
+        /// </summary>
+        /// <param name="basisParams">The <see cref="KtxBasisParams"/>.</param>
+        public void CompressBasis(KtxBasisParams basisParams)
+        {
+            unsafe
+            {
+                KtxBasisParams* basisParamsPtr = stackalloc KtxBasisParams[1];
+                *basisParamsPtr = basisParams;
+                ris_ktxTexture2_CompressBasisEx(TexturePtr, (nint)basisParamsPtr);
+            }
+        }
 
         /// <inheritdoc/>
         public void Dispose()

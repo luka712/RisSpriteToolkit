@@ -10,7 +10,8 @@ namespace RisGameFramework.SpriteToolkit.Tests
     [TestFixture]
     internal class KtxTextureTest
     {
-        private const string KTX_TEXTURE_PATH = "Data/test.ktx2";
+        private const string TEXT_PNG = "Data/test.png";
+        private const string TEST_KTX_BASIS_UASTC = "Data/test_basis_uastc.ktx2";
 
         /// <summary>
         /// Test try load unexisting KTX texture.
@@ -20,7 +21,7 @@ namespace RisGameFramework.SpriteToolkit.Tests
         {
             Assert.Throws<FileNotFoundException>(() =>
             {
-                var texture = new KtxTexture2("nonexistent_file.ktx", KtxTranscodeFormat.TTF_BC7_RGBA);
+                var texture = new KtxTexture2("nonexistent_file.ktx");
             });
         }
 
@@ -32,7 +33,7 @@ namespace RisGameFramework.SpriteToolkit.Tests
         {
             try
             {
-                using var texture = new KtxTexture2(KTX_TEXTURE_PATH, KtxTranscodeFormat.TTF_BC7_RGBA);
+                using var texture = new KtxTexture2(TEST_KTX_BASIS_UASTC);
                 Assert.That(texture.TexturePtr, Is.Not.EqualTo(IntPtr.Zero), "Texture pointer should not be null after successful load.");
             }
             catch (Exception ex)
@@ -49,7 +50,7 @@ namespace RisGameFramework.SpriteToolkit.Tests
         {
             try
             {
-                using var texture = new KtxTexture2(KTX_TEXTURE_PATH, KtxTranscodeFormat.TTF_BC7_RGBA);
+                using var texture = new KtxTexture2(TEST_KTX_BASIS_UASTC);
                 Assert.That(texture.TexturePtr, Is.Not.EqualTo(IntPtr.Zero), "Texture pointer should not be null after successful load.");
                 Assert.That(texture.Width, Is.GreaterThan(0), "Texture width should be greater than 0.");
                 Assert.That(texture.Height, Is.GreaterThan(0), "Texture height should be greater than 0.");
@@ -64,20 +65,12 @@ namespace RisGameFramework.SpriteToolkit.Tests
         private KtxTexture2 CreateAndFillTexture()
         {
             var imageLoader = new ImageLoader();
-            var image = imageLoader.LoadImage("Data/png_test.png");
+            var image = imageLoader.LoadImage(TEXT_PNG);
 
             var createInfo = new KtxTextureCreateInfo();
-            createInfo.vkFormat = VkFormat.R8G8B8A8_UNORM;  // or your desired format
-            createInfo.baseWidth = (uint)image.Width;
-            createInfo.baseHeight = (uint)image.Height;
-            createInfo.pDfd = IntPtr.Zero; // Data Format Descriptor, can be null for simple formats
-            createInfo.baseDepth = 1;
-            createInfo.numDimensions = 2;
-            createInfo.numLevels = 1;      // 1 = no mipmaps, or more if you generate them
-            createInfo.numLayers = 1;
-            createInfo.numFaces = 1;
-            createInfo.isArray = false;
-            createInfo.generateMipmaps = false;
+            createInfo.BaseWidth = (uint)image.Width;
+            createInfo.BaseHeight = (uint)image.Height;
+            createInfo.VkFormat = VkFormat.R8G8B8A8_UNORM;
 
             var texture = new KtxTexture2(createInfo);
 

@@ -5,16 +5,16 @@
 #include <iostream>
 #include <filesystem>
 #include "stb_image/stb_image.h"
+#include <spdlog/spdlog.h>
 
-/**
-* Note that test here assumes that KTX texture is BASISU/UASTC compressed, and that the file is located at "test_files/test.ktx2".
-*/
+const char* TEST_PNG = "test_files/test.png";
+const char* TEST_KTX_BASIS_UASTC = "test_files/test_basis_uastc.ktx2";
 
 //! Test if width is correct for test ktx image.
 bool c_ktx_get_width()
 {
 	ktxTexture2* texture;
-	auto error = ktxTexture2_CreateFromNamedFile("test_files/test.ktx2", KTX_TEXTURE_CREATE_LOAD_IMAGE_DATA_BIT, &texture);
+	auto error = ktxTexture2_CreateFromNamedFile(TEST_KTX_BASIS_UASTC, KTX_TEXTURE_CREATE_LOAD_IMAGE_DATA_BIT, &texture);
 	if (error == KTX_SUCCESS)
 	{
 		auto width = ris_ktxTexture2_GetWidth(texture);
@@ -31,7 +31,7 @@ bool c_ktx_get_width()
 bool c_ktx_get_height()
 {
 	ktxTexture2* texture;
-	auto error = ktxTexture2_CreateFromNamedFile("test_files/test.ktx2", KTX_TEXTURE_CREATE_LOAD_IMAGE_DATA_BIT, &texture);
+	auto error = ktxTexture2_CreateFromNamedFile(TEST_KTX_BASIS_UASTC, KTX_TEXTURE_CREATE_LOAD_IMAGE_DATA_BIT, &texture);
 	if (error == KTX_SUCCESS)
 	{
 		auto height = ris_ktxTexture2_GetHeight(texture);
@@ -48,7 +48,7 @@ bool c_ktx_get_height()
 bool c_ktx_get_supercompression_scheme()
 {
 	ktxTexture2* texture;
-	auto error = ktxTexture2_CreateFromNamedFile("test_files/test.ktx2", KTX_TEXTURE_CREATE_LOAD_IMAGE_DATA_BIT, &texture);
+	auto error = ktxTexture2_CreateFromNamedFile(TEST_KTX_BASIS_UASTC, KTX_TEXTURE_CREATE_LOAD_IMAGE_DATA_BIT, &texture);
 	if (error == KTX_SUCCESS)
 	{
 		auto scheme = ris_ktxTexture2_GetSupercompressionScheme(texture);
@@ -64,29 +64,21 @@ bool c_ktx_get_supercompression_scheme()
 
 ktxTexture2* createTexture(uint32_t width, uint32_t height)
 {
-	ktxTextureCreateInfo createInfo;
+	c_ktxTextureCreateInfo createInfo;
 	createInfo.baseWidth = width;
 	createInfo.baseHeight = height;
-	createInfo.pDfd = nullptr;
-	createInfo.vkFormat = 37; // VK_FORMAT_R8G8B8A8_UNORM
-	createInfo.baseDepth = 1;
-	createInfo.numDimensions = 2;
-	createInfo.numLevels = 1;
-	createInfo.numLayers = 1;
-	createInfo.numFaces = 1;
-	createInfo.isArray = KTX_FALSE;
-	createInfo.generateMipmaps = KTX_FALSE;
+	createInfo.vkFormat = VK_FORMAT_R8G8B8A8_UNORM;
 
 	ktxTexture2* texture;
 	ktxTextureCreateStorageEnum storageAllocation = KTX_TEXTURE_CREATE_ALLOC_STORAGE;
-	ktxTexture2_Create(&createInfo, storageAllocation, &texture);
+	ris_ktxTexture2_Create(&createInfo, storageAllocation, &texture);
 	return texture;
 }
 
 bool c_ktxTexture2_SetImageFromMemory()
 {
 	int width, height, channels;
-	unsigned char* data = stbi_load("test_files/png_test.png", &width, &height, &channels, 0);
+	unsigned char* data = stbi_load(TEST_PNG, &width, &height, &channels, 0);
 
 	ktxTexture2* texture = createTexture(width, height);
 	if (data)
@@ -108,31 +100,18 @@ bool c_ktxTexture2_SetImageFromMemory()
 ktxTexture2* createAndFillTexture()
 {
 	int width, height, channels;
-	unsigned char* data = stbi_load("test_files/png_test.png", &width, &height, &channels, 0);
+	unsigned char* data = stbi_load(TEST_PNG, &width, &height, &channels, 0);
 
-	ktxTextureCreateInfo createInfo;
+	c_ktxTextureCreateInfo createInfo;
 	createInfo.baseWidth = width;
 	createInfo.baseHeight = height;
-	createInfo.pDfd = nullptr;
-	createInfo.vkFormat = 37; // VK_FORMAT_R8G8B8A8_UNORM
-	createInfo.baseDepth = 1;
-	createInfo.numDimensions = 2;
-	createInfo.numLevels = 1;
-	createInfo.numLayers = 1;
-	createInfo.numFaces = 1;
-	createInfo.isArray = KTX_FALSE;
-	createInfo.generateMipmaps = KTX_FALSE;
+	createInfo.vkFormat = VK_FORMAT_R8G8B8A8_UNORM;
 
 	ktxTexture2* texture;
 	ktxTextureCreateStorageEnum storageAllocation = KTX_TEXTURE_CREATE_ALLOC_STORAGE;
-	ktxTexture2_Create(&createInfo, storageAllocation, &texture);
+	ris_ktxTexture2_Create(&createInfo, storageAllocation, &texture);
 
 	ris_ktxTexture2_SetImageFromMemory(texture, 0, 0, 0, data, width * height * channels);
-
-	ktxTexture2_CompressBasis(
-		texture,
-		KTX_TTF_BC7_RGBA
-	);
 
 	stbi_image_free(data);
 
@@ -142,17 +121,50 @@ ktxTexture2* createAndFillTexture()
 bool c_ktxTexture_WriteToNamedFile()
 {
 	ktxTexture2* texture = createAndFillTexture();
-	auto error = ris_ktxTexture_WriteToNamedFile(texture, "test_files/output.ktx2");
+	c_ktxBasisParams params;
+	params.uastc = KTX_TRUE;
+	ris_ktxTexture2_CompressBasisEx(
+		texture,
+		&params
+	);
+	auto error = ris_ktxTexture_WriteToNamedFile(texture, "test_files/output_basis_uastc.ktx2");
 	ris_ktxTexture2_Destroy(texture);
 	return error == KTX_SUCCESS;
 }
 
+bool c_ktxTexture_LoadBasis_TranscodeToGPUFormat()
+{
+	ktxTexture2* texture;
+	auto errorCode = ktxTexture2_CreateFromNamedFile(TEST_KTX_BASIS_UASTC, KTX_TEXTURE_CREATE_LOAD_IMAGE_DATA_BIT, &texture);
+	if (errorCode != KTX_SUCCESS)
+	{
+		auto strError = ktxErrorString(errorCode);
+		spdlog::warn("Failed to load KTX texture from file '{}'. Error code: {}", TEST_KTX_BASIS_UASTC, strError);
+		ris_ktxTexture2_Destroy(texture);
+		return false;
+	}
 
-TEST_CASE("ktx tests", "[c_ktx_get_width, c_ktx_get_height, c_ktx_get_supercompression_scheme, c_ktxTexture2_SetImageFromMemory, c_ktxTexture_WriteToNamedFile]")
+	bool needsTranscoding = ktxTexture2_NeedsTranscoding(texture);
+
+	errorCode = ktxTexture2_TranscodeBasis(texture, KTX_TTF_BC7_RGBA, 0);
+	if (errorCode != KTX_SUCCESS)
+	{
+		spdlog::warn("Failed to transcode KTX texture to GPU format. Error code: {}", ktxErrorString(errorCode));
+		ris_ktxTexture2_Destroy(texture);
+		return false;
+	}
+
+	ris_ktxTexture2_Destroy(texture);
+	return true;
+}
+
+
+TEST_CASE("ktx tests", "[c_ktx_get_width, c_ktx_get_height, c_ktx_get_supercompression_scheme, c_ktxTexture2_SetImageFromMemory, c_ktxTexture_WriteToNamedFile, c_ktxTexture_LoadBasis_TranscodeToGPUFormat]")
 {
 	REQUIRE(c_ktx_get_width());
 	REQUIRE(c_ktx_get_height());
 	REQUIRE(c_ktx_get_supercompression_scheme());
 	REQUIRE(c_ktxTexture2_SetImageFromMemory());
 	REQUIRE(c_ktxTexture_WriteToNamedFile());
+	REQUIRE(c_ktxTexture_LoadBasis_TranscodeToGPUFormat());
 }

@@ -7,6 +7,10 @@ namespace RisTextureToolkit.Native
     {
         private const string DLL_NAME = "ris_texture_toolkit";
 
+
+        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
+        internal static extern KtxErrorCode ris_ktxTexture2_Create(in KtxTextureCreateInfo createInfo, uint storageAllocation, out IntPtr texture);
+
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
         internal static extern void ris_ktxTexture2_Destroy(IntPtr texture);
 
@@ -28,5 +32,8 @@ namespace RisTextureToolkit.Native
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
         internal static extern KtxErrorCode ris_ktxTexture_WriteToNamedFile(IntPtr texture, string filename);
+
+        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
+        internal static extern KtxErrorCode ris_ktxTexture2_CompressBasisEx(IntPtr texture, IntPtr basisParams);
     }
 }

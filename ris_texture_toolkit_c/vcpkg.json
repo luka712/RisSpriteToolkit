@@ -2,6 +2,7 @@
   "dependencies": [
     "ktx",
     "catch2",
-    "spdlog"
+    "spdlog",
+    "vulkan"
   ]
 }
