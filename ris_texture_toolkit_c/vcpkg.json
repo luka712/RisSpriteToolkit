@@ -1,0 +1,7 @@
+{
+  "dependencies": [
+    "ktx",
+    "catch2",
+    "spdlog"
+  ]
+}
