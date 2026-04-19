@@ -22,15 +22,15 @@ namespace RisTextureToolkit
         /// The PNG sprite sheet builder.
         /// Builds a sprite sheet as PNG files.
         /// </summary>
-        public TextureAtlasBuilder PngTextureAtlasBuilder { get; }
+        public TextureAtlasBuilder TextureAtlasBuilder { get; }
 
         /// <summary>
         /// The size of the sprite sheets.
         /// </summary>
         public Size Size
         {
-            get => PngTextureAtlasBuilder.Size;
-            set => PngTextureAtlasBuilder.Size = value;
+            get => TextureAtlasBuilder.Size;
+            set => TextureAtlasBuilder.Size = value;
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace RisTextureToolkit
             set
             {
                 _allowReplaceTextureAtlas = value;
-                PngTextureAtlasBuilder.AllowReplaceTextureAtlas = value;
+                TextureAtlasBuilder.AllowReplaceTextureAtlas = value;
             }
         }
 
@@ -58,7 +58,7 @@ namespace RisTextureToolkit
         public TextureTKBundleBuilder(ILogger? logger = null)
         {
             _logger = logger;
-            PngTextureAtlasBuilder = new TextureAtlasBuilder(logger: _logger);
+            TextureAtlasBuilder = new TextureAtlasBuilder(logger: _logger);
         }
 
         /// <summary>
@@ -67,7 +67,7 @@ namespace RisTextureToolkit
         /// <param name="filePath">The file path.</param>
         /// <returns>The <see cref="BuilderTexture"/> added.</returns>
         public BuilderTexture AddImage(string filePath)
-            => PngTextureAtlasBuilder.AddImage(filePath);
+            => TextureAtlasBuilder.AddImage(filePath);
 
         /// <summary>
         /// Adds a raw image to the sprite sheets.
@@ -75,7 +75,7 @@ namespace RisTextureToolkit
         /// <param name="rawImage">The <see cref="RawImage"/>.</param>
         /// <returns>The <see cref="BuilderTexture"/>.</returns>
         public BuilderTexture AddRawImage(RawImage rawImage)
-            => PngTextureAtlasBuilder.AddRawImage(rawImage);
+            => TextureAtlasBuilder.AddRawImage(rawImage);
 
         /// <summary>
         /// Removes a sprite from the sprite sheets.
@@ -85,7 +85,7 @@ namespace RisTextureToolkit
         /// <c>true</c> if the sprite was removed; otherwise, <c>false</c>.
         /// </returns>
         public bool RemoveSprite(BuilderTexture texture)
-            => PngTextureAtlasBuilder.RemoveSprite(texture);
+            => TextureAtlasBuilder.RemoveSprite(texture);
 
         /// <summary>
         /// Add the contents of a directory to the asset builder.
@@ -112,7 +112,7 @@ namespace RisTextureToolkit
             }
 
             // Add to the sprite sheet builder.
-            PngTextureAtlasBuilder.AddDirectoryContents(path, recursive);
+            TextureAtlasBuilder.AddDirectoryContents(path, recursive);
         }
 
         /// <summary>
@@ -138,7 +138,7 @@ namespace RisTextureToolkit
             {
                 throw new ArgumentException("JSON name cannot be null or whitespace.", nameof(bundleName));
             }
-            PngTextureAtlasBuilder.Save(directoryPath, out List<string> sheetsFilePaths, out List<string> sheetsFileNames);
+            TextureAtlasBuilder.Save(directoryPath, out List<string> sheetsFilePaths, out List<string> sheetsFileNames);
             string jsonFilePath = Path.Combine(directoryPath, $"{bundleName}.json");
 
             bool fileExists = File.Exists(jsonFilePath);
@@ -180,7 +180,7 @@ namespace RisTextureToolkit
             }
             
             // TODO: save async
-            PngTextureAtlasBuilder.Save(directoryPath, out List<string> sheetsFilePaths, out List<string> sheetsFileNames);
+            TextureAtlasBuilder.Save(directoryPath, out List<string> sheetsFilePaths, out List<string> sheetsFileNames);
             string jsonFilePath = Path.Combine(directoryPath, $"{bundleName}.json");
 
             bool fileExists = File.Exists(jsonFilePath);
@@ -203,7 +203,7 @@ namespace RisTextureToolkit
         
             TextureAtlasBundle textureAtlasDto = new()
             {
-                Atlases = PngTextureAtlasBuilder.SpriteSheets.Select(x => _mapper.ToTextureAtlas(x)).ToList()
+                Atlases = TextureAtlasBuilder.SpriteSheets.Select(x => _mapper.ToTextureAtlas(x)).ToList()
             };
 
             // Add file paths.

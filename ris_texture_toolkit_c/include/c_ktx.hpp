@@ -31,6 +31,12 @@ extern "C" {
 		uint32_t ris_ktxTexture2_GetHeight(const ktxTexture2* tex);
 
 	API_EXPORT
+		uint8_t* ris_ktxTexture2_GetData(const ktxTexture2* tex);
+
+	API_EXPORT
+		size_t ris_ktxTexture2_GetImageSize(const ktxTexture2* tex, uint32_t level);
+
+	API_EXPORT
 		ktxSupercmpScheme ris_ktxTexture2_GetSupercompressionScheme(const ktxTexture2* tex);
 
 	API_EXPORT
@@ -42,10 +48,13 @@ extern "C" {
 			size_t srcSize);
 
 	API_EXPORT
-		KTX_error_code ris_ktxTexture_WriteToNamedFile(const ktxTexture2* tex, const char* const dstname);
+		KTX_error_code ris_ktxTexture2_WriteToNamedFile(const ktxTexture2* tex, const char* const dstname);
 
 	API_EXPORT
 		KTX_error_code ris_ktxTexture2_CompressBasisEx(ktxTexture2* tex, const c_ktxBasisParams* params);
+
+	API_EXPORT
+		KTX_error_code ris_ktxTexture2_GetImageOffset(const ktxTexture2* tex, uint32_t level, uint32_t layer, uint32_t faceSlice, size_t* pOffset);
 
 	API_EXPORT
 		void ris_ktxTexture2_Destroy(const ktxTexture2* tex);

@@ -3,7 +3,6 @@ using System.Text.Json.Serialization;
 using Microsoft.Extensions.Logging;
 using RisGameFramework.SpriteToolkit;
 using RisGameFramework.SpriteToolkit.Exceptions;
-using RisSpriteToolkit.Data.Image;
 using RisSpriteToolkit.Loaders;
 using RisTextureToolkit.Data.Image;
 using RisTextureToolkit.Sprites.Base;

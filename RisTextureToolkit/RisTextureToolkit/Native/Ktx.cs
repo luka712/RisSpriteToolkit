@@ -25,6 +25,7 @@ namespace RisTextureToolkit.Native
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
         internal static extern ulong ktxTexture_GetDataSize(IntPtr texture);
 
+
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
         internal static extern bool ktxTexture2_NeedsTranscoding(IntPtr texture);
     }

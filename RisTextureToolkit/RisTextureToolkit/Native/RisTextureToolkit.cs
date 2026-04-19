@@ -31,7 +31,22 @@ namespace RisTextureToolkit.Native
         internal static extern uint ris_ktxTexture2_GetHeight(IntPtr texture);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
-        internal static extern KtxErrorCode ris_ktxTexture_WriteToNamedFile(IntPtr texture, string filename);
+        internal static extern KtxErrorCode ris_ktxTexture2_GetImageOffset(
+            IntPtr texture,
+            uint level,
+            uint layer,
+            uint faceSlice,
+            out ulong offset                // ktx_size_t* (size_t = ulong on 64-bit)
+        );
+
+        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
+        internal static extern IntPtr ris_ktxTexture2_GetImageData(IntPtr texture);
+
+        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
+        internal static extern ulong ris_ktxTexture2_GetImageSize(IntPtr texture, uint level);
+
+        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
+        internal static extern KtxErrorCode ris_ktxTexture2_WriteToNamedFile(IntPtr texture, string filename);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
         internal static extern KtxErrorCode ris_ktxTexture2_CompressBasisEx(IntPtr texture, IntPtr basisParams);

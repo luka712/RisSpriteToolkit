@@ -1,5 +1,4 @@
-﻿using System.Runtime.InteropServices;
-using static RisTextureToolkit.Native.Ktx;
+﻿using static RisTextureToolkit.Native.Ktx;
 using static RisTextureToolkit.Native.RisTextureToolkit;
 
 namespace RisTextureToolkit.Ktx
@@ -10,7 +9,7 @@ namespace RisTextureToolkit.Ktx
     /// The class manages the lifecycle of the native KTX texture object, ensuring that resources are properly released when the texture is no longer needed. 
     /// It also includes error handling to provide informative exceptions when operations fail, such as loading or transcoding errors.
     /// </summary>
-    public class KtxTexture2 : IDisposable
+    public class Ktx2Texture : IDisposable
     {
         private static bool _firstLoad = true;
 
@@ -24,7 +23,7 @@ namespace RisTextureToolkit.Ktx
         /// <exception cref="Exception">
         /// If the texture fails to load from the specified file path, an exception is thrown with details about the failure.
         /// </exception>
-        public KtxTexture2(string filePath,
+        public Ktx2Texture(string filePath,
             KtxTextureCreateFlags createFlags = KtxTextureCreateFlags.TEXTURE_CREATE_LOAD_IMAGE_DATA_BIT)
         {
             NativeResolver.Setup();
@@ -52,8 +51,8 @@ namespace RisTextureToolkit.Ktx
         /// <exception cref="Exception">
         /// Throws an exception if the texture creation fails, providing details about the error code returned by the native function.
         /// </exception>
-        public KtxTexture2(
-            KtxTextureCreateInfo createInfo, 
+        public Ktx2Texture(
+            KtxTextureCreateInfo createInfo,
             KtxTextureCreateStorage storageAllocation = KtxTextureCreateStorage.KTX_TEXTURE_CREATE_ALLOC_STORAGE)
         {
             NativeResolver.Setup();
@@ -89,6 +88,16 @@ namespace RisTextureToolkit.Ktx
         /// and have not yet been transcoded to a GPU-compatible format.
         /// </summary>
         public bool NeedsTranscoding => ktxTexture2_NeedsTranscoding(TexturePtr);
+
+        /// <summary>
+        /// Gets the size of the image data for a specific mip level.
+        /// </summary>
+        /// <param name="mipLevel">The mip level.</param>
+        /// <returns>The size of image.</returns>
+        public ulong GetImageSize(uint mipLevel)
+        {
+           return ris_ktxTexture2_GetImageSize(TexturePtr, mipLevel);
+        }
 
         /// <summary>
         /// Transcodes the basis texture to the specified transcode format.
@@ -150,16 +159,30 @@ namespace RisTextureToolkit.Ktx
         }
 
         /// <summary>
+        /// Gets the offset of the image data for a specific level, layer, and face/slice of the texture.
+        /// </summary>
+        /// <param name="level">The mip level of the image.</param>
+        /// <param name="layer">The array layer level of the image.</param>
+        /// <param name="faceSlice">The cube map face or depth slice of the image. </param>
+        /// <returns>The offset.</returns>
+        public ulong GetImageOffset(uint level, uint layer, uint faceSlice)
+        {
+            ulong offset;
+            KtxErrorCode errorCode = ris_ktxTexture2_GetImageOffset(TexturePtr, level, layer, faceSlice, out offset);
+            if (errorCode != KtxErrorCode.KTX_SUCCESS)
+            {
+                throw new Exception($"Failed to get image offset for KTX texture. Error code: {errorCode}");
+            }
+            return offset;
+        }
+
+        /// <summary>
         /// Gets the raw texture data from the native KTX texture object.
         /// </summary>
         /// <returns>The texture data as byte array.</returns>
-        public byte[] GetTextureData()
+        public IntPtr GetTextureData(ulong offset = 0)
         {
-            IntPtr dataPtr = ktxTexture_GetData(TexturePtr);
-            ulong dataSize = ktxTexture_GetDataSize(TexturePtr);
-            byte[] data = new byte[dataSize];
-            Marshal.Copy(dataPtr, data, 0, (int)dataSize);
-            return data;
+            return ktxTexture_GetData(TexturePtr) + (int)offset;
         }
 
         /// <summary>
@@ -168,7 +191,7 @@ namespace RisTextureToolkit.Ktx
         /// <param name="filePath">The file path.</param>
         public void WriteToNamedFile(string filePath)
         {
-            KtxErrorCode errorCode = ris_ktxTexture_WriteToNamedFile(TexturePtr, filePath);
+            KtxErrorCode errorCode = ris_ktxTexture2_WriteToNamedFile(TexturePtr, filePath);
             if (errorCode != KtxErrorCode.KTX_SUCCESS)
             {
                 throw new Exception($"Failed to write KTX texture to file '{filePath}'. Error code: {errorCode}");

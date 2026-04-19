@@ -212,8 +212,8 @@ namespace RisGameFramework.SpriteToolkit.Tests
         public void TestSavedInSameDirectory()
         {
             TextureTKBundleBuilder builder = new();
-            builder.PngTextureAtlasBuilder.DefaultSheetName = "Test";
-            builder.PngTextureAtlasBuilder.AllowReplaceTextureAtlas = true;
+            builder.TextureAtlasBuilder.DefaultSheetName = "Test";
+            builder.TextureAtlasBuilder.AllowReplaceTextureAtlas = true;
             builder.AllowReplaceJsonBundle = true;
             builder.AddRawImage(new RawImage($"Test.png", 512, 512, new byte[512 * 512 * 4], 4));
 

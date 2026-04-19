@@ -158,8 +158,19 @@ bool c_ktxTexture_LoadBasis_TranscodeToGPUFormat()
 	return true;
 }
 
+bool test_c_ktxTexture_GetImageOffset()
+{
+	ktxTexture2* texture;
+	ktxTexture2_CreateFromNamedFile(TEST_KTX_BASIS_UASTC, KTX_TEXTURE_CREATE_LOAD_IMAGE_DATA_BIT, &texture);
+	ktxTexture2_TranscodeBasis(texture, KTX_TTF_BC7_RGBA, 0);
+	size_t offset;
+	ris_ktxTexture2_GetImageOffset(texture, 0, 0, 0, &offset);
+	auto data = ris_ktxTexture2_GetData(texture) + offset;
+	ris_ktxTexture2_Destroy(texture);
+	return data != nullptr;
+}
 
-TEST_CASE("ktx tests", "[c_ktx_get_width, c_ktx_get_height, c_ktx_get_supercompression_scheme, c_ktxTexture2_SetImageFromMemory, c_ktxTexture_WriteToNamedFile, c_ktxTexture_LoadBasis_TranscodeToGPUFormat]")
+TEST_CASE("ktx tests", "[c_ktx_get_width, c_ktx_get_height, c_ktx_get_supercompression_scheme, c_ktxTexture2_SetImageFromMemory, c_ktxTexture_WriteToNamedFile, c_ktxTexture_LoadBasis_TranscodeToGPUFormat, test_c_ktxTexture_GetImageOffset]")
 {
 	REQUIRE(c_ktx_get_width());
 	REQUIRE(c_ktx_get_height());
@@ -167,4 +178,5 @@ TEST_CASE("ktx tests", "[c_ktx_get_width, c_ktx_get_height, c_ktx_get_supercompr
 	REQUIRE(c_ktxTexture2_SetImageFromMemory());
 	REQUIRE(c_ktxTexture_WriteToNamedFile());
 	REQUIRE(c_ktxTexture_LoadBasis_TranscodeToGPUFormat());
+	REQUIRE(test_c_ktxTexture_GetImageOffset());
 }

@@ -21,7 +21,7 @@ namespace RisGameFramework.SpriteToolkit.Tests
         {
             Assert.Throws<FileNotFoundException>(() =>
             {
-                var texture = new KtxTexture2("nonexistent_file.ktx");
+                var texture = new Ktx2Texture("nonexistent_file.ktx");
             });
         }
 
@@ -33,7 +33,7 @@ namespace RisGameFramework.SpriteToolkit.Tests
         {
             try
             {
-                using var texture = new KtxTexture2(TEST_KTX_BASIS_UASTC);
+                using var texture = new Ktx2Texture(TEST_KTX_BASIS_UASTC);
                 Assert.That(texture.TexturePtr, Is.Not.EqualTo(IntPtr.Zero), "Texture pointer should not be null after successful load.");
             }
             catch (Exception ex)
@@ -50,7 +50,7 @@ namespace RisGameFramework.SpriteToolkit.Tests
         {
             try
             {
-                using var texture = new KtxTexture2(TEST_KTX_BASIS_UASTC);
+                using var texture = new Ktx2Texture(TEST_KTX_BASIS_UASTC);
                 Assert.That(texture.TexturePtr, Is.Not.EqualTo(IntPtr.Zero), "Texture pointer should not be null after successful load.");
                 Assert.That(texture.Width, Is.GreaterThan(0), "Texture width should be greater than 0.");
                 Assert.That(texture.Height, Is.GreaterThan(0), "Texture height should be greater than 0.");
@@ -62,7 +62,7 @@ namespace RisGameFramework.SpriteToolkit.Tests
             }
         }
 
-        private KtxTexture2 CreateAndFillTexture()
+        private Ktx2Texture CreateAndFillTexture()
         {
             var imageLoader = new ImageLoader();
             var image = imageLoader.LoadImage(TEXT_PNG);
@@ -72,7 +72,7 @@ namespace RisGameFramework.SpriteToolkit.Tests
             createInfo.BaseHeight = (uint)image.Height;
             createInfo.VkFormat = VkFormat.R8G8B8A8_UNORM;
 
-            var texture = new KtxTexture2(createInfo);
+            var texture = new Ktx2Texture(createInfo);
 
             texture.SetImageFromMemory(0, 0, 0, image.Data, (uint)image.Data.Length);
             return texture;
@@ -86,8 +86,7 @@ namespace RisGameFramework.SpriteToolkit.Tests
         {
             using var texture = CreateAndFillTexture();
             var textureData = texture.GetTextureData();
-            Assert.That(textureData, Is.Not.Null, "Texture data should not be null after setting image data.");
-            Assert.That(textureData.Length, Is.GreaterThan(0), "Texture data length should be greater than 0 after setting image data.");
+            Assert.AreNotEqual(IntPtr.Zero, textureData, "Texture data pointer should not be null after setting image data.");
         }
 
         /// <summary>
@@ -101,6 +100,17 @@ namespace RisGameFramework.SpriteToolkit.Tests
             Assert.That(File.Exists("Data/test_output.ktx2"), "Output KTX file should exist after writing.");
             var fileInfo = new FileInfo("Data/test_output.ktx2");
             Assert.That(fileInfo.Length, Is.GreaterThan(0), "Output KTX file should have a size greater than 0.");
+        }
+
+        /// <summary>
+        /// Test create and fill KTX texture, then try to get image offset.
+        /// </summary>
+        [Test]
+        public void Test_GetImageOffset()
+        {
+            using var texture = CreateAndFillTexture();
+            var offset = texture.GetImageOffset(0, 0, 0);
+            Assert.That(offset, Is.GreaterThanOrEqualTo(0), "Image offset should be greater than or equal to 0.");
         }
     }
 }
