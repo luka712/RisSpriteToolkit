@@ -128,6 +128,12 @@ ktxTexture2* createAndFillTexture()
 	ktxTexture2_Create(&createInfo, storageAllocation, &texture);
 
 	ris_ktxTexture2_SetImageFromMemory(texture, 0, 0, 0, data, width * height * channels);
+
+	ktxTexture2_CompressBasis(
+		texture,
+		KTX_TTF_BC7_RGBA
+	);
+
 	stbi_image_free(data);
 
 	return texture;
