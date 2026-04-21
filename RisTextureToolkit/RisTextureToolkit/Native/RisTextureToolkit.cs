@@ -31,6 +31,9 @@ namespace RisTextureToolkit.Native
         internal static extern uint ris_ktxTexture2_GetHeight(IntPtr texture);
 
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
+        internal static extern SupercompressionScheme ris_ktxTexture2_GetSupercompressionScheme(IntPtr texture);
+
+        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
         internal static extern KtxErrorCode ris_ktxTexture2_GetImageOffset(
             IntPtr texture,
             uint level,

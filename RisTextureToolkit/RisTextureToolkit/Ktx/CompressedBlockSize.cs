@@ -63,6 +63,16 @@
         }
 
         /// <summary>
+        /// Computes the number of rows per image for a given texture height.
+        /// </summary>
+        /// <param name="height">The height in pixels.</param>
+        /// <returns>Number of rows per image.</returns>
+        public uint RowsPerImage(uint height)
+        {
+            return (height + BlockHeight - 1) / BlockHeight;
+        }
+
+        /// <summary>
         /// Computes the number of blocks per column for a given texture height.
         /// </summary>
         /// <param name="height">Texture height in pixels.</param>

@@ -1,4 +1,8 @@
-﻿using static RisTextureToolkit.Native.Ktx;
+﻿using RisTextureToolkit.Data.Image;
+using RisTextureToolkit.Dto;
+using System.Formats.Asn1;
+using System.Reflection.Emit;
+using static RisTextureToolkit.Native.Ktx;
 using static RisTextureToolkit.Native.RisTextureToolkit;
 
 namespace RisTextureToolkit.Ktx
@@ -12,6 +16,8 @@ namespace RisTextureToolkit.Ktx
     public class Ktx2Texture : IDisposable
     {
         private static bool _firstLoad = true;
+
+        private readonly string _filePath;
 
         /// <summary>
         /// The constructor for the KtxTexture class. It attempts to load a KTX texture from the specified file path. 
@@ -27,18 +33,18 @@ namespace RisTextureToolkit.Ktx
             KtxTextureCreateFlags createFlags = KtxTextureCreateFlags.TEXTURE_CREATE_LOAD_IMAGE_DATA_BIT)
         {
             NativeResolver.Setup();
-            filePath = Path.GetFullPath(filePath);
+            _filePath = filePath;
 
             TexturePtr = IntPtr.Zero;
 
-            KtxErrorCode errorCode = ktxTexture2_CreateFromNamedFile(filePath, (uint)createFlags, out IntPtr texture);
+            KtxErrorCode errorCode = ktxTexture2_CreateFromNamedFile(_filePath, (uint)createFlags, out IntPtr texture);
             if (errorCode == KtxErrorCode.FILE_OPEN_FAILED)
             {
-                throw new FileNotFoundException($"The specified KTX file '{filePath}' could not be found.");
+                throw new FileNotFoundException($"The specified KTX file '{_filePath}' could not be found.");
             }
             else if (errorCode != KtxErrorCode.KTX_SUCCESS)
             {
-                throw new Exception($"Failed to load KTX texture from '{filePath}'. Error code: {errorCode}");
+                throw new Exception($"Failed to load KTX texture from '{_filePath}'. Error code: {errorCode}");
             }
             TexturePtr = texture;
         }
@@ -83,11 +89,62 @@ namespace RisTextureToolkit.Ktx
         public uint Height => ris_ktxTexture2_GetHeight(TexturePtr);
 
         /// <summary>
+        /// Gets the supercompression scheme used for the texture, if any.
+        /// </summary>
+        public SupercompressionScheme SupercompressionScheme => ris_ktxTexture2_GetSupercompressionScheme(TexturePtr);
+
+        /// <summary>
         /// Checks if the texture needs transcoding. 
         /// This is typically true for textures that are compressed using BasisU/ETC1S or UASTC formats 
         /// and have not yet been transcoded to a GPU-compatible format.
         /// </summary>
         public bool NeedsTranscoding => ktxTexture2_NeedsTranscoding(TexturePtr);
+
+        public RawImage ToRawImageData(KtxTranscodeFormat transcodeFormat, uint mipLevel = 0, uint layer = 0, uint faceSlice = 0)
+        {
+            if (NeedsTranscoding)
+            {
+                TranscodeBasis(transcodeFormat);
+            }
+
+            //if (mipLevel >= texture.LevelCount)
+            //    throw new ArgumentOutOfRangeException(nameof(mipLevel));
+
+            var offset = GetImageOffset(mipLevel, layer, faceSlice);
+            var dataPtr = GetTextureData(offset);
+
+            uint width = System.Math.Max(1u, Width >> (int)mipLevel);
+            uint height = System.Math.Max(1u, Height >> (int)mipLevel);
+
+            ulong imageSize = GetImageSize(mipLevel);
+
+            byte[] data = new byte[imageSize];
+            System.Runtime.InteropServices.Marshal.Copy(dataPtr, data, 0, (int)imageSize);
+
+            var formatInfo = CreateTextureFormatInfo(transcodeFormat);
+
+            return new RawImage(
+                _filePath,
+                (int)width,
+                (int)height,
+                data,
+                formatInfo
+            );
+        }
+
+        /// <summary>
+        /// Creates a TextureFormatInfo instance based on the provided KtxTranscodeFormat.
+        /// </summary>
+        /// <param name="format">The <see cref="KtxTranscodeFormat"/>.</param>
+        /// <returns>The <see cref="TextureFormatInfo"/>.</returns>
+        private TextureFormatInfo CreateTextureFormatInfo(KtxTranscodeFormat format)
+        {
+            return format switch
+            {
+                KtxTranscodeFormat.BC7_RGBA => new TextureFormatInfo(4, 4, 1, 16),
+                _ => throw new NotSupportedException($"Unsupported transcode format: {format}")
+            };
+        }
 
         /// <summary>
         /// Gets the size of the image data for a specific mip level.

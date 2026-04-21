@@ -35,7 +35,7 @@ namespace RisTextureToolkit.Ktx
         /// A <see cref="RawImage"/> containing the texture data, dimensions, and format information
         /// for the specified mip level, layer, and face slice.
         /// </returns>
-        public RawImage LoadBasis(string filePath, KtxTranscodeFormat transcodeFormat, uint mipLevel = 0, uint layer = 0, uint faceSlice = 0)
+        public RawImage Load(string filePath, KtxTranscodeFormat transcodeFormat, uint mipLevel = 0, uint layer = 0, uint faceSlice = 0)
         {
             using var texture = new Ktx2Texture(filePath);
 
@@ -70,6 +70,16 @@ namespace RisTextureToolkit.Ktx
         }
 
         /// <summary>
+        /// This method loads a KTX2 texture from the specified file path and returns a <see cref="Ktx2Texture"/> instance.
+        /// </summary>
+        /// <param name="filePath">The file path.</param>
+        /// <returns>The <see cref="Ktx2Texture"/>.</returns>
+        public Ktx2Texture Load(string filePath)
+        {
+            return new Ktx2Texture(filePath);
+        }
+
+        /// <summary>
         /// Creates a TextureFormatInfo instance based on the provided KtxTranscodeFormat.
         /// </summary>
         /// <param name="format">The <see cref="KtxTranscodeFormat"/>.</param>
@@ -78,7 +88,7 @@ namespace RisTextureToolkit.Ktx
         {
             return format switch
             {
-                KtxTranscodeFormat.TTF_BC7_RGBA => new TextureFormatInfo(4, 4, 1, 16),
+                KtxTranscodeFormat.BC7_RGBA => new TextureFormatInfo(4, 4, 1, 16),
                 _ => throw new NotSupportedException($"Unsupported transcode format: {format}")
             };
         }

@@ -10,7 +10,7 @@ namespace RisTextureToolkit
     /// <param name="logger">
     /// The optional <see cref="ILogger"/>.
     /// </param>
-    public abstract class TextureTKBundleLoader (ILogger? logger = null) : ITextureTKBundleLoader
+    public class TextureTKBundleLoader (ILogger? logger = null) : ITextureTKBundleLoader
     {
         private readonly Dictionary<string, TextureAtlasBundle> _loadedBundles = new();
 
