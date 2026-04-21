@@ -95,7 +95,7 @@ namespace SpriteToolkit.Tests
             sheet.AddSprite(new RawImage("Test.png", 64, 64, new byte[64 * 64 * 4], 4));
             sheet.AddSprite(new RawImage("Test2.png", 64, 64, new byte[64 * 64 * 4], 4));
 
-            sheet.Save("Test.png");
+            sheet.Save("Test.png", RisTextureToolkit.ImageFormat.PNG, RisTextureToolkit.PixelFormat.RGBA8_UNORM);
             Assert.True(true); // If we reach here, the save succeeded.
         }
     }

@@ -20,7 +20,7 @@ namespace RisGameFramework.SpriteToolkit.Tests
         public void Test_LoadBasis()
         {
             var loader = new Ktx2Loader();
-            var rawImage = loader.LoadBasis(TEST_KTX_BASIS_UASTC, KtxTranscodeFormat.TTF_BC7_RGBA);
+            var rawImage = loader.Load(TEST_KTX_BASIS_UASTC, KtxTranscodeFormat.BC7_RGBA);
             Assert.That(rawImage, Is.Not.Null);
             Assert.That(rawImage.Data, Is.Not.Null);
             Assert.That(rawImage.Width, Is.GreaterThan(0));

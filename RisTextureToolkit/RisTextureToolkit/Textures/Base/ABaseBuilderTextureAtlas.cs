@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 using RisGameFramework.SpriteToolkit.Loaders;
 using RisSpriteToolkit.Data.Image;
 using RisTextureToolkit.Data.Image;
+using RisTextureToolkit.ImageExporters;
 using RisTextureToolkit.Textures;
 using SkiaSharp;
 
@@ -13,6 +14,12 @@ namespace RisTextureToolkit.Sprites.Base
     /// </summary>
     public abstract class ABaseBuilderTextureAtlas : IBuilderTextureAtlas
     {
+        private static Dictionary<ImageFormat, IImageExporter> _exporters = new Dictionary<ImageFormat, IImageExporter>
+        {
+            [ImageFormat.PNG] = new PngExporter(),
+            [ImageFormat.KTX2] = new Ktx2Exporter(),
+        };
+
         /// <summary>
         /// The list of sprites in the sprite sheet.
         /// </summary>
@@ -79,19 +86,13 @@ namespace RisTextureToolkit.Sprites.Base
         public bool RemoveSprite(BuilderTexture texture)
             => _sprites.Remove(texture);
 
-        private void SaveSkiaSheet(string filePath)
+        /// <inheritdoc/>
+        public void Save(string filePath, ImageFormat imageFormat, PixelFormat pixelFormat)
         {
             using var image = SaveAsSkImage();
-            using var data = image.Encode(SKEncodedImageFormat.Png, 100); // 100 = quality
-            File.WriteAllBytes(filePath, data.ToArray());
-        }
-
-        /// <inheritdoc/>
-        public void Save(string filePath)
-        {
             if (ImageBackend == ImageBackend.Skia)
             {
-                SaveSkiaSheet(filePath);
+                _exporters[imageFormat].Export(image, pixelFormat, filePath);
             }
             else
             {

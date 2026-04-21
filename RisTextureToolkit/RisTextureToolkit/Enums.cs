@@ -1,10 +1,25 @@
-﻿// ReSharper disable All
-namespace RisGameFramework.SpriteToolkit
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace RisTextureToolkit
 {
+
+    /// <summary>
+    /// The pixel format of an image.
+    /// </summary>
+    public enum PixelFormat
+    {
+        RGBA8_UNORM,
+        BASIS_LZ,
+    }
+
     /// <summary>
     /// The supported image formats.
     /// </summary>
-    public enum ImageFormats
+    public enum ImageFormat
     {
         /// <summary>
         /// Portable Network Graphics.
@@ -37,8 +52,8 @@ namespace RisGameFramework.SpriteToolkit
         WEBP,
 
         /// <summary>
-        /// The combination of all supported image formats.
+        /// Save as KTX2 file format.
         /// </summary>
-        ALL = PNG | JPEG | BMP | GIF | TIFF | WEBP
+        KTX2,
     }
 }

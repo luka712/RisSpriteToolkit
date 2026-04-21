@@ -12,10 +12,10 @@ namespace RisTextureToolkit
     /// <summary>
     /// The asset builder which is responsible for creating and managing sprite sheets.
     /// </summary>
-    public class TextureTKBundleBuilder 
+    public class TextureTKBundleBuilder
     {
         private readonly ILogger? _logger;
-        private readonly RisTextureToolkit.MapperService _mapper = new();
+        private readonly MapperService _mapper = new();
         private bool _allowReplaceTextureAtlas = false;
 
         /// <summary>
@@ -122,13 +122,18 @@ namespace RisTextureToolkit
         /// The directory path where to save the assets.
         /// </param>
         /// <param name="bundleName">The name of a bundle which is saved as JSON file.</param>
+        /// <param name="imageFormat">The image format to save the sprite sheets. Default is PNG.</param>
+        /// <param name="pixelFormat">The pixel format to save the sprite sheets. Default is RGBA8_UNORM.</param>
         /// <exception cref="ArgumentException">
         /// Thrown if <paramref name="directoryPath"/> or <paramref name="bundleName"/> is null, empty, or whitespace.
         /// </exception>
         /// <exception cref="FileAlreadyExistsException">
         /// Thrown if the file already exists and <see cref="AllowReplace"/> is <c>false</c>.
         /// </exception>
-        public void SaveBundle(string directoryPath, string bundleName)
+        public void SaveBundle(string directoryPath, string bundleName,
+                ImageFormat imageFormat = ImageFormat.PNG,
+                PixelFormat pixelFormat = PixelFormat.RGBA8_UNORM
+            )
         {
             if (string.IsNullOrWhiteSpace(directoryPath))
             {
@@ -138,7 +143,7 @@ namespace RisTextureToolkit
             {
                 throw new ArgumentException("JSON name cannot be null or whitespace.", nameof(bundleName));
             }
-            TextureAtlasBuilder.Save(directoryPath, out List<string> sheetsFilePaths, out List<string> sheetsFileNames);
+            TextureAtlasBuilder.Save(directoryPath, imageFormat, pixelFormat, out List<string> sheetsFilePaths, out List<string> sheetsFileNames);
             string jsonFilePath = Path.Combine(directoryPath, $"{bundleName}.json");
 
             bool fileExists = File.Exists(jsonFilePath);
@@ -154,7 +159,7 @@ namespace RisTextureToolkit
 
             File.WriteAllText(jsonFilePath, CreateJson(sheetsFilePaths, sheetsFileNames));
         }
-        
+
         /// <summary>
         /// Save the assets to the specified directory asynchronously.
         /// </summary>
@@ -162,13 +167,19 @@ namespace RisTextureToolkit
         /// The directory path where to save the assets.
         /// </param>
         /// <param name="bundleName">The name of a bundle which is saved as a JSON file.</param>
+        /// <param name="imageFormat">The image format to save the sprite sheets. Default is PNG.</param>
+        /// <param name="pixelFormat">The pixel format to save the sprite sheets. Default is RGBA8_UNORM.</param>
         /// <exception cref="ArgumentException">
         /// Thrown if <paramref name="directoryPath"/> or <paramref name="bundleName"/> is null, empty, or whitespace.
         /// </exception>
         /// <exception cref="FileAlreadyExistsException">
         /// Thrown if the file already exists and <see cref="AllowReplace"/> is <c>false</c>.
         /// </exception>
-        public async Task SaveBundleAsync(string directoryPath, string bundleName)
+        public async Task SaveBundleAsync(
+            string directoryPath,
+            string bundleName,
+            ImageFormat imageFormat = ImageFormat.PNG,
+            PixelFormat pixelFormat = PixelFormat.RGBA8_UNORM)
         {
             if (string.IsNullOrWhiteSpace(directoryPath))
             {
@@ -178,9 +189,9 @@ namespace RisTextureToolkit
             {
                 throw new ArgumentException("JSON name cannot be null or whitespace.", nameof(bundleName));
             }
-            
+
             // TODO: save async
-            TextureAtlasBuilder.Save(directoryPath, out List<string> sheetsFilePaths, out List<string> sheetsFileNames);
+            TextureAtlasBuilder.Save(directoryPath, imageFormat, pixelFormat, out List<string> sheetsFilePaths, out List<string> sheetsFileNames);
             string jsonFilePath = Path.Combine(directoryPath, $"{bundleName}.json");
 
             bool fileExists = File.Exists(jsonFilePath);
@@ -196,11 +207,11 @@ namespace RisTextureToolkit
 
             await File.WriteAllTextAsync(jsonFilePath, CreateJson(sheetsFilePaths, sheetsFileNames));
         }
-        
+
 
         private string CreateJson(IReadOnlyList<string> sheetsFilePaths, IReadOnlyList<string> sheetsFileNames)
         {
-        
+
             TextureAtlasBundle textureAtlasDto = new()
             {
                 Atlases = TextureAtlasBuilder.SpriteSheets.Select(x => _mapper.ToTextureAtlas(x)).ToList()

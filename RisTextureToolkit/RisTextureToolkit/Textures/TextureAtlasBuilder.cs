@@ -1,10 +1,10 @@
 ﻿using System.Drawing;
 using System.Text.Json.Serialization;
 using Microsoft.Extensions.Logging;
-using RisGameFramework.SpriteToolkit;
 using RisGameFramework.SpriteToolkit.Exceptions;
 using RisSpriteToolkit.Loaders;
 using RisTextureToolkit.Data.Image;
+using RisTextureToolkit.Ktx;
 using RisTextureToolkit.Sprites.Base;
 using RisTextureToolkit.Sprites.Skyline;
 using RisTextureToolkit.Textures;
@@ -57,13 +57,6 @@ namespace RisTextureToolkit.Sprites
         /// </summary>
         [JsonIgnore]
         public ILogger Logger { get; set; }
-
-        /// <summary>
-        /// The image format to use when saving the sprite sheets. Default is <see cref="ImageFormats.PNG"/>.
-        /// We do not currently support builder that can mix image formats.
-        /// </summary>
-        [JsonIgnore]
-        public ImageFormats ImageFormat { get; set; } = ImageFormats.PNG;
 
         /// <summary>
         /// The sprite sheets created by this builder.
@@ -153,7 +146,7 @@ namespace RisTextureToolkit.Sprites
             // Load all images from the directory
             IEnumerable<RawImage> images = ImageLoader.LoadFromDirectory(
                     path,
-                    ImageFormats.PNG,
+                    ImageFormat.PNG,
                     searchOption: recursive ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly)
                 .OrderBy(img => img.ImageName); // Sort images by name for consistent ordering
 
@@ -283,12 +276,14 @@ namespace RisTextureToolkit.Sprites
         /// Saves all sprite sheets to the specified directory.
         /// </summary>
         /// <param name="directoryPath">The directory path where to save the sprite sheets.</param>
+        /// <param name="imageFormat">The image format to use when saving the sprite sheets.</param>
+        /// <param name="pixelFormat">The pixel format to use when saving the sprite sheets.</param>
         /// <param name="sheetsFilePaths">List of saved file paths per sheet.</param>
         /// <param name="sheetsFileNames">List of file names per sheet.</param>
         /// <exception cref="FileAlreadyExistsException">
         /// Thrown if a file already exists and <see cref="AllowReplaceTextureAtlas"/> is <c>false</c>.
         /// </exception>
-        public void Save(string directoryPath, out List<string> sheetsFilePaths, out List<string> sheetsFileNames)
+        public void Save(string directoryPath, ImageFormat imageFormat, PixelFormat pixelFormat, out List<string> sheetsFilePaths, out List<string> sheetsFileNames)
         {
             sheetsFilePaths = [];
             sheetsFileNames = [];
@@ -303,7 +298,7 @@ namespace RisTextureToolkit.Sprites
                 var sheet = (ABaseBuilderTextureAtlas)builderSpriteSheet;
                 var fileName = $"{sheet.Name}";
                 sheetsFileNames.Add(fileName);
-                var filePath = $"{fileName}.{ImageFormat.ToString().ToLower()}";
+                var filePath = $"{fileName}.{imageFormat.ToString().ToLower()}";
                 sheetsFilePaths.Add(filePath);
 
                 var fileExists = File.Exists(filePath);
@@ -318,7 +313,7 @@ namespace RisTextureToolkit.Sprites
                     throw new FileAlreadyExistsException(filePath);
                 }
 
-                sheet.Save(Path.Join(directoryPath, filePath));
+                sheet.Save(Path.Join(directoryPath, filePath), imageFormat, pixelFormat);
             }
         }
     }

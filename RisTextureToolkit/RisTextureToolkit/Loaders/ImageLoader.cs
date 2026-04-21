@@ -1,6 +1,6 @@
-﻿using RisGameFramework.SpriteToolkit;
-using RisGameFramework.SpriteToolkit.Loaders;
+﻿using RisGameFramework.SpriteToolkit.Loaders;
 using RisSpriteToolkit.Data.Image;
+using RisTextureToolkit;
 using RisTextureToolkit.Data.Image;
 using SkiaSharp;
 
@@ -78,7 +78,7 @@ namespace RisSpriteToolkit.Loaders
         /// </exception>
         public IReadOnlyList<RawImage> LoadFromDirectory(
             string folderPath,
-            ImageFormats format = ImageFormats.ALL,
+            ImageFormat format = ImageFormat.PNG,
             string filePattern = "*.*",
             SearchOption searchOption = SearchOption.TopDirectoryOnly)
         {
@@ -92,13 +92,13 @@ namespace RisSpriteToolkit.Loaders
 
             Func<string, bool> filter = format switch
             {
-                ImageFormats.PNG => file => file.EndsWith(".png", StringComparison.OrdinalIgnoreCase),
+                ImageFormat.PNG => file => file.EndsWith(".png", StringComparison.OrdinalIgnoreCase),
                 // ImageFormats.JPEG => file => file.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase) || file.EndsWith(".jpeg", StringComparison.OrdinalIgnoreCase),
                 // ImageFormats.BMP => file => file.EndsWith(".bmp", StringComparison.OrdinalIgnoreCase),
                 // ImageFormats.GIF => file => file.EndsWith(".gif", StringComparison.OrdinalIgnoreCase),
                 // ImageFormats.TIFF => file => file.EndsWith(".tiff", StringComparison.OrdinalIgnoreCase) || file.EndsWith(".tif", StringComparison.OrdinalIgnoreCase),
                 // ImageFormats.WEBP => file => file.EndsWith(".webp", StringComparison.OrdinalIgnoreCase),
-                ImageFormats.ALL => _ => true,
+                //ImageFormat.ALL => _ => true,
                 _ => throw new NotSupportedException($"Unsupported image format: {format}")
             };
 

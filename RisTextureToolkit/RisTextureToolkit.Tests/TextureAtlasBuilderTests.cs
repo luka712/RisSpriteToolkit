@@ -49,7 +49,7 @@ namespace RisGameFramework.SpriteToolkit.Tests
 
             BuilderTexture texture = builder.AddImage(TEST_PNG);
 
-            builder.Save("Output", out _, out _);
+            builder.Save("Output", ImageFormat.PNG, PixelFormat.RGBA8_UNORM, out _, out _);
 
             Assert.That(texture.SourceRect.Width, Is.EqualTo(248));
             Assert.That(texture.SourceRect.Height, Is.EqualTo(248));
@@ -73,7 +73,7 @@ namespace RisGameFramework.SpriteToolkit.Tests
             BuilderTexture texture = builder.AddImage("Data/test.png");
             BuilderTexture sprite2 = builder.AddImage("Data/test.png");
 
-            builder.Save("Output", out _, out _);
+            builder.Save("Output", ImageFormat.PNG, PixelFormat.RGBA8_UNORM, out _, out _);
 
             Assert.That(texture.SourceRect.Width, Is.EqualTo(248));
             Assert.That(texture.SourceRect.Height, Is.EqualTo(248));
@@ -104,7 +104,7 @@ namespace RisGameFramework.SpriteToolkit.Tests
             BuilderTexture sprite2 = builder.AddImage(TEST_PNG);
             BuilderTexture sprite3 = builder.AddImage(TEST_PNG);
 
-            builder.Save("Output", out _, out _);
+            builder.Save("Output", ImageFormat.PNG, PixelFormat.RGBA8_UNORM, out _, out _);
 
             Assert.That(texture.SourceRect.Width, Is.EqualTo(248));
             Assert.That(texture.SourceRect.Height, Is.EqualTo(248));
@@ -141,7 +141,7 @@ namespace RisGameFramework.SpriteToolkit.Tests
             BuilderTexture sprite3 = builder.AddImage(TEST_PNG);
             BuilderTexture sprite4 = builder.AddImage(TEST_PNG);
 
-            builder.Save("Output", out _, out _);
+            builder.Save("Output", ImageFormat.PNG, PixelFormat.RGBA8_UNORM, out _, out _);
 
             Assert.That(texture.SourceRect.Width, Is.EqualTo(248));
             Assert.That(texture.SourceRect.Height, Is.EqualTo(248));
@@ -221,6 +221,25 @@ namespace RisGameFramework.SpriteToolkit.Tests
         
             Assert.That(Directory.Exists("Test/Output"));
             Assert.That(File.Exists("Test/Output/Test_0.png"));
+            Assert.That(File.Exists("Test/Output/Test.json"));
+        }
+
+        /// <summary>
+        /// Test if JSON and sprite sheet are saved in the same directory.
+        /// </summary>
+        [Test]
+        public void Test_SavedAsKTX2()
+        {
+            TextureTKBundleBuilder builder = new();
+            builder.TextureAtlasBuilder.DefaultSheetName = "Test";
+            builder.TextureAtlasBuilder.AllowReplaceTextureAtlas = true;
+            builder.AllowReplaceJsonBundle = true;
+            builder.AddImage(TEST_PNG);
+
+            builder.SaveBundle("Test/Output", "Test", ImageFormat.KTX2, PixelFormat.BASIS_LZ);
+
+            Assert.That(Directory.Exists("Test/Output"));
+            Assert.That(File.Exists("Test/Output/Test_0.ktx2"));
             Assert.That(File.Exists("Test/Output/Test.json"));
         }
 
