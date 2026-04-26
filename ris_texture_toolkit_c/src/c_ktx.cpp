@@ -2,7 +2,7 @@
 
 API_EXPORT KTX_error_code ris_ktxTexture2_Create(const c_ktxTextureCreateInfo* createInfo, ktxTextureCreateStorageEnum storageAllocation, ktxTexture2** outTexture)
 {
-	ktxTextureCreateInfo ktxCreateInfo;
+	ktxTextureCreateInfo ktxCreateInfo = {};
 	ktxCreateInfo.baseWidth = createInfo->baseWidth;
 	ktxCreateInfo.baseHeight = createInfo->baseHeight;
 	ktxCreateInfo.baseDepth = 1;
@@ -35,17 +35,22 @@ uint8_t* ris_ktxTexture2_GetData(const ktxTexture2* tex)
 	return ktxTexture_GetData(ktxTexture(tex));
 }
 
+bool ris_ktxTexture2_NeedsTranscoding(ktxTexture2* tex)
+{
+	return ktxTexture2_NeedsTranscoding(tex) == KTX_TRUE;
+}
+
 size_t ris_ktxTexture2_GetImageSize(const ktxTexture2* tex, uint32_t level)
 {
 	return ktxTexture_GetImageSize(ktxTexture(tex), level);
 }
 
-ktxSupercmpScheme ris_ktxTexture2_GetSupercompressionScheme(const ktxTexture2* tex)
+ktxSupercmpScheme ris_ktxTexture2_GetSupercompressionScheme(ktxTexture2* tex)
 {
 	return tex->supercompressionScheme;
 }
 
-KTX_error_code ris_ktxTexture2_SetImageFromMemory(const ktxTexture2* tex, uint32_t level, uint32_t layer, uint32_t faceSlice, const uint8_t* src, size_t srcSize)
+KTX_error_code ris_ktxTexture2_SetImageFromMemory( ktxTexture2* tex, uint32_t level, uint32_t layer, uint32_t faceSlice, const uint8_t* src, size_t srcSize)
 {
 	return ktxTexture_SetImageFromMemory(ktxTexture(tex), level, layer, faceSlice, src, srcSize);
 }

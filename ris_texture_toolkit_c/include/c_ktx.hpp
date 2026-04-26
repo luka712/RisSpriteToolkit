@@ -34,13 +34,16 @@ extern "C" {
 		uint8_t* ris_ktxTexture2_GetData(const ktxTexture2* tex);
 
 	API_EXPORT
+		bool ris_ktxTexture2_NeedsTranscoding(ktxTexture2* tex);
+
+	API_EXPORT
 		size_t ris_ktxTexture2_GetImageSize(const ktxTexture2* tex, uint32_t level);
 
 	API_EXPORT
-		ktxSupercmpScheme ris_ktxTexture2_GetSupercompressionScheme(const ktxTexture2* tex);
+		ktxSupercmpScheme ris_ktxTexture2_GetSupercompressionScheme(ktxTexture2* tex);
 
 	API_EXPORT
-		KTX_error_code ris_ktxTexture2_SetImageFromMemory(const ktxTexture2* tex,
+		KTX_error_code ris_ktxTexture2_SetImageFromMemory(ktxTexture2* tex,
 			uint32_t level,
 			uint32_t layer,
 			uint32_t faceSlice,
