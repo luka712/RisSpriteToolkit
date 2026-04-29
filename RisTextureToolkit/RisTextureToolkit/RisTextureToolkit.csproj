@@ -19,7 +19,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="Native\RisTextureToolkit.cs" />
+    <None Include="Native\RisKtx2.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Logging" Version="10.0.5" />

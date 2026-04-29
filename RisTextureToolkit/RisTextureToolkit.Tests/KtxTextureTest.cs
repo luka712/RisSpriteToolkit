@@ -112,5 +112,14 @@ namespace RisGameFramework.SpriteToolkit.Tests
             var offset = texture.GetImageOffset(0, 0, 0);
             Assert.That(offset, Is.GreaterThanOrEqualTo(0), "Image offset should be greater than or equal to 0.");
         }
+
+        /// <summary>
+        /// Test create and fill KTX texture, then try to get image size.
+        /// </summary>
+        [Test]
+        public void Test_Basis_Encode()
+        {
+
+        }
     }
 }

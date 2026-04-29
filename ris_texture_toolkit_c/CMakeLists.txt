@@ -19,6 +19,8 @@ include_directories(${CMAKE_SOURCE_DIR}/vendor)
 
 # Source files
 file(GLOB SRC_FILES src/*.cpp src/**/*.cpp src/**/**/*.cpp src/**/**/**/*.cpp)
+
+# AI-GENERATED: Tests are now split — keep both globs
 file(GLOB TEST_SRC_FILES tests/*.cpp tests/**/*.cpp tests/**/**/*.cpp tests/**/**/**/*.cpp)
 
 # Define the target FIRST

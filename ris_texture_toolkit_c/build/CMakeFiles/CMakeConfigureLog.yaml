@@ -1,0 +1,172 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/_Windows/CMake/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake:205 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Windows - 10.0.22000 - AMD64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/_Windows/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/_Windows/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/_Windows/CMake/share/cmake-3.31/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      MSBuild version 17.14.40+3e7442088 for .NET Framework
+      Build started 29.4.2026. 20:58:16.
+      
+      Project "D:\\Projects\\Toolkits\\Ris.SpriteToolkit\\ris_texture_toolkit_c\\build\\CMakeFiles\\3.31.1\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
+      PrepareForBuild:
+        Creating directory "Debug\\".
+        Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+        Creating directory "Debug\\CompilerIdCXX.tlog\\".
+      InitializeBuildStatus:
+        Creating "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        Touching "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
+      VcpkgTripletSelection:
+        Using triplet "x64-windows" from "D:\\_Windows\\vcpkg\\installed\\x64-windows\\"
+        Using normalized configuration "Release"
+      VcpkgCheckManifestRoot:
+        The vcpkg manifest was disabled, but we found a manifest file in D:\\Projects\\Toolkits\\Ris.SpriteToolkit\\ris_texture_toolkit_c\\. You may want to enable vcpkg manifests in your properties page or pass /p:VcpkgEnableManifest=true to the msbuild invocation.
+      ClCompile:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /I"D:\\_Windows\\vcpkg\\installed\\x64-windows\\include" /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+        CMakeCXXCompilerId.cpp
+      Link:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"D:\\_Windows\\vcpkg\\installed\\x64-windows\\lib" /LIBPATH:"D:\\_Windows\\vcpkg\\installed\\x64-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib "D:\\_Windows\\vcpkg\\installed\\x64-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
+        CompilerIdCXX.vcxproj -> D:\\Projects\\Toolkits\\Ris.SpriteToolkit\\ris_texture_toolkit_c\\build\\CMakeFiles\\3.31.1\\CompilerIdCXX\\CompilerIdCXX.exe
+      AppLocalFromInstalled:
+        pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\_Windows\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Projects\\Toolkits\\Ris.SpriteToolkit\\ris_texture_toolkit_c\\build\\CMakeFiles\\3.31.1\\CompilerIdCXX\\CompilerIdCXX.exe" "D:\\_Windows\\vcpkg\\installed\\x64-windows\\bin" "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.write.1u.tlog" "Debug\\vcpkg.applocal.log"
+        'pwsh.exe' is not recognized as an internal or external command,
+        operable program or batch file.
+        The command "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\_Windows\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Projects\\Toolkits\\Ris.SpriteToolkit\\ris_texture_toolkit_c\\build\\CMakeFiles\\3.31.1\\CompilerIdCXX\\CompilerIdCXX.exe" "D:\\_Windows\\vcpkg\\installed\\x64-windows\\bin" "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.write.1u.tlog" "Debug\\vcpkg.applocal.log"" exited with code 9009.
+        "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "D:\\_Windows\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Projects\\Toolkits\\Ris.SpriteToolkit\\ris_texture_toolkit_c\\build\\CMakeFiles\\3.31.1\\CompilerIdCXX\\CompilerIdCXX.exe" "D:\\_Windows\\vcpkg\\installed\\x64-windows\\bin" "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.write.1u.tlog" "Debug\\vcpkg.applocal.log"
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_CXX_COMPILER=C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        Deleting file "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
+        Touching "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstate".
+      Done Building Project "D:\\Projects\\Toolkits\\Ris.SpriteToolkit\\ris_texture_toolkit_c\\build\\CMakeFiles\\3.31.1\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (default targets).
+      
+      Build succeeded.
+          0 Warning(s)
+          0 Error(s)
+      
+      Time Elapsed 00:00:00.97
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
+      
+      The CXX compiler identification is MSVC, found in:
+        D:/Projects/Toolkits/Ris.SpriteToolkit/ris_texture_toolkit_c/build/CMakeFiles/3.31.1/CompilerIdCXX/CompilerIdCXX.exe
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/_Windows/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "D:/_Windows/CMake/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "D:/Projects/Toolkits/Ris.SpriteToolkit/ris_texture_toolkit_c/build/CMakeFiles/CMakeScratch/TryCompile-vcu60h"
+      binary: "D:/Projects/Toolkits/Ris.SpriteToolkit/ris_texture_toolkit_c/build/CMakeFiles/CMakeScratch/TryCompile-vcu60h"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Projects/Toolkits/Ris.SpriteToolkit/ris_texture_toolkit_c/build/CMakeFiles/CMakeScratch/TryCompile-vcu60h'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_1b54e.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.14.40+3e7442088 for .NET Framework
+        Build started 29.4.2026. 20:58:17.
+        
+        Project "D:\\Projects\\Toolkits\\Ris.SpriteToolkit\\ris_texture_toolkit_c\\build\\CMakeFiles\\CMakeScratch\\TryCompile-vcu60h\\cmTC_1b54e.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_1b54e.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\Projects\\Toolkits\\Ris.SpriteToolkit\\ris_texture_toolkit_c\\build\\CMakeFiles\\CMakeScratch\\TryCompile-vcu60h\\Debug\\".
+          Creating directory "cmTC_1b54e.dir\\Debug\\cmTC_1b54e.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_1b54e.dir\\Debug\\cmTC_1b54e.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_1b54e.dir\\Debug\\cmTC_1b54e.tlog\\unsuccessfulbuild".
+        VcpkgTripletSelection:
+          Using triplet "x64-windows" from "D:\\_Windows\\vcpkg\\installed\\x64-windows\\"
+          Using normalized configuration "Debug"
+        VcpkgCheckManifestRoot:
+          The vcpkg manifest was disabled, but we found a manifest file in D:\\Projects\\Toolkits\\Ris.SpriteToolkit\\ris_texture_toolkit_c\\. You may want to enable vcpkg manifests in your properties page or pass /p:VcpkgEnableManifest=true to the msbuild invocation.
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /I"D:\\_Windows\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_1b54e.dir\\Debug\\\\" /Fd"cmTC_1b54e.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\\_Windows\\CMake\\share\\cmake-3.31\\Modules\\CMakeCXXCompilerABI.cpp"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35222 for x64
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          cl /c /I"D:\\_Windows\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_1b54e.dir\\Debug\\\\" /Fd"cmTC_1b54e.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\\_Windows\\CMake\\share\\cmake-3.31\\Modules\\CMakeCXXCompilerABI.cpp"
+          CMakeCXXCompilerABI.cpp
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Projects\\Toolkits\\Ris.SpriteToolkit\\ris_texture_toolkit_c\\build\\CMakeFiles\\CMakeScratch\\TryCompile-vcu60h\\Debug\\cmTC_1b54e.exe" /INCREMENTAL /ILK:"cmTC_1b54e.dir\\Debug\\cmTC_1b54e.ilk" /NOLOGO /LIBPATH:"D:\\_Windows\\vcpkg\\installed\\x64-windows\\debug\\lib" /LIBPATH:"D:\\_Windows\\vcpkg\\installed\\x64-windows\\debug\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "D:\\_Windows\\vcpkg\\installed\\x64-windows\\debug\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Projects/Toolkits/Ris.SpriteToolkit/ris_texture_toolkit_c/build/CMakeFiles/CMakeScratch/TryCompile-vcu60h/Debug/cmTC_1b54e.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Projects/Toolkits/Ris.SpriteToolkit/ris_texture_toolkit_c/build/CMakeFiles/CMakeScratch/TryCompile-vcu60h/Debug/cmTC_1b54e.lib" /MACHINE:X64  /machine:x64 cmTC_1b54e.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_1b54e.vcxproj -> D:\\Projects\\Toolkits\\Ris.SpriteToolkit\\ris_texture_toolkit_c\\build\\CMakeFiles\\CMakeScratch\\TryCompile-vcu60h\\Debug\\cmTC_1b54e.exe
+        AppLocalFromInstalled:
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\_Windows\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Projects\\Toolkits\\Ris.SpriteToolkit\\ris_texture_toolkit_c\\build\\CMakeFiles\\CMakeScratch\\TryCompile-vcu60h\\Debug\\cmTC_1b54e.exe" "D:\\_Windows\\vcpkg\\installed\\x64-windows\\debug\\bin" "cmTC_1b54e.dir\\Debug\\cmTC_1b54e.tlog\\cmTC_1b54e.write.1u.tlog" "cmTC_1b54e.dir\\Debug\\vcpkg.applocal.log"
+          'pwsh.exe' is not recognized as an internal or external command,
+          operable program or batch file.
+          The command "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\_Windows\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Projects\\Toolkits\\Ris.SpriteToolkit\\ris_texture_toolkit_c\\build\\CMakeFiles\\CMakeScratch\\TryCompile-vcu60h\\Debug\\cmTC_1b54e.exe" "D:\\_Windows\\vcpkg\\installed\\x64-windows\\debug\\bin" "cmTC_1b54e.dir\\Debug\\cmTC_1b54e.tlog\\cmTC_1b54e.write.1u.tlog" "cmTC_1b54e.dir\\Debug\\vcpkg.applocal.log"" exited with code 9009.
+          "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "D:\\_Windows\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Projects\\Toolkits\\Ris.SpriteToolkit\\ris_texture_toolkit_c\\build\\CMakeFiles\\CMakeScratch\\TryCompile-vcu60h\\Debug\\cmTC_1b54e.exe" "D:\\_Windows\\vcpkg\\installed\\x64-windows\\debug\\bin" "cmTC_1b54e.dir\\Debug\\cmTC_1b54e.tlog\\cmTC_1b54e.write.1u.tlog" "cmTC_1b54e.dir\\Debug\\vcpkg.applocal.log"
+        FinalizeBuildStatus:
+          Deleting file "cmTC_1b54e.dir\\Debug\\cmTC_1b54e.tlog\\unsuccessfulbuild".
+          Touching "cmTC_1b54e.dir\\Debug\\cmTC_1b54e.tlog\\cmTC_1b54e.lastbuildstate".
+        Done Building Project "D:\\Projects\\Toolkits\\Ris.SpriteToolkit\\ris_texture_toolkit_c\\build\\CMakeFiles\\CMakeScratch\\TryCompile-vcu60h\\cmTC_1b54e.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.74
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/_Windows/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "D:/_Windows/CMake/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'CXX': C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/HostX64/x64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/_Windows/CMake/share/cmake-3.31/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "D:/_Windows/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "D:/_Windows/CMake/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the CXX compiler's linker: "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/HostX64/x64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.44.35222.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+...

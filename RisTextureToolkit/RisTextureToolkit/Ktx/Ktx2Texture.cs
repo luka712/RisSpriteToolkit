@@ -1,9 +1,5 @@
 ﻿using RisTextureToolkit.Data.Image;
-using RisTextureToolkit.Dto;
-using System.Formats.Asn1;
-using System.Reflection.Emit;
-using static RisTextureToolkit.Native.Ktx;
-using static RisTextureToolkit.Native.RisTextureToolkit;
+using static RisTextureToolkit.Native.RisKtx2;
 
 namespace RisTextureToolkit.Ktx
 {
@@ -37,7 +33,7 @@ namespace RisTextureToolkit.Ktx
 
             TexturePtr = IntPtr.Zero;
 
-            KtxErrorCode errorCode = ktxTexture2_CreateFromNamedFile(_filePath, (uint)createFlags, out IntPtr texture);
+            KtxErrorCode errorCode = ris_ktxTexture2_CreateFromNamedFile(_filePath, createFlags, out IntPtr texture);
             if (errorCode == KtxErrorCode.FILE_OPEN_FAILED)
             {
                 throw new FileNotFoundException($"The specified KTX file '{_filePath}' could not be found.");
@@ -98,7 +94,7 @@ namespace RisTextureToolkit.Ktx
         /// This is typically true for textures that are compressed using BasisU/ETC1S or UASTC formats 
         /// and have not yet been transcoded to a GPU-compatible format.
         /// </summary>
-        public bool NeedsTranscoding => ktxTexture2_NeedsTranscoding(TexturePtr);
+        public bool NeedsTranscoding => ris_ktxTexture2_NeedsTranscoding(TexturePtr);
 
         public RawImage ToRawImageData(KtxTranscodeFormat transcodeFormat, uint mipLevel = 0, uint layer = 0, uint faceSlice = 0)
         {
@@ -163,7 +159,7 @@ namespace RisTextureToolkit.Ktx
         /// <param name="transcodeFlags">The <see cref="KtxTranscodeFlags"/>.</param>
         public void TranscodeBasis(KtxTranscodeFormat transcodeFormat, KtxTranscodeFlags transcodeFlags = KtxTranscodeFlags.NONE)
         {
-            var errorCode = ktxTexture2_TranscodeBasis(TexturePtr, (int)transcodeFormat, (uint)transcodeFlags);
+            var errorCode = ris_ktxTexture2_TranscodeBasis(TexturePtr, transcodeFormat, transcodeFlags);
             if (errorCode == KtxErrorCode.KTX_INVALID_OPERATION)
             {
                 throw new InvalidOperationException($"The specified transcode format '{transcodeFormat}' is not valid for transcoding the KTX texture.");
@@ -200,18 +196,41 @@ namespace RisTextureToolkit.Ktx
             {
                 fixed (byte* srcPtr = src)
                 {
-                    KtxErrorCode errorCode = ris_ktxTexture2_SetImageFromMemory(TexturePtr, level, layer, faceSlice, (nint)srcPtr, srcSize);
-
-                    if (errorCode == KtxErrorCode.KTX_INVALID_OPERATION)
-                    {
-                        throw new InvalidOperationException($"No storage was allocated when the texture was created.");
-                    }
-
-                    if (errorCode != KtxErrorCode.KTX_SUCCESS)
-                    {
-                        throw new Exception($"Failed to set image data for KTX texture. Error code: {errorCode}");
-                    }
+                    SetImageFromMemory(level, layer, faceSlice, (IntPtr)srcPtr, srcSize);
                 }
+            }
+        }
+
+        /// <summary>
+        /// Sets the image data for a specific level, layer, and face/slice of the texture from a byte array in memory.
+        /// </summary>
+        /// <param name="level">
+        /// The mipmap level of the texture to set the image data for. 
+        /// Level 0 corresponds to the base level, and higher levels correspond to mipmap levels.
+        /// </param>
+        /// <param name="layer">
+        /// The layer of the texture to set the image data for.
+        /// Layer 0 corresponds to the first layer, and higher layers correspond to additional layers in array textures or 3D textures.
+        /// </param>
+        /// <param name="faceSlice">
+        /// The face or slice of the texture to set the image data for.
+        /// For cubemap textures, this corresponds to the specific face (e.g., positive X, negative X, positive Y, etc.).
+        /// </param>
+        /// <param name="src">The source data pointer.</param>
+        /// <param name="srcSize">The source data size.</param>
+        /// <exception cref="Exception">
+        /// If the operation to set the image data fails, an exception is thrown with details about the error code returned by the native function.
+        /// </exception>
+        public void SetImageFromMemory(uint level, uint layer, uint faceSlice, IntPtr src, ulong srcSize)
+        {
+            KtxErrorCode errorCode = ris_ktxTexture2_SetImageFromMemory(TexturePtr, level, layer, faceSlice, src, srcSize);
+            if (errorCode == KtxErrorCode.KTX_INVALID_OPERATION)
+            {
+                throw new InvalidOperationException($"No storage was allocated when the texture was created.");
+            }
+            if (errorCode != KtxErrorCode.KTX_SUCCESS)
+            {
+                throw new Exception($"Failed to set image data for KTX texture. Error code: {errorCode}");
             }
         }
 
@@ -239,7 +258,7 @@ namespace RisTextureToolkit.Ktx
         /// <returns>The texture data as byte array.</returns>
         public IntPtr GetTextureData(ulong offset = 0)
         {
-            return ktxTexture_GetData(TexturePtr) + (int)offset;
+            return ris_ktxTexture2_GetData(TexturePtr) + (int)offset;
         }
 
         /// <summary>
@@ -263,8 +282,8 @@ namespace RisTextureToolkit.Ktx
         {
             unsafe
             {
-                KtxBasisParams* basisParamsPtr = stackalloc KtxBasisParams[1];
-                *basisParamsPtr = basisParams;
+                ris_ktxBasisParams* basisParamsPtr = stackalloc ris_ktxBasisParams[1];
+                *basisParamsPtr = basisParams.ToNative();
                 ris_ktxTexture2_CompressBasisEx(TexturePtr, (nint)basisParamsPtr);
             }
         }
