@@ -4,17 +4,17 @@ using RisGameFramework.SpriteToolkit.Loaders;
 using RisSpriteToolkit.Data.Image;
 using RisTextureToolkit.Data.Image;
 using RisTextureToolkit.ImageExporters;
-using RisTextureToolkit.Textures;
+using RisTextureToolkit.Sprites;
 using SkiaSharp;
 
-namespace RisTextureToolkit.Sprites.Base
+namespace RisTextureToolkit.Textures.Base
 {
     /// <summary>
     /// The sprite sheet.
     /// </summary>
     public abstract class ABaseBuilderTextureAtlas : IBuilderTextureAtlas
     {
-        private static Dictionary<ImageFormat, IImageExporter> _exporters = new Dictionary<ImageFormat, IImageExporter>
+        private static Dictionary<ImageFormat, IImageExporter> _exporters = new()
         {
             [ImageFormat.PNG] = new PngExporter(),
             [ImageFormat.KTX2] = new Ktx2Exporter(),

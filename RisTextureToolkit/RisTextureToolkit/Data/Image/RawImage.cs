@@ -1,4 +1,5 @@
-﻿using RisTextureToolkit.Ktx;
+﻿
+using RisKtx2;
 
 namespace RisTextureToolkit.Data.Image
 {

@@ -17,8 +17,8 @@ namespace RisSpriteToolkit.Tests
         {
             TextureTKBundleBuilder builder = new();
             builder.AllowReplaceJsonBundle = true;
-            builder.TextureAtlasBuilder.AllowReplaceTextureAtlas = true;
-            builder.TextureAtlasBuilder.DefaultSheetName = "game_assets_sheet";
+            builder.AllowReplaceTextureAtlas = true;
+            builder.DefaultSheetName = "game_assets_sheet";
             builder.AddDirectoryContents("./Data/");
             builder.SaveBundle("./game_assets", "game_assets");
             string json = File.ReadAllText("./game_assets/game_assets.json");

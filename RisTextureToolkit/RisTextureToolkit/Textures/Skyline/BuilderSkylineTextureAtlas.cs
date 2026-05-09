@@ -2,8 +2,8 @@
 using RisGameFramework.SpriteToolkit.Exceptions;
 using RisSpriteToolkit.Data.Image;
 using RisTextureToolkit.Data.Image;
-using RisTextureToolkit.Sprites.Base;
 using RisTextureToolkit.Textures;
+using RisTextureToolkit.Textures.Base;
 
 namespace RisTextureToolkit.Sprites.Skyline
 {

@@ -14,9 +14,19 @@ namespace RisTextureToolkit.ImageExporters
 
         /// <summary>
         /// Exports the given SKImage to the specified file path with the given pixel format.
+        /// </summary>
         /// <param name="skImage">The <see cref="SKImage"/>.</param>
         /// <param name="pixelFormat">The <see cref="PixelFormat"/>.</param>
         /// <param name="filePath">The file path without or without extension.</param>
         public void Export(SKImage skImage, PixelFormat pixelFormat, string filePath);
+        
+        /// <summary>
+        /// Exports the given SKImage to the specified file path with the given pixel format.
+        /// </summary>
+        /// <param name="skImage">The <see cref="SKImage"/>.</param>
+        /// <param name="pixelFormat">The <see cref="PixelFormat"/>.</param>
+        /// <param name="filePath">The file path without or without extension.</param>
+        /// <param name="options">The exporter options.</param>
+        public void Export(SKImage skImage, PixelFormat pixelFormat, string filePath, object options);
     }
 }

@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RisTextureToolkit
+﻿namespace RisTextureToolkit
 {
-
     /// <summary>
     /// The pixel format of an image.
     /// </summary>
     public enum PixelFormat
     {
         RGBA8_UNORM,
-        BASIS_LZ,
+        // ReSharper disable once InconsistentNaming
+        BASIS_ETC1S,
+        BASIS_UASTC,
     }
 
     /// <summary>

@@ -1,7 +1,6 @@
 using System.Drawing;
 using Microsoft.Extensions.Logging;
 using RisGameFramework.SpriteToolkit.Exceptions;
-using RisSpriteToolkit.Data.Image;
 using RisTextureToolkit.Data.Image;
 using RisTextureToolkit.Dto;
 using RisTextureToolkit.Sprites;
@@ -16,27 +15,45 @@ namespace RisTextureToolkit
     {
         private readonly ILogger? _logger;
         private readonly MapperService _mapper = new();
+        private TextureAtlasBuilder _textureAtlasBuilder;
         private bool _allowReplaceTextureAtlas = false;
-
-        /// <summary>
-        /// The PNG sprite sheet builder.
-        /// Builds a sprite sheet as PNG files.
-        /// </summary>
-        public TextureAtlasBuilder TextureAtlasBuilder { get; }
 
         /// <summary>
         /// The size of the sprite sheets.
         /// </summary>
         public Size Size
         {
-            get => TextureAtlasBuilder.Size;
-            set => TextureAtlasBuilder.Size = value;
+            get => _textureAtlasBuilder.Size;
+            set => _textureAtlasBuilder.Size = value;
+        }
+
+        /// <summary>
+        /// The padding between sprites.
+        /// </summary>
+        public int Padding
+        {
+            get => _textureAtlasBuilder.Padding;
+            set => _textureAtlasBuilder.Padding = value;
+        }
+
+        /// <summary>
+        /// The name to use by default for the sprite sheet.
+        /// </summary>
+        public string DefaultSheetName
+        {
+            get => _textureAtlasBuilder.DefaultSheetName;
+            set => _textureAtlasBuilder.DefaultSheetName = value;
         }
 
         /// <summary>
         /// If set to <c>true</c>, allows replacing of an existing JSON bundle with the same name.
         /// </summary>
         public bool AllowReplaceJsonBundle { get; set; }
+
+        /// <summary>
+        /// The texture atlases that will be created on build.
+        /// </summary>
+        public IList<IBuilderTextureAtlas> TexturesAtlases => _textureAtlasBuilder.TextureAtlases;
 
         /// <summary>
         /// If set to <c>true</c>, allows replacing of an existing texture atlas with the same name.
@@ -47,7 +64,7 @@ namespace RisTextureToolkit
             set
             {
                 _allowReplaceTextureAtlas = value;
-                TextureAtlasBuilder.AllowReplaceTextureAtlas = value;
+                _textureAtlasBuilder.AllowReplaceTextureAtlas = value;
             }
         }
 
@@ -58,7 +75,7 @@ namespace RisTextureToolkit
         public TextureTKBundleBuilder(ILogger? logger = null)
         {
             _logger = logger;
-            TextureAtlasBuilder = new TextureAtlasBuilder(logger: _logger);
+            _textureAtlasBuilder = new TextureAtlasBuilder(logger: _logger);
         }
 
         /// <summary>
@@ -67,7 +84,7 @@ namespace RisTextureToolkit
         /// <param name="filePath">The file path.</param>
         /// <returns>The <see cref="BuilderTexture"/> added.</returns>
         public BuilderTexture AddImage(string filePath)
-            => TextureAtlasBuilder.AddImage(filePath);
+            => _textureAtlasBuilder.AddImage(filePath);
 
         /// <summary>
         /// Adds a raw image to the sprite sheets.
@@ -75,7 +92,7 @@ namespace RisTextureToolkit
         /// <param name="rawImage">The <see cref="RawImage"/>.</param>
         /// <returns>The <see cref="BuilderTexture"/>.</returns>
         public BuilderTexture AddRawImage(RawImage rawImage)
-            => TextureAtlasBuilder.AddRawImage(rawImage);
+            => _textureAtlasBuilder.AddRawImage(rawImage);
 
         /// <summary>
         /// Removes a sprite from the sprite sheets.
@@ -85,7 +102,7 @@ namespace RisTextureToolkit
         /// <c>true</c> if the sprite was removed; otherwise, <c>false</c>.
         /// </returns>
         public bool RemoveSprite(BuilderTexture texture)
-            => TextureAtlasBuilder.RemoveSprite(texture);
+            => _textureAtlasBuilder.RemoveSprite(texture);
 
         /// <summary>
         /// Add the contents of a directory to the asset builder.
@@ -112,7 +129,7 @@ namespace RisTextureToolkit
             }
 
             // Add to the sprite sheet builder.
-            TextureAtlasBuilder.AddDirectoryContents(path, recursive);
+            _textureAtlasBuilder.AddDirectoryContents(path, recursive);
         }
 
         /// <summary>
@@ -131,19 +148,22 @@ namespace RisTextureToolkit
         /// Thrown if the file already exists and <see cref="AllowReplace"/> is <c>false</c>.
         /// </exception>
         public void SaveBundle(string directoryPath, string bundleName,
-                ImageFormat imageFormat = ImageFormat.PNG,
-                PixelFormat pixelFormat = PixelFormat.RGBA8_UNORM
-            )
+            ImageFormat imageFormat = ImageFormat.PNG,
+            PixelFormat pixelFormat = PixelFormat.RGBA8_UNORM
+        )
         {
             if (string.IsNullOrWhiteSpace(directoryPath))
             {
                 throw new ArgumentException("Directory path cannot be null or whitespace.", nameof(directoryPath));
             }
+
             if (string.IsNullOrWhiteSpace(bundleName))
             {
                 throw new ArgumentException("JSON name cannot be null or whitespace.", nameof(bundleName));
             }
-            TextureAtlasBuilder.Save(directoryPath, imageFormat, pixelFormat, out List<string> sheetsFilePaths, out List<string> sheetsFileNames);
+
+            _textureAtlasBuilder.Save(directoryPath, imageFormat, pixelFormat, out List<string> sheetsFilePaths,
+                out List<string> sheetsFileNames);
             string jsonFilePath = Path.Combine(directoryPath, $"{bundleName}.json");
 
             bool fileExists = File.Exists(jsonFilePath);
@@ -185,13 +205,15 @@ namespace RisTextureToolkit
             {
                 throw new ArgumentException("Directory path cannot be null or whitespace.", nameof(directoryPath));
             }
+
             if (string.IsNullOrWhiteSpace(bundleName))
             {
                 throw new ArgumentException("JSON name cannot be null or whitespace.", nameof(bundleName));
             }
 
             // TODO: save async
-            TextureAtlasBuilder.Save(directoryPath, imageFormat, pixelFormat, out List<string> sheetsFilePaths, out List<string> sheetsFileNames);
+            _textureAtlasBuilder.Save(directoryPath, imageFormat, pixelFormat, out List<string> sheetsFilePaths,
+                out List<string> sheetsFileNames);
             string jsonFilePath = Path.Combine(directoryPath, $"{bundleName}.json");
 
             bool fileExists = File.Exists(jsonFilePath);
@@ -211,10 +233,9 @@ namespace RisTextureToolkit
 
         private string CreateJson(IReadOnlyList<string> sheetsFilePaths, IReadOnlyList<string> sheetsFileNames)
         {
-
             TextureAtlasBundle textureAtlasDto = new()
             {
-                Atlases = TextureAtlasBuilder.SpriteSheets.Select(x => _mapper.ToTextureAtlas(x)).ToList()
+                Atlases = _textureAtlasBuilder.TextureAtlases.Select(x => _mapper.ToTextureAtlas(x)).ToList()
             };
 
             // Add file paths.

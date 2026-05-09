@@ -13,7 +13,21 @@ namespace RisTextureToolkit.ImageExporters
         /// <inheritdoc/>
         public void Export(SKImage skImage, PixelFormat pixelFormat, string filePath)
         {
-            using var data = skImage.Encode(SKEncodedImageFormat.Png, 100); // 100 = quality
+           Export(skImage, pixelFormat, filePath, new PngExportOptions()
+           {
+               Quality = 100, 
+           });
+        }
+
+        /// <inheritdoc/>
+        public void Export(SKImage skImage, PixelFormat pixelFormat, string filePath, object options)
+        {
+            if (options is not PngExportOptions pngOptions)
+            {
+                throw new ArgumentException($"Invalid options type. Expected type {typeof(PngExportOptions)}.", nameof(options));
+            }
+            
+            using var data = skImage.Encode(SKEncodedImageFormat.Png, pngOptions.Quality);
 
             if(filePath.EndsWith(".png", StringComparison.OrdinalIgnoreCase) == false)
             {
@@ -22,5 +36,17 @@ namespace RisTextureToolkit.ImageExporters
 
             File.WriteAllBytes(filePath, data.ToArray());
         }
+    }
+
+    /// <summary>
+    /// The PNG exporter options.
+    /// </summary>
+    public class PngExportOptions
+    {
+        /// <summary>
+        /// The quality of the PNG image in the range of <c>0</c> to <c>100</c>.
+        /// By default, it is <c>100</c>.
+        /// </summary>
+        public int Quality { get; set; } = 100;
     }
 }

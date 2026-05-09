@@ -1,9 +1,8 @@
 using RisTextureToolkit;
 using RisTextureToolkit.Data.Image;
-using RisTextureToolkit.Sprites;
 using RisTextureToolkit.Textures;
 
-namespace RisGameFramework.SpriteToolkit.Tests
+namespace RisSpriteToolkit.Tests
 {
     /// <summary>
     /// The <see cref="TextureAtlasBuilder"/> tests.
@@ -19,7 +18,7 @@ namespace RisGameFramework.SpriteToolkit.Tests
         [Test]
         public void Test_AddBatchToBuilder()
         {
-            TextureAtlasBuilder builder = new(new System.Drawing.Size(1024,1024));
+            TextureAtlasBuilder builder = new(new System.Drawing.Size(1024, 1024));
             builder.Padding = 0; // No padding for this test
 
             List<RawImage> images = new();
@@ -113,13 +112,13 @@ namespace RisGameFramework.SpriteToolkit.Tests
 
             Assert.That(sprite2.SourceRect.Width, Is.EqualTo(248));
             Assert.That(sprite2.SourceRect.Height, Is.EqualTo(248));
-            Assert.That(sprite2.SourceRect.X, Is.EqualTo(Padding + texture.SourceRect.Width + Padding * 2)); 
+            Assert.That(sprite2.SourceRect.X, Is.EqualTo(Padding + texture.SourceRect.Width + Padding * 2));
             Assert.That(sprite2.SourceRect.Y, Is.EqualTo(Padding));
 
             Assert.That(sprite3.SourceRect.Width, Is.EqualTo(248));
             Assert.That(sprite3.SourceRect.Height, Is.EqualTo(248));
             Assert.That(sprite3.SourceRect.X, Is.EqualTo(Padding)); // New row
-            Assert.That(sprite3.SourceRect.Y, Is.EqualTo(Padding + texture.SourceRect.Height + Padding * 2)); 
+            Assert.That(sprite3.SourceRect.Y, Is.EqualTo(Padding + texture.SourceRect.Height + Padding * 2));
 
             Assert.That(builder.SpriteSheets.Count, Is.EqualTo(1));
         }
@@ -156,12 +155,12 @@ namespace RisGameFramework.SpriteToolkit.Tests
             Assert.That(sprite3.SourceRect.Width, Is.EqualTo(248));
             Assert.That(sprite3.SourceRect.Height, Is.EqualTo(248));
             Assert.That(sprite3.SourceRect.X, Is.EqualTo(Padding)); // New row
-            Assert.That(sprite3.SourceRect.Y, Is.EqualTo(Padding + texture.SourceRect.Height + Padding * 2)); 
+            Assert.That(sprite3.SourceRect.Y, Is.EqualTo(Padding + texture.SourceRect.Height + Padding * 2));
 
             Assert.That(sprite4.SourceRect.Width, Is.EqualTo(248));
             Assert.That(sprite4.SourceRect.Height, Is.EqualTo(248));
-            Assert.That(sprite4.SourceRect.X, Is.EqualTo(Padding + sprite3.SourceRect.Width + Padding * 2)); 
-            Assert.That(sprite4.SourceRect.Y, Is.EqualTo(Padding + texture.SourceRect.Height + Padding * 2)); 
+            Assert.That(sprite4.SourceRect.X, Is.EqualTo(Padding + sprite3.SourceRect.Width + Padding * 2));
+            Assert.That(sprite4.SourceRect.Y, Is.EqualTo(Padding + texture.SourceRect.Height + Padding * 2));
 
             Assert.That(builder.SpriteSheets.Count, Is.EqualTo(1));
         }
@@ -169,7 +168,7 @@ namespace RisGameFramework.SpriteToolkit.Tests
         /// <summary>
         /// Test changing the Size property of the SpriteSheetBuilder.
         /// </summary>
-        [Test]  
+        [Test]
         public void Test_Size()
         {
             TextureAtlasBuilder builder = new(new System.Drawing.Size(2048, 2048));
@@ -177,7 +176,7 @@ namespace RisGameFramework.SpriteToolkit.Tests
             builder.Size = new System.Drawing.Size(1024, 1024);
             Assert.That(builder.Size, Is.EqualTo(new System.Drawing.Size(1024, 1024)));
         }
-        
+
         /// <summary>
         /// Try to add a batch of images to the <see cref="TextureAtlasBuilder"/> which will result
         /// in 2 spritesheets. Confirm that both names are indexed.
@@ -185,7 +184,7 @@ namespace RisGameFramework.SpriteToolkit.Tests
         [Test]
         public void Test_AddBatchToBuilder_ConfirmNameIndexed()
         {
-            TextureAtlasBuilder builder = new(new System.Drawing.Size(1024,1024));
+            TextureAtlasBuilder builder = new(new System.Drawing.Size(1024, 1024));
             builder.Padding = 0; // No padding for this test
 
             List<RawImage> images = new();
@@ -204,7 +203,7 @@ namespace RisGameFramework.SpriteToolkit.Tests
             Assert.That(builder.SpriteSheets[0].Name, Is.EqualTo($"{builder.DefaultSheetName}_0"));
             Assert.That(builder.SpriteSheets[1].Name, Is.EqualTo($"{builder.DefaultSheetName}_1"));
         }
-    
+
         /// <summary>
         /// Test if JSON and sprite sheet are saved in the same directory.
         /// </summary>
@@ -212,13 +211,13 @@ namespace RisGameFramework.SpriteToolkit.Tests
         public void TestSavedInSameDirectory()
         {
             TextureTKBundleBuilder builder = new();
-            builder.TextureAtlasBuilder.DefaultSheetName = "Test";
-            builder.TextureAtlasBuilder.AllowReplaceTextureAtlas = true;
+            builder.DefaultSheetName = "Test";
+            builder.AllowReplaceTextureAtlas = true;
             builder.AllowReplaceJsonBundle = true;
             builder.AddRawImage(new RawImage($"Test.png", 512, 512, new byte[512 * 512 * 4], 4));
 
             builder.SaveBundle("Test/Output", "Test");
-        
+
             Assert.That(Directory.Exists("Test/Output"));
             Assert.That(File.Exists("Test/Output/Test_0.png"));
             Assert.That(File.Exists("Test/Output/Test.json"));
@@ -231,12 +230,12 @@ namespace RisGameFramework.SpriteToolkit.Tests
         public void Test_SavedAsKTX2()
         {
             TextureTKBundleBuilder builder = new();
-            builder.TextureAtlasBuilder.DefaultSheetName = "Test";
-            builder.TextureAtlasBuilder.AllowReplaceTextureAtlas = true;
+            builder.DefaultSheetName = "Test";
+            builder.AllowReplaceTextureAtlas = true;
             builder.AllowReplaceJsonBundle = true;
             builder.AddImage(TEST_PNG);
 
-            builder.SaveBundle("Test/Output", "Test", ImageFormat.KTX2, PixelFormat.BASIS_LZ);
+            builder.SaveBundle("Test/Output", "Test", ImageFormat.KTX2, PixelFormat.BASIS_ETC1S);
 
             Assert.That(Directory.Exists("Test/Output"));
             Assert.That(File.Exists("Test/Output/Test_0.ktx2"));
@@ -249,12 +248,12 @@ namespace RisGameFramework.SpriteToolkit.Tests
         [Test]
         public void Test_Save_RawImage()
         {
-            TextureAtlasBuilder builder = new(new System.Drawing.Size(1,1));
+            TextureAtlasBuilder builder = new(new System.Drawing.Size(1, 1));
             builder.Padding = 0; // No padding for this test
 
             // Add a single white pixel.
             List<RawImage> images = new();
-           builder.AddSprite(new RawImage($"Test.png", 1, 1, [255,255,255,255], 4));
+            builder.AddSprite(new RawImage($"Test.png", 1, 1, [255, 255, 255, 255], 4));
 
             var image = builder.SpriteSheets.First().SaveAsSkImage();
 

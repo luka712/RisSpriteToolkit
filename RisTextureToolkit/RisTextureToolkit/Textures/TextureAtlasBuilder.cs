@@ -4,19 +4,18 @@ using Microsoft.Extensions.Logging;
 using RisGameFramework.SpriteToolkit.Exceptions;
 using RisSpriteToolkit.Loaders;
 using RisTextureToolkit.Data.Image;
-using RisTextureToolkit.Ktx;
-using RisTextureToolkit.Sprites.Base;
+using RisTextureToolkit.Sprites;
 using RisTextureToolkit.Sprites.Skyline;
-using RisTextureToolkit.Textures;
+using RisTextureToolkit.Textures.Base;
 
-namespace RisTextureToolkit.Sprites
+namespace RisTextureToolkit.Textures
 {
     /// <summary>
     /// The class responsible for creating sprite sheets.
     /// </summary>
-    public class TextureAtlasBuilder
+    internal class TextureAtlasBuilder
     {
-        private readonly List<IBuilderTextureAtlas> _spriteSheets = new();
+        private readonly List<IBuilderTextureAtlas> _textureAtlases = new();
         private readonly List<RawImage> _rawImages = new();
 
         private Size _size = new Size(2048, 2048);
@@ -61,7 +60,7 @@ namespace RisTextureToolkit.Sprites
         /// <summary>
         /// The sprite sheets created by this builder.
         /// </summary>
-        public IList<IBuilderTextureAtlas> SpriteSheets => _spriteSheets;
+        public IList<IBuilderTextureAtlas> TextureAtlases => _textureAtlases;
 
         /// <summary>
         /// The desired size of each sprite sheet. Default is <c>(2048, 2048)</c>.
@@ -95,7 +94,7 @@ namespace RisTextureToolkit.Sprites
 
         private void OnSizeChanged()
         {
-            _spriteSheets.Clear();
+            _textureAtlases.Clear();
 
             // We need to copy the list to avoid modifying the collection while iterating.
             List<RawImage> rawImagesCopy = _rawImages.ToList();
@@ -165,7 +164,7 @@ namespace RisTextureToolkit.Sprites
         }
 
         /// <summary>
-        /// Loads an image from file and adds it to the sprite sheets.
+        /// Loads an image from a file and adds it to the sprite sheets.
         /// </summary>
         /// <param name="filePath">
         /// The file path of the image to add.
@@ -202,7 +201,7 @@ namespace RisTextureToolkit.Sprites
             _rawImages.Add(rawImage);
 
             BuilderTexture? sprite = null;
-            foreach (var sheet in _spriteSheets)
+            foreach (var sheet in _textureAtlases)
             {
                 if (sheet.TryAddSprite(rawImage, out sprite))
                 {
@@ -221,7 +220,7 @@ namespace RisTextureToolkit.Sprites
             }
 
             // The index of a sprite sheet.
-            int index = _spriteSheets.Count;
+            int index = _textureAtlases.Count;
 
             // Create a new sprite sheet
             IBuilderTextureAtlas newSheet = new BuilderSkylineTextureAtlas(size: Size)
@@ -239,7 +238,7 @@ namespace RisTextureToolkit.Sprites
             Logger.LogInformation("Added sprite {SpriteName} to new sheet {SheetName}", rawImage.ImageName,
                 newSheet.Name);
 
-            _spriteSheets.Add(newSheet);
+            _textureAtlases.Add(newSheet);
 
             return sprite;
         }
@@ -253,7 +252,7 @@ namespace RisTextureToolkit.Sprites
         /// </returns>
         public bool RemoveSprite(BuilderTexture texture)
         {
-            foreach (IBuilderTextureAtlas sheet in _spriteSheets)
+            foreach (IBuilderTextureAtlas sheet in _textureAtlases)
             {
                 if (sheet.Textures.Contains(texture))
                 {
@@ -293,7 +292,7 @@ namespace RisTextureToolkit.Sprites
                 Directory.CreateDirectory(directoryPath);
             }
 
-            foreach (var builderSpriteSheet in _spriteSheets)
+            foreach (var builderSpriteSheet in _textureAtlases)
             {
                 var sheet = (ABaseBuilderTextureAtlas)builderSpriteSheet;
                 var fileName = $"{sheet.Name}";
