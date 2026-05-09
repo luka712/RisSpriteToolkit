@@ -1,9 +1,8 @@
 using System.Drawing;
 using Microsoft.Extensions.Logging;
-using RisGameFramework.SpriteToolkit.Exceptions;
+using RisTextureToolkit.Exceptions;
 using RisTextureToolkit.Data.Image;
 using RisTextureToolkit.Dto;
-using RisTextureToolkit.Sprites;
 using RisTextureToolkit.Textures;
 
 namespace RisTextureToolkit
@@ -15,8 +14,7 @@ namespace RisTextureToolkit
     {
         private readonly ILogger? _logger;
         private readonly MapperService _mapper = new();
-        private TextureAtlasBuilder _textureAtlasBuilder;
-        private bool _allowReplaceTextureAtlas = false;
+        private readonly TextureAtlasBuilder _textureAtlasBuilder;
 
         /// <summary>
         /// The size of the sprite sheets.
@@ -60,12 +58,8 @@ namespace RisTextureToolkit
         /// </summary>
         public bool AllowReplaceTextureAtlas
         {
-            get => _allowReplaceTextureAtlas;
-            set
-            {
-                _allowReplaceTextureAtlas = value;
-                _textureAtlasBuilder.AllowReplaceTextureAtlas = value;
-            }
+            get => _textureAtlasBuilder.AllowReplaceTextureAtlas;
+            set => _textureAtlasBuilder.AllowReplaceTextureAtlas = value;
         }
 
         /// <summary>
@@ -138,14 +132,14 @@ namespace RisTextureToolkit
         /// <param name="directoryPath">
         /// The directory path where to save the assets.
         /// </param>
-        /// <param name="bundleName">The name of a bundle which is saved as JSON file.</param>
+        /// <param name="bundleName">The name of a bundle which is saved as a JSON file.</param>
         /// <param name="imageFormat">The image format to save the sprite sheets. Default is PNG.</param>
-        /// <param name="pixelFormat">The pixel format to save the sprite sheets. Default is RGBA8_UNORM.</param>
+        /// <param name="pixelFormat">The pixel format to save the sprite sheets. The default is RGBA8_UNORM.</param>
         /// <exception cref="ArgumentException">
         /// Thrown if <paramref name="directoryPath"/> or <paramref name="bundleName"/> is null, empty, or whitespace.
         /// </exception>
         /// <exception cref="FileAlreadyExistsException">
-        /// Thrown if the file already exists and <see cref="AllowReplace"/> is <c>false</c>.
+        /// Thrown if the file already exists and <see cref="AllowReplaceJsonBundle"/> or <see cref="AllowReplaceTextureAtlas"/> is <c>false</c>.
         /// </exception>
         public void SaveBundle(string directoryPath, string bundleName,
             ImageFormat imageFormat = ImageFormat.PNG,

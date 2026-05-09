@@ -1,4 +1,4 @@
-﻿namespace RisGameFramework.SpriteToolkit.Exceptions
+﻿namespace RisTextureToolkit.Exceptions
 {
     /// <summary>
     /// Thrown when attempting to create a file that already exists.

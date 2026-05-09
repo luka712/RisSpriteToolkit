@@ -2,7 +2,7 @@ using RisTextureToolkit;
 using RisTextureToolkit.Data.Image;
 using RisTextureToolkit.Textures;
 
-namespace RisSpriteToolkit.Tests
+namespace RisTextureToolkit.Tests
 {
     /// <summary>
     /// The <see cref="TextureAtlasBuilder"/> tests.
@@ -33,7 +33,7 @@ namespace RisSpriteToolkit.Tests
             }
 
             // Builder is set to 1024x1024, so it should fit 4 images of 512x512 in one sheet.
-            Assert.That(builder.SpriteSheets.Count, Is.EqualTo(2));
+            Assert.That(builder.TextureAtlases.Count, Is.EqualTo(2));
         }
 
         /// <summary>
@@ -54,7 +54,7 @@ namespace RisSpriteToolkit.Tests
             Assert.That(texture.SourceRect.Height, Is.EqualTo(248));
             Assert.That(texture.SourceRect.X, Is.EqualTo(1));
             Assert.That(texture.SourceRect.Y, Is.EqualTo(1));
-            Assert.That(builder.SpriteSheets.Count, Is.EqualTo(1));
+            Assert.That(builder.TextureAtlases.Count, Is.EqualTo(1));
         }
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace RisSpriteToolkit.Tests
             Assert.That(sprite2.SourceRect.X, Is.EqualTo(Padding + texture.SourceRect.Width + Padding * 2));
             Assert.That(sprite2.SourceRect.Y, Is.EqualTo(Padding));
 
-            Assert.That(builder.SpriteSheets.Count, Is.EqualTo(1));
+            Assert.That(builder.TextureAtlases.Count, Is.EqualTo(1));
         }
 
         /// <summary>
@@ -120,7 +120,7 @@ namespace RisSpriteToolkit.Tests
             Assert.That(sprite3.SourceRect.X, Is.EqualTo(Padding)); // New row
             Assert.That(sprite3.SourceRect.Y, Is.EqualTo(Padding + texture.SourceRect.Height + Padding * 2));
 
-            Assert.That(builder.SpriteSheets.Count, Is.EqualTo(1));
+            Assert.That(builder.TextureAtlases.Count, Is.EqualTo(1));
         }
 
         /// <summary>
@@ -162,7 +162,7 @@ namespace RisSpriteToolkit.Tests
             Assert.That(sprite4.SourceRect.X, Is.EqualTo(Padding + sprite3.SourceRect.Width + Padding * 2));
             Assert.That(sprite4.SourceRect.Y, Is.EqualTo(Padding + texture.SourceRect.Height + Padding * 2));
 
-            Assert.That(builder.SpriteSheets.Count, Is.EqualTo(1));
+            Assert.That(builder.TextureAtlases.Count, Is.EqualTo(1));
         }
 
         /// <summary>
@@ -199,9 +199,9 @@ namespace RisSpriteToolkit.Tests
             }
 
             // Builder is set to 1024x1024, so it should fit 4 images of 512x512 in one sheet.
-            Assert.That(builder.SpriteSheets.Count, Is.EqualTo(2));
-            Assert.That(builder.SpriteSheets[0].Name, Is.EqualTo($"{builder.DefaultSheetName}_0"));
-            Assert.That(builder.SpriteSheets[1].Name, Is.EqualTo($"{builder.DefaultSheetName}_1"));
+            Assert.That(builder.TextureAtlases.Count, Is.EqualTo(2));
+            Assert.That(builder.TextureAtlases[0].Name, Is.EqualTo($"{builder.DefaultSheetName}_0"));
+            Assert.That(builder.TextureAtlases[1].Name, Is.EqualTo($"{builder.DefaultSheetName}_1"));
         }
 
         /// <summary>
@@ -255,7 +255,7 @@ namespace RisSpriteToolkit.Tests
             List<RawImage> images = new();
             builder.AddSprite(new RawImage($"Test.png", 1, 1, [255, 255, 255, 255], 4));
 
-            var image = builder.SpriteSheets.First().SaveAsSkImage();
+            var image = builder.TextureAtlases.First().SaveAsSkImage();
 
             // There should be a white pixel since we added a single white pixel.
             Assert.NotNull(image);

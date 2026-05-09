@@ -1,7 +1,6 @@
 using Riok.Mapperly.Abstractions;
 using RisTextureToolkit.Dto;
 using RisTextureToolkit.Math;
-using RisTextureToolkit.Sprites;
 using RisTextureToolkit.Textures;
 
 namespace RisTextureToolkit;

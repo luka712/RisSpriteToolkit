@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace RisGameFramework.SpriteToolkit.Exceptions
+namespace RisTextureToolkit.Exceptions
 {
     /// <summary>
     /// Thrown when attempting to add a sprite to a full sprite sheet.

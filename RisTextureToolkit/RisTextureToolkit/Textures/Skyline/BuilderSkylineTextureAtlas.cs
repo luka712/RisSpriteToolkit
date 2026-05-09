@@ -1,11 +1,10 @@
 ﻿using System.Drawing;
-using RisGameFramework.SpriteToolkit.Exceptions;
-using RisSpriteToolkit.Data.Image;
+using RisTextureToolkit.Exceptions;
 using RisTextureToolkit.Data.Image;
 using RisTextureToolkit.Textures;
 using RisTextureToolkit.Textures.Base;
 
-namespace RisTextureToolkit.Sprites.Skyline
+namespace RisTextureToolkit.Textures.Skyline
 {
     /// <summary>
     /// The sprite sheet which uses the Skyline packing algorithm.

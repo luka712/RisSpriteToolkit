@@ -1,13 +1,12 @@
-﻿using RisSpriteToolkit;
-using RisSpriteToolkit.Data.Image;
+
 using RisTextureToolkit.Data.Image;
 using RisTextureToolkit.Dto;
 using RisTextureToolkit.Math;
-using RisTextureToolkit.Sprites.Skyline;
+using RisTextureToolkit.Textures.Skyline;
 using RisTextureToolkit.Textures;
 using MapperService = RisTextureToolkit.MapperService;
 
-namespace RisGameFramework.SpriteToolkit.Tests
+namespace RisTextureToolkit.Tests
 {
     /// <summary>
     /// Tests for the mapping between JSON DTOs and data models.

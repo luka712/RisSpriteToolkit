@@ -1,4 +1,4 @@
-﻿namespace RisTextureToolkit.Sprites.Skyline
+﻿namespace RisTextureToolkit.Textures.Skyline
 {
     /// <summary>
     /// The skyline node used in the skyline algorithm for sprite sheet packing.

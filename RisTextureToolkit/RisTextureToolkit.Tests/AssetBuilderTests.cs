@@ -1,14 +1,11 @@
-using RisTextureToolkit;
-
-namespace RisSpriteToolkit.Tests
+namespace RisTextureToolkit.Tests
 {
-    public class Tests
+    /// <summary>
+    /// Tests for <see cref="TextureTKBundleBuilder"/>.
+    /// </summary>
+    [TestFixture]
+    public class AssetBuilderTests
     {
-        [SetUp]
-        public void Setup()
-        {
-        }
-
         /// <summary>
         /// Test serializing the AssetBuilder to JSON.
         /// </summary>

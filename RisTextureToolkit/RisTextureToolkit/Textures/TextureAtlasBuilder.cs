@@ -1,11 +1,11 @@
 ﻿using System.Drawing;
 using System.Text.Json.Serialization;
 using Microsoft.Extensions.Logging;
-using RisGameFramework.SpriteToolkit.Exceptions;
-using RisSpriteToolkit.Loaders;
+using RisTextureToolkit.Exceptions;
+using RisTextureToolkit.Loaders;
 using RisTextureToolkit.Data.Image;
-using RisTextureToolkit.Sprites;
-using RisTextureToolkit.Sprites.Skyline;
+using RisTextureToolkit.Textures;
+using RisTextureToolkit.Textures.Skyline;
 using RisTextureToolkit.Textures.Base;
 
 namespace RisTextureToolkit.Textures
@@ -295,24 +295,29 @@ namespace RisTextureToolkit.Textures
             foreach (var builderSpriteSheet in _textureAtlases)
             {
                 var sheet = (ABaseBuilderTextureAtlas)builderSpriteSheet;
-                var fileName = $"{sheet.Name}";
+                string fileName = sheet.Name;
                 sheetsFileNames.Add(fileName);
-                var filePath = $"{fileName}.{imageFormat.ToString().ToLower()}";
-                sheetsFilePaths.Add(filePath);
 
-                var fileExists = File.Exists(filePath);
-                if (AllowReplaceTextureAtlas && fileExists)
+                string relativeFilePath = $"{fileName}.{imageFormat.ToString().ToLower()}";
+                sheetsFilePaths.Add(relativeFilePath);
+
+                string fullFilePath = Path.Join(directoryPath, relativeFilePath);
+
+                if (File.Exists(fullFilePath))
                 {
-                    File.Delete(filePath);
-                }
-                else if (File.Exists(filePath))
-                {
-                    var msg = $"Cannot save sprite sheet file. File already exists: {filePath}";
-                    Logger.LogError(msg);
-                    throw new FileAlreadyExistsException(filePath);
+                    if (AllowReplaceTextureAtlas)
+                    {
+                        File.Delete(fullFilePath);
+                    }
+                    else
+                    {
+                        string msg = $"Cannot save sprite sheet file. File already exists: {fullFilePath}";
+                        Logger.LogError(msg);
+                        throw new FileAlreadyExistsException(fullFilePath);
+                    }
                 }
 
-                sheet.Save(Path.Join(directoryPath, filePath), imageFormat, pixelFormat);
+                sheet.Save(fullFilePath, imageFormat, pixelFormat);
             }
         }
     }

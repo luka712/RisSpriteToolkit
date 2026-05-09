@@ -2,7 +2,7 @@
 using System.Text.Json.Serialization;
 using RisTextureToolkit.Data.Image;
 using RisTextureToolkit.Math;
-using RisTextureToolkit.Sprites;
+using RisTextureToolkit.Textures;
 
 namespace RisTextureToolkit.Textures
 {

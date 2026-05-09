@@ -1,8 +1,7 @@
-using RisGameFramework.SpriteToolkit;
 using RisTextureToolkit.Data.Image;
 using SkiaSharp;
 
-namespace RisSpriteToolkit.Data.Image
+namespace RisTextureToolkit.Data.Image
 {
     /// <summary>
     /// The raw image class for Skia images.

@@ -7,7 +7,7 @@
 
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
-    <RootNamespace>RisSpriteToolkit.Tests</RootNamespace>
+    <RootNamespace>RisTextureToolkit.Tests</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

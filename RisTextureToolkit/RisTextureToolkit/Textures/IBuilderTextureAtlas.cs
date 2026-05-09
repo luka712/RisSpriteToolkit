@@ -1,10 +1,9 @@
 ﻿using System.Drawing;
-using RisSpriteToolkit.Data.Image;
 using RisTextureToolkit.Data.Image;
 using RisTextureToolkit.Textures;
 using SkiaSharp;
 
-namespace RisTextureToolkit.Sprites
+namespace RisTextureToolkit.Textures
 {
     /// <summary>
     /// The sprite sheet interface.

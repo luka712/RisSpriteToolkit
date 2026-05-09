@@ -1,12 +1,11 @@
-﻿using RisGameFramework.SpriteToolkit;
+
 using System.Drawing;
-using RisSpriteToolkit.Data.Image;
 using RisTextureToolkit.Data.Image;
 using RisTextureToolkit.Dto;
 using RisTextureToolkit.Math;
-using RisTextureToolkit.Sprites.Skyline;
+using RisTextureToolkit.Textures.Skyline;
 
-namespace SpriteToolkit.Tests
+namespace RisTextureToolkit.Tests
 {
     /// <summary>
     /// Tests for the <see cref="TextureAtlas"/> class.

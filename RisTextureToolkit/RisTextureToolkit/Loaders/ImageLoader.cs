@@ -1,10 +1,7 @@
-﻿using RisGameFramework.SpriteToolkit.Loaders;
-using RisSpriteToolkit.Data.Image;
-using RisTextureToolkit;
-using RisTextureToolkit.Data.Image;
+﻿using RisTextureToolkit.Data.Image;
 using SkiaSharp;
 
-namespace RisSpriteToolkit.Loaders
+namespace RisTextureToolkit.Loaders
 {
     /// <summary>
     /// The image loader class responsible for loading images from file paths.
@@ -106,44 +103,37 @@ namespace RisSpriteToolkit.Loaders
                 .Where(filter)
                 .ToArray();
 
-            // Parallel load images
-        
-            // OpenCV
-            if (Backend == ImageBackend.Skia)
+            if (Backend != ImageBackend.Skia)
             {
-                // SKIA
-                Parallel.ForEach(imageFiles, file =>
-                {
-                    SKBitmap bitmap = SKBitmap.Decode(file);
+                throw new NotSupportedException($"Unsupported image backend: {Backend}.");
+            }
 
-                    // If image is invalid, add to invalid list
-                    if (bitmap.IsEmpty)
-                    {
-                        lock (invalidImageFiles) // protect shared list
-                        {
-                            invalidImageFiles.Add(file);
-                        }
-                    }
-                    // If image is valid, add to images list
-                    else
-                    {
-                        lock (images) // protect shared dictionary
-                        {
-                            images.Add(new RawImageSkia(file, bitmap));
-                        }
-                    }
-                });
-            }
-            else
+            // Parallel load images using Skia.
+            Parallel.ForEach(imageFiles, file =>
             {
-                throw new NotSupportedException("Unsupported image backend.");
-            }
+                SKBitmap bitmap = SKBitmap.Decode(file);
+
+                if (bitmap.IsEmpty)
+                {
+                    lock (invalidImageFiles)
+                    {
+                        invalidImageFiles.Add(file);
+                    }
+                }
+                else
+                {
+                    lock (images)
+                    {
+                        images.Add(new RawImageSkia(file, bitmap));
+                    }
+                }
+            });
 
             if (invalidImageFiles.Count > 0)
             {
-                throw new InvalidOperationException($"Failed to load the following images: {string.Join(", ", invalidImageFiles)}");
+                throw new InvalidOperationException(
+                    $"Failed to load the following images: {string.Join(", ", invalidImageFiles)}");
             }
-
 
             return images;
         }

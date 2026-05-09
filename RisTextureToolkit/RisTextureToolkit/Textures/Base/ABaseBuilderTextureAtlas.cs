@@ -1,10 +1,9 @@
 ﻿using System.Drawing;
 using System.Text.Json.Serialization;
-using RisGameFramework.SpriteToolkit.Loaders;
-using RisSpriteToolkit.Data.Image;
+using RisTextureToolkit.Loaders;
 using RisTextureToolkit.Data.Image;
 using RisTextureToolkit.ImageExporters;
-using RisTextureToolkit.Sprites;
+using RisTextureToolkit.Textures;
 using SkiaSharp;
 
 namespace RisTextureToolkit.Textures.Base
@@ -89,15 +88,13 @@ namespace RisTextureToolkit.Textures.Base
         /// <inheritdoc/>
         public void Save(string filePath, ImageFormat imageFormat, PixelFormat pixelFormat)
         {
+            if (!_exporters.TryGetValue(imageFormat, out IImageExporter? exporter))
+            {
+                throw new NotSupportedException($"Unsupported image format: {imageFormat}.");
+            }
+
             using var image = SaveAsSkImage();
-            if (ImageBackend == ImageBackend.Skia)
-            {
-                _exporters[imageFormat].Export(image, pixelFormat, filePath);
-            }
-            else
-            {
-                throw new NotSupportedException("Unsupported image backend.");
-            }
+            exporter.Export(image, pixelFormat, filePath);
         }
 
         /// <inheritdoc/>
