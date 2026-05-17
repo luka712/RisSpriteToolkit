@@ -12,13 +12,13 @@ namespace RisTextureToolkit;
 public partial class MapperService
 {
     /// <summary>
-    /// Creates a <see cref="TextureAtlas"/> from a <see cref="IBuilderTextureAtlas"/>.
+    /// Creates a <see cref="TextureAtlas"/> from a <see cref="ITextureAtlas"/>.
     /// </summary>
-    /// <param name="sheet">The <see cref="IBuilderTextureAtlas"/>.</param>
+    /// <param name="sheet">The <see cref="ITextureAtlas"/>.</param>
     /// <returns>The <see cref="TextureAtlas"/>.</returns>
 #pragma warning disable RMG020
 #pragma warning disable RMG012
-    public partial TextureAtlas ToTextureAtlas(IBuilderTextureAtlas sheet);
+    public partial TextureAtlas ToTextureAtlas(ITextureAtlas sheet);
 #pragma warning restore RMG012
 #pragma warning restore RMG020
     

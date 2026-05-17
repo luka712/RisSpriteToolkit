@@ -15,7 +15,7 @@ namespace RisTextureToolkit.Textures
     /// </summary>
     internal class TextureAtlasBuilder
     {
-        private readonly List<IBuilderTextureAtlas> _textureAtlases = new();
+        private readonly List<ITextureAtlas> _textureAtlases = new();
         private readonly List<RawImage> _rawImages = new();
 
         private Size _size = new Size(2048, 2048);
@@ -60,7 +60,7 @@ namespace RisTextureToolkit.Textures
         /// <summary>
         /// The sprite sheets created by this builder.
         /// </summary>
-        public IList<IBuilderTextureAtlas> TextureAtlases => _textureAtlases;
+        public IList<ITextureAtlas> TextureAtlases => _textureAtlases;
 
         /// <summary>
         /// The desired size of each sprite sheet. Default is <c>(2048, 2048)</c>.
@@ -86,8 +86,8 @@ namespace RisTextureToolkit.Textures
         public int Padding { get; set; } = 1;
 
         /// <summary>
-        /// The default name to use for sprite sheets. Default is "sprite_sheet".
-        /// Note: It must be assigned before adding any sprites, as first sprite sheet will use this name.
+        /// The default name to use for sprite sheets. The default is "sprite_sheet".
+        /// Note: It must be assigned before adding any sprites, as the first sprite sheet will use this name.
         /// </summary>
         [JsonIgnore]
         public string DefaultSheetName { get; set; } = "sprite_sheet";
@@ -150,7 +150,7 @@ namespace RisTextureToolkit.Textures
                 .OrderBy(img => img.ImageName); // Sort images by name for consistent ordering
 
             // In case if we are allowing replacement, we are not adding any sprites that 
-            // have the pattern name that will exists in the sheets.
+            // have the pattern name that will exist in the sheets.
             if (AllowReplaceTextureAtlas)
             {
                 images = images.Where(x => !x.ImageName.StartsWith(DefaultSheetName, StringComparison.OrdinalIgnoreCase)
@@ -208,7 +208,7 @@ namespace RisTextureToolkit.Textures
                     Logger.LogInformation("Added sprite {SpriteName} to existing sheet {SheetName}", rawImage.ImageName,
                         sheet.Name);
 
-                    // Successfully added to an existing sheet, so we can exit function.
+                    // Successfully added to an existing sheet, so we can exit the function.
                     return sprite!;
                 }
                 else
@@ -223,7 +223,7 @@ namespace RisTextureToolkit.Textures
             int index = _textureAtlases.Count;
 
             // Create a new sprite sheet
-            IBuilderTextureAtlas newSheet = new BuilderSkylineTextureAtlas(size: Size)
+            ITextureAtlas newSheet = new TextureAtlasSkyline(size: Size)
             {
                 Padding = Padding,
                 Name = $"{DefaultSheetName}_{index}",
@@ -252,7 +252,7 @@ namespace RisTextureToolkit.Textures
         /// </returns>
         public bool RemoveSprite(BuilderTexture texture)
         {
-            foreach (IBuilderTextureAtlas sheet in _textureAtlases)
+            foreach (ITextureAtlas sheet in _textureAtlases)
             {
                 if (sheet.Textures.Contains(texture))
                 {
@@ -294,7 +294,7 @@ namespace RisTextureToolkit.Textures
 
             foreach (var builderSpriteSheet in _textureAtlases)
             {
-                var sheet = (ABaseBuilderTextureAtlas)builderSpriteSheet;
+                var sheet = (ABaseTextureAtlas)builderSpriteSheet;
                 string fileName = sheet.Name;
                 sheetsFileNames.Add(fileName);
 

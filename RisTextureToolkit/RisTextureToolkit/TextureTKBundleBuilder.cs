@@ -51,7 +51,7 @@ namespace RisTextureToolkit
         /// <summary>
         /// The texture atlases that will be created on build.
         /// </summary>
-        public IList<IBuilderTextureAtlas> TexturesAtlases => _textureAtlasBuilder.TextureAtlases;
+        public IList<ITextureAtlas> TexturesAtlases => _textureAtlasBuilder.TextureAtlases;
 
         /// <summary>
         /// If set to <c>true</c>, allows replacing of an existing texture atlas with the same name.

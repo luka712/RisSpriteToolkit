@@ -3,7 +3,6 @@ using System.Text.Json.Serialization;
 using RisTextureToolkit.Loaders;
 using RisTextureToolkit.Data.Image;
 using RisTextureToolkit.ImageExporters;
-using RisTextureToolkit.Textures;
 using SkiaSharp;
 
 namespace RisTextureToolkit.Textures.Base
@@ -11,7 +10,7 @@ namespace RisTextureToolkit.Textures.Base
     /// <summary>
     /// The sprite sheet.
     /// </summary>
-    public abstract class ABaseBuilderTextureAtlas : IBuilderTextureAtlas
+    public abstract class ABaseTextureAtlas : ITextureAtlas
     {
         private static Dictionary<ImageFormat, IImageExporter> _exporters = new()
         {
@@ -25,12 +24,12 @@ namespace RisTextureToolkit.Textures.Base
         protected readonly List<BuilderTexture> _sprites = new();
 
         /// <summary>
-        /// The constructor for <see cref="ABaseBuilderTextureAtlas"/>.
+        /// The constructor for <see cref="ABaseTextureAtlas"/>.
         /// </summary>
         /// <param name="name">The name of a sprite sheet. By default, it is "SpriteSheet".</param>
         /// <param name="size">The size of a sprite sheet. If <c>null</c> is passed, by default it is <c>(2048,2048)</c>.</param>
         /// <param name="imageBackend">The <see cref="ImageBackend"/>. By default, it is <see cref="ImageBackend.Skia"/>.</param>
-        public ABaseBuilderTextureAtlas(string name = "SpriteSheet", Size? size = null,
+        public ABaseTextureAtlas(string name = "SpriteSheet", Size? size = null,
             ImageBackend imageBackend = ImageBackend.Skia)
         {
             Name = name;
@@ -41,6 +40,13 @@ namespace RisTextureToolkit.Textures.Base
             }
 
             ImageBackend = imageBackend;
+        }
+
+        /// <inheritdoc/>
+        public IImageExporter? GetExporter(ImageFormat imageFormat)
+        {
+            _exporters.TryGetValue(imageFormat, out IImageExporter? exporter);
+            return exporter;
         }
 
         /// <summary>

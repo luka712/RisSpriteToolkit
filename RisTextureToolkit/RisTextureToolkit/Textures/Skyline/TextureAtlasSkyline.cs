@@ -7,18 +7,18 @@ using RisTextureToolkit.Textures.Base;
 namespace RisTextureToolkit.Textures.Skyline
 {
     /// <summary>
-    /// The sprite sheet which uses the Skyline packing algorithm.
+    /// The texture atlas which uses the Skyline packing algorithm.
     /// </summary>
-    public class BuilderSkylineTextureAtlas : ABaseBuilderTextureAtlas
+    public class TextureAtlasSkyline : ABaseTextureAtlas
     {
         private readonly List<BuilderSkylineNode> _skyline = new();
 
         /// <summary>
-        /// The constructor for <see cref="BuilderSkylineTextureAtlas"/>.
+        /// The constructor for <see cref="TextureAtlasSkyline"/>.
         /// </summary>
         /// <param name="name">The name of a sprite sheet.</param>
         /// <param name="size">The size of a sprite sheet.</param>
-        internal BuilderSkylineTextureAtlas(string name = "SpriteSheet", Size? size = null)
+        internal TextureAtlasSkyline(string name = "SpriteSheet", Size? size = null)
             : base(name, size)
         {
         }

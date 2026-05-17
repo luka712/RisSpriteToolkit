@@ -5,7 +5,7 @@ namespace RisTextureToolkit.ImageExporters
     /// <summary>
     /// The interface for image exporters that export an <see cref="SKImage"/> to a file with a specific image format and pixel format.
     /// </summary>
-    internal interface IImageExporter
+    public interface IImageExporter
     {
         /// <summary>
         /// The image format of the exported image, which is PNG in this case.
