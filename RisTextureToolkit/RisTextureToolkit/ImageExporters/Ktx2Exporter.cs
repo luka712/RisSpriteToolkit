@@ -44,7 +44,7 @@ namespace RisTextureToolkit.ImageExporters
 
             ktxTexture.SetImageFromMemory(0, 0, 0, pixelData, (uint)pixelData.Length);
 
-            if (pixelFormat == PixelFormat.BASIS_UASTC || pixelFormat == PixelFormat.BASIS_ETC1S)
+            if (pixelFormat is PixelFormat.BASIS_UASTC or PixelFormat.BASIS_ETC1S)
             {
                 var ktxParams = new KtxBasisParams()
                 {
@@ -58,6 +58,10 @@ namespace RisTextureToolkit.ImageExporters
                 }
 
                 ktxTexture.CompressBasis(ktxParams);
+            }
+            else
+            {
+                throw new NotImplementedException();
             }
 
             if (!filePath.EndsWith(".ktx2", StringComparison.OrdinalIgnoreCase))

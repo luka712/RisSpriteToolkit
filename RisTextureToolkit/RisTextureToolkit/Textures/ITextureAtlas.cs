@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using RisTextureToolkit.Data.Image;
+using RisTextureToolkit.ImageExporters;
 using RisTextureToolkit.Textures;
 using SkiaSharp;
 
@@ -8,7 +9,7 @@ namespace RisTextureToolkit.Textures
     /// <summary>
     /// The sprite sheet interface.
     /// </summary>
-    public interface IBuilderTextureAtlas
+    public interface ITextureAtlas
     {
         /// <summary>
         /// The name of the sprite sheet.
@@ -40,7 +41,11 @@ namespace RisTextureToolkit.Textures
         /// The size of the sprite sheet.
         /// </summary>
         public Size Size { get; }
-        
+
+
+        // TODO: write doc comment
+        public IImageExporter? GetExporter(ImageFormat imageFormat);
+
         /// <summary>
         /// Checks if a <see cref="RawImage"/> can fit in the sprite sheet.
         /// </summary>
@@ -92,8 +97,8 @@ namespace RisTextureToolkit.Textures
         /// Saves the sprite sheet to a file.
         /// </summary>
         /// <param name="file">The file path where to save the sprite sheet image without file extension.</param>
-        /// <param name="imageFormat">The image format to which to save..</param>
-        /// <param name="pixelFormat"></param>The pixel format to which to save.</param>
+        /// <param name="imageFormat">The image format to which to save.</param>
+        /// <param name="pixelFormat">The pixel format to which to save.</param>
         public void Save(string file, ImageFormat imageFormat = ImageFormat.PNG, PixelFormat pixelFormat = PixelFormat.RGBA8_UNORM);
 
         /// <summary>

@@ -17,7 +17,7 @@ namespace RisTextureToolkit.Textures
         /// <param name="rawImage">The <see cref="RawImage"/>.</param>
         /// <param name="position">The position in a sprite sheet.</param>
         /// <param name="textureAtlas">The sprite sheet that contains this sprite.</param>
-        public BuilderTexture(RawImage rawImage, Point position, IBuilderTextureAtlas textureAtlas)
+        public BuilderTexture(RawImage rawImage, Point position, ITextureAtlas textureAtlas)
         {
             RawImage = rawImage;
             FileName = rawImage.ImageName;
@@ -49,7 +49,7 @@ namespace RisTextureToolkit.Textures
         /// If <c>null</c>, the sprite is not part of any sprite sheet.
         /// </summary>
         [JsonIgnore]
-        public IBuilderTextureAtlas? TextureAtlas { get; }
+        public ITextureAtlas? TextureAtlas { get; }
 
         /// <summary>
         /// The original file path of the sprite image.
