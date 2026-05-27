@@ -9,16 +9,16 @@ namespace RisTextureToolkit.Textures.Skyline
     /// <summary>
     /// The texture atlas which uses the Skyline packing algorithm.
     /// </summary>
-    public class TextureAtlasSkyline : ABaseTextureAtlas
+    public class SkylineTextureAtlas : ABaseTextureAtlas
     {
         private readonly List<BuilderSkylineNode> _skyline = new();
 
         /// <summary>
-        /// The constructor for <see cref="TextureAtlasSkyline"/>.
+        /// The constructor for <see cref="SkylineTextureAtlas"/>.
         /// </summary>
         /// <param name="name">The name of a sprite sheet.</param>
         /// <param name="size">The size of a sprite sheet.</param>
-        internal TextureAtlasSkyline(string name = "SpriteSheet", Size? size = null)
+        internal SkylineTextureAtlas(string name = "SpriteSheet", Size? size = null)
             : base(name, size)
         {
         }

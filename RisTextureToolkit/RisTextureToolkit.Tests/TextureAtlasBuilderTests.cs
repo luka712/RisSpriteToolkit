@@ -48,7 +48,7 @@ namespace RisTextureToolkit.Tests
 
             BuilderTexture texture = builder.AddImage(TEST_PNG);
 
-            builder.Save("Output", ImageFormat.PNG, PixelFormat.RGBA8_UNORM, out _, out _);
+            builder.Save("Output", new BundleBuildOptions(), out _, out _);
 
             Assert.That(texture.SourceRect.Width, Is.EqualTo(248));
             Assert.That(texture.SourceRect.Height, Is.EqualTo(248));
@@ -72,7 +72,7 @@ namespace RisTextureToolkit.Tests
             BuilderTexture texture = builder.AddImage("Data/test.png");
             BuilderTexture sprite2 = builder.AddImage("Data/test.png");
 
-            builder.Save("Output", ImageFormat.PNG, PixelFormat.RGBA8_UNORM, out _, out _);
+            builder.Save("Output", new BundleBuildOptions(), out _, out _);
 
             Assert.That(texture.SourceRect.Width, Is.EqualTo(248));
             Assert.That(texture.SourceRect.Height, Is.EqualTo(248));
@@ -103,7 +103,7 @@ namespace RisTextureToolkit.Tests
             BuilderTexture sprite2 = builder.AddImage(TEST_PNG);
             BuilderTexture sprite3 = builder.AddImage(TEST_PNG);
 
-            builder.Save("Output", ImageFormat.PNG, PixelFormat.RGBA8_UNORM, out _, out _);
+            builder.Save("Output", new BundleBuildOptions(), out _, out _);
 
             Assert.That(texture.SourceRect.Width, Is.EqualTo(248));
             Assert.That(texture.SourceRect.Height, Is.EqualTo(248));
@@ -140,7 +140,7 @@ namespace RisTextureToolkit.Tests
             BuilderTexture sprite3 = builder.AddImage(TEST_PNG);
             BuilderTexture sprite4 = builder.AddImage(TEST_PNG);
 
-            builder.Save("Output", ImageFormat.PNG, PixelFormat.RGBA8_UNORM, out _, out _);
+            builder.Save("Output", new BundleBuildOptions(), out _, out _);
 
             Assert.That(texture.SourceRect.Width, Is.EqualTo(248));
             Assert.That(texture.SourceRect.Height, Is.EqualTo(248));
@@ -227,7 +227,7 @@ namespace RisTextureToolkit.Tests
         /// Test if JSON and sprite sheet are saved in the same directory.
         /// </summary>
         [Test]
-        public void Test_SavedAsKTX2()
+        public void Test_SavedAsKTX2Uncompressed()
         {
             TextureTKBundleBuilder builder = new();
             builder.DefaultSheetName = "Test";
@@ -235,11 +235,45 @@ namespace RisTextureToolkit.Tests
             builder.AllowReplaceJsonBundle = true;
             builder.AddImage(TEST_PNG);
 
-            builder.SaveBundle("Test/Output", "Test", ImageFormat.KTX2, PixelFormat.BASIS_ETC1S);
+            builder.SaveBundle("Test/Output", "Test", new BundleBuildOptions()
+            {
+                TargetImageFormat = ImageFormat.KTX2,
+            });
 
             Assert.That(Directory.Exists("Test/Output"));
             Assert.That(File.Exists("Test/Output/Test_0.ktx2"));
             Assert.That(File.Exists("Test/Output/Test.json"));
+            
+            File.Delete("Test/Output/Test_0.ktx2");
+        }
+        
+        /// <summary>
+        /// Test if JSON and sprite sheet are saved in the same directory.
+        /// </summary>
+        [Test]
+        public void Test_SavedAsKTX2Compressed()
+        {
+            TextureTKBundleBuilder builder = new();
+            builder.DefaultSheetName = "Test";
+            builder.AllowReplaceTextureAtlas = true;
+            builder.AllowReplaceJsonBundle = true;
+            builder.AddImage(TEST_PNG);
+
+            builder.SaveBundle("Test/Output", "Test", new BundleBuildOptions()
+            {
+                TargetImageFormat = ImageFormat.KTX2,
+                TargetPixelFormat = PixelFormat.BASIS_ETC1S,
+                Etc1s = new BasisEtc1sOptions()
+                {
+                    QualityLevel = 128
+                }
+            });
+
+            Assert.That(Directory.Exists("Test/Output"));
+            Assert.That(File.Exists("Test/Output/Test_0.ktx2"));
+            Assert.That(File.Exists("Test/Output/Test.json"));
+            
+            File.Delete("Test/Output/Test_0.ktx2");
         }
 
         /// <summary>

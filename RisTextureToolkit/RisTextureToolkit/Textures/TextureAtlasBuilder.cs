@@ -223,7 +223,7 @@ namespace RisTextureToolkit.Textures
             int index = _textureAtlases.Count;
 
             // Create a new sprite sheet
-            ITextureAtlas newSheet = new TextureAtlasSkyline(size: Size)
+            ITextureAtlas newSheet = new SkylineTextureAtlas(size: Size)
             {
                 Padding = Padding,
                 Name = $"{DefaultSheetName}_{index}",
@@ -275,14 +275,13 @@ namespace RisTextureToolkit.Textures
         /// Saves all sprite sheets to the specified directory.
         /// </summary>
         /// <param name="directoryPath">The directory path where to save the sprite sheets.</param>
-        /// <param name="imageFormat">The image format to use when saving the sprite sheets.</param>
-        /// <param name="pixelFormat">The pixel format to use when saving the sprite sheets.</param>
+        /// <param name="options">The <see cref="BundleBuildOptions"/>.</param>      "
         /// <param name="sheetsFilePaths">List of saved file paths per sheet.</param>
         /// <param name="sheetsFileNames">List of file names per sheet.</param>
         /// <exception cref="FileAlreadyExistsException">
         /// Thrown if a file already exists and <see cref="AllowReplaceTextureAtlas"/> is <c>false</c>.
         /// </exception>
-        public void Save(string directoryPath, ImageFormat imageFormat, PixelFormat pixelFormat, out List<string> sheetsFilePaths, out List<string> sheetsFileNames)
+        public void Save(string directoryPath, BundleBuildOptions options, out List<string> sheetsFilePaths, out List<string> sheetsFileNames)
         {
             sheetsFilePaths = [];
             sheetsFileNames = [];
@@ -297,6 +296,8 @@ namespace RisTextureToolkit.Textures
                 var sheet = (ABaseTextureAtlas)builderSpriteSheet;
                 string fileName = sheet.Name;
                 sheetsFileNames.Add(fileName);
+
+                var imageFormat = options.TargetImageFormat;
 
                 string relativeFilePath = $"{fileName}.{imageFormat.ToString().ToLower()}";
                 sheetsFilePaths.Add(relativeFilePath);
@@ -317,7 +318,7 @@ namespace RisTextureToolkit.Textures
                     }
                 }
 
-                sheet.Save(fullFilePath, imageFormat, pixelFormat);
+                sheet.Save(fullFilePath, options);
             }
         }
     }

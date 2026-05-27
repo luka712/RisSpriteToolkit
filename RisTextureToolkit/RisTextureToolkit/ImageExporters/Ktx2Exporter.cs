@@ -8,6 +8,15 @@ namespace RisTextureToolkit.ImageExporters
     /// </summary>
     internal class Ktx2Exporter : IImageExporter
     {
+        private readonly Dictionary<PixelFormat, VkFormat> _mapFormat = new()
+        {
+            [PixelFormat.RGBA8_UNORM] = VkFormat.R8G8B8A8_UNORM,
+            
+            // Not relevant for KTX2, as these formats are transcoded by runtime.
+            [PixelFormat.BASIS_ETC1S] = VkFormat.R8G8B8A8_UNORM,
+            [PixelFormat.BASIS_UASTC] = VkFormat.R8G8B8A8_UNORM,
+        };
+        
         /// <inheritdoc/>
         public ImageFormat Format => ImageFormat.KTX2;
 
@@ -29,7 +38,7 @@ namespace RisTextureToolkit.ImageExporters
             {
                 BaseWidth = (uint)skImage.Width,
                 BaseHeight = (uint)skImage.Height,
-                VkFormat = VkFormat.R8G8B8A8_UNORM,
+                VkFormat = _mapFormat[pixelFormat],
             });
 
             byte[] pixelData = new byte[skImage.Width * skImage.Height * 4];
@@ -44,6 +53,7 @@ namespace RisTextureToolkit.ImageExporters
 
             ktxTexture.SetImageFromMemory(0, 0, 0, pixelData, (uint)pixelData.Length);
 
+            //  Compress the image if needed.
             if (pixelFormat is PixelFormat.BASIS_UASTC or PixelFormat.BASIS_ETC1S)
             {
                 var ktxParams = new KtxBasisParams()
@@ -59,11 +69,7 @@ namespace RisTextureToolkit.ImageExporters
 
                 ktxTexture.CompressBasis(ktxParams);
             }
-            else
-            {
-                throw new NotImplementedException();
-            }
-
+            
             if (!filePath.EndsWith(".ktx2", StringComparison.OrdinalIgnoreCase))
             {
                 filePath += ".ktx2";

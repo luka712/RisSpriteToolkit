@@ -10,7 +10,7 @@
     <!-- NUGET -->
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>RisTextureToolkit</PackageId>
-    <Version>0.1.3</Version>
+    <Version>0.1.4</Version>
     <Authors>Erkapic Luka</Authors>
     <Description>The texture toolkit which can be used to load or create texture atlases.</Description>
     <PackageTags>RisGameFramework</PackageTags>

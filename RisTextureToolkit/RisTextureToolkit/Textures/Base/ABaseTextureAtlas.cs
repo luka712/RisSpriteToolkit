@@ -92,8 +92,11 @@ namespace RisTextureToolkit.Textures.Base
             => _sprites.Remove(texture);
 
         /// <inheritdoc/>
-        public void Save(string filePath, ImageFormat imageFormat, PixelFormat pixelFormat)
+        public void Save(string filePath, BundleBuildOptions options)
         {
+            var imageFormat = options.TargetImageFormat;
+            var pixelFormat = options.TargetPixelFormat;
+            
             if (!_exporters.TryGetValue(imageFormat, out IImageExporter? exporter))
             {
                 throw new NotSupportedException($"Unsupported image format: {imageFormat}.");

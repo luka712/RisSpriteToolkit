@@ -36,14 +36,14 @@ namespace RisTextureToolkit.Tests
         public void Test_Sprite_To_SpriteJson_Mapping()
         {
             var mapper = new MapperService();
-            BuilderSkylineTextureAtlas textureAtlas = new()
+            SkylineTextureAtlas skylineTextureAtlas = new()
             {
                 FilePath = "TestSheet.png",
                 Name = "TestSheet",
             };
             RawImage rawImage = new ("TestSprite.png", 50, 50, new byte[50 * 50 * 4], 4);
 
-            BuilderTexture texture = new (rawImage, new System.Drawing.Point(100, 100), textureAtlas);
+            BuilderTexture texture = new (rawImage, new System.Drawing.Point(100, 100), skylineTextureAtlas);
             texture.Name = "TestSprite";
             Texture textureDto = mapper.ToTexture(texture);
             Assert.That(textureDto.Name, Is.EqualTo("TestSprite"));
@@ -52,10 +52,10 @@ namespace RisTextureToolkit.Tests
             Assert.That(textureDto.SourceRect.Y, Is.EqualTo(100));
             Assert.That(textureDto.SourceRect.Width, Is.EqualTo(50));
             Assert.That(textureDto.SourceRect.Height, Is.EqualTo(50));
-            Assert.That(textureDto.U0, Is.EqualTo(100f / textureAtlas.Size.Width));
-            Assert.That(textureDto.V0, Is.EqualTo(100f / textureAtlas.Size.Height));
-            Assert.That(textureDto.U1, Is.EqualTo((100f + 50f) / textureAtlas.Size.Width));
-            Assert.That(textureDto.V1, Is.EqualTo((100f + 50f) / textureAtlas.Size.Height));
+            Assert.That(textureDto.U0, Is.EqualTo(100f / skylineTextureAtlas.Size.Width));
+            Assert.That(textureDto.V0, Is.EqualTo(100f / skylineTextureAtlas.Size.Height));
+            Assert.That(textureDto.U1, Is.EqualTo((100f + 50f) / skylineTextureAtlas.Size.Width));
+            Assert.That(textureDto.V1, Is.EqualTo((100f + 50f) / skylineTextureAtlas.Size.Height));
         }
 
         /// <summary>
@@ -65,15 +65,15 @@ namespace RisTextureToolkit.Tests
         public void Test_SpriteSheet_To_SpriteSheetJson_Mapping()
         {
             var mapper = new MapperService();
-            BuilderSkylineTextureAtlas textureAtlas = new(size: new System.Drawing.Size(100, 100))
+            SkylineTextureAtlas skylineTextureAtlas = new(size: new System.Drawing.Size(100, 100))
             {
                 Name = "TestSheet",
                 FilePath = "TestSheet.png",
                 Padding = 0,
             };
-            textureAtlas.AddSprite(new RawImage("TestSprite.png", 50, 50, new byte[50 * 50 * 4], 4));
+            skylineTextureAtlas.AddSprite(new RawImage("TestSprite.png", 50, 50, new byte[50 * 50 * 4], 4));
 
-            TextureAtlas textureAtlasDto = mapper.ToTextureAtlas(textureAtlas);
+            TextureAtlas textureAtlasDto = mapper.ToTextureAtlas(skylineTextureAtlas);
 
             // Test sprite sheet properties
             Assert.That(textureAtlasDto.Name, Is.EqualTo("TestSheet"));

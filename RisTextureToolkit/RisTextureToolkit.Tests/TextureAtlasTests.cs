@@ -19,7 +19,7 @@ namespace RisTextureToolkit.Tests
         [Test]
         public void Test_AddSprite()
         {
-            BuilderSkylineTextureAtlas sheet = new();
+            SkylineTextureAtlas sheet = new();
 
             RawImage testImage = new RawImage("Test.png", 64, 64, new byte[64 * 64 * 4], 4);
             sheet.AddSprite(testImage);
@@ -33,7 +33,7 @@ namespace RisTextureToolkit.Tests
         [Test]
         public void Test_AddMultipleSprites()
         {
-            BuilderSkylineTextureAtlas sheet = new();
+            SkylineTextureAtlas sheet = new();
             sheet.Padding = 0; // No padding for this test
 
             sheet.AddSprite(new RawImage("Test.png", 64, 64, new byte[64 * 64 * 4], 4));
@@ -61,7 +61,7 @@ namespace RisTextureToolkit.Tests
         {
             const int PADDING = 1;
 
-            BuilderSkylineTextureAtlas sheet = new(size: new Size(10 + PADDING * 4, 10 + PADDING * 4));
+            SkylineTextureAtlas sheet = new(size: new Size(10 + PADDING * 4, 10 + PADDING * 4));
             sheet.Padding = PADDING;
 
             sheet.AddSprite(new RawImage("Test.png", 5, 5, new byte[5 * 5 * 4], 4));
@@ -88,13 +88,13 @@ namespace RisTextureToolkit.Tests
         [Test]
         public void Test_SaveSheet()
         {
-            BuilderSkylineTextureAtlas sheet = new();
+            SkylineTextureAtlas sheet = new();
             sheet.Padding = 0; // No padding for this test
 
             sheet.AddSprite(new RawImage("Test.png", 64, 64, new byte[64 * 64 * 4], 4));
             sheet.AddSprite(new RawImage("Test2.png", 64, 64, new byte[64 * 64 * 4], 4));
 
-            sheet.Save("Test.png", RisTextureToolkit.ImageFormat.PNG, RisTextureToolkit.PixelFormat.RGBA8_UNORM);
+            sheet.Save("Test.png", new BundleBuildOptions());
             Assert.True(true); // If we reach here, the save succeeded.
         }
     }

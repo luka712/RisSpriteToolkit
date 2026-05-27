@@ -1,7 +1,6 @@
 ﻿using System.Drawing;
 using RisTextureToolkit.Data.Image;
 using RisTextureToolkit.ImageExporters;
-using RisTextureToolkit.Textures;
 using SkiaSharp;
 
 namespace RisTextureToolkit.Textures
@@ -97,9 +96,8 @@ namespace RisTextureToolkit.Textures
         /// Saves the sprite sheet to a file.
         /// </summary>
         /// <param name="file">The file path where to save the sprite sheet image without file extension.</param>
-        /// <param name="imageFormat">The image format to which to save.</param>
-        /// <param name="pixelFormat">The pixel format to which to save.</param>
-        public void Save(string file, ImageFormat imageFormat = ImageFormat.PNG, PixelFormat pixelFormat = PixelFormat.RGBA8_UNORM);
+        /// <param name="options">The <see cref="BundleBuildOptions"/>.</param>       "
+        public void Save(string file, BundleBuildOptions options);
 
         /// <summary>
         /// Saves the sprite sheet to as a <see cref="SKImage"/>.
